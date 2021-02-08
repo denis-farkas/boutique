@@ -45,12 +45,12 @@ CREATE TABLE IF NOT EXISTS `article` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `client`
+-- Structure de la table `user`
 --
 
-DROP TABLE IF EXISTS `client`;
-CREATE TABLE IF NOT EXISTS `client` (
-  `id_client` int(11) NOT NULL AUTO_INCREMENT,
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `id_user` int(11) NOT NULL AUTO_INCREMENT,
   `prenom` varchar(150) NOT NULL,
   `nom` varchar(150) NOT NULL,
   `civilite` varchar(50) NOT NULL,
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `client` (
 DROP TABLE IF EXISTS `commande`;
 CREATE TABLE IF NOT EXISTS `commande` (
   `id_commande` int(11) NOT NULL AUTO_INCREMENT,
-  `id_client` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `date_commande` datetime NOT NULL,
   `statut_commande` tinyint(1) NOT NULL,
   `id_detail_commande` int(11) NOT NULL,
@@ -103,7 +103,7 @@ CREATE TABLE IF NOT EXISTS `detail_commande` (
   `id_detail_commande` int(11) NOT NULL AUTO_INCREMENT,
   `id_article` int(11) NOT NULL,
   `quantite_article` int(11) NOT NULL,
-  `id_client` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   PRIMARY KEY (`id_detail_commande`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `facture` (
   `prix_total_articles` float NOT NULL,
   `id_livraison` int(11) NOT NULL,
   `prix_total` float NOT NULL,
-  `id_client` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `date_facture` datetime NOT NULL,
   PRIMARY KEY (`id_facture`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -155,6 +155,4 @@ CREATE TABLE IF NOT EXISTS `taille` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
