@@ -1,136 +1,160 @@
-#------------------------------------------------------------
-#        Script MySQL.
-#------------------------------------------------------------
+-- phpMyAdmin SQL Dump
+-- version 5.0.2
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1:3306
+-- Généré le : lun. 08 fév. 2021 à 11:04
+-- Version du serveur :  5.7.31
+-- Version de PHP : 7.3.21
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
 
 
-#------------------------------------------------------------
-# Table: taille
-#------------------------------------------------------------
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-CREATE TABLE taille(
-        id_taille  Int  Auto_increment  NOT NULL ,
-        nom_taille Varchar (10) NOT NULL ,
-        cm_taille  Varchar (10) NOT NULL
-	,CONSTRAINT taille_PK PRIMARY KEY (id_taille)
-)ENGINE=InnoDB;
+--
+-- Base de données : `boutique`
+--
 
+-- --------------------------------------------------------
 
-#------------------------------------------------------------
-# Table: couleur
-#------------------------------------------------------------
+--
+-- Structure de la table `article`
+--
 
-CREATE TABLE couleur(
-        id_couleur    Int  Auto_increment  NOT NULL ,
-        nom_couleur   Varchar (100) NOT NULL ,
-        image_couleur Varchar (100) NOT NULL
-	,CONSTRAINT couleur_PK PRIMARY KEY (id_couleur)
-)ENGINE=InnoDB;
+DROP TABLE IF EXISTS `article`;
+CREATE TABLE IF NOT EXISTS `article` (
+  `id_article` int(11) NOT NULL AUTO_INCREMENT,
+  `origine` varchar(45) NOT NULL,
+  `genre` varchar(45) NOT NULL,
+  `qualite` varchar(45) NOT NULL,
+  `id_taille` int(11) NOT NULL,
+  `id_couleur` int(11) NOT NULL,
+  `image` varchar(250) NOT NULL,
+  `date_registre` date NOT NULL,
+  `prix` float NOT NULL,
+  `disponible` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id_article`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
 
-#------------------------------------------------------------
-# Table: article
-#------------------------------------------------------------
+--
+-- Structure de la table `client`
+--
 
-CREATE TABLE article(
-        id_article        Int  Auto_increment  NOT NULL ,
-        origine           Varchar (45) NOT NULL ,
-        genre             Varchar (45) NOT NULL ,
-        qualite           Varchar (45) NOT NULL ,
-        id_taille         Int NOT NULL ,
-        id_couleur        Int NOT NULL ,
-        image             Varchar (250) NOT NULL ,
-        date_registre     Date NOT NULL ,
-        prix              Float NOT NULL ,
-        disponible        Bool NOT NULL ,
-        id_taille_mesurer Int NOT NULL ,
-        id_couleur_Avoir  Int NOT NULL
-	,CONSTRAINT article_PK PRIMARY KEY (id_article)
+DROP TABLE IF EXISTS `client`;
+CREATE TABLE IF NOT EXISTS `client` (
+  `id_client` int(11) NOT NULL AUTO_INCREMENT,
+  `prenom` varchar(150) NOT NULL,
+  `nom` varchar(150) NOT NULL,
+  `civilite` varchar(50) NOT NULL,
+  `telephone` varchar(50) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `password` varchar(250) NOT NULL,
+  `is_admin` tinyint(1) NOT NULL,
+  `date_registre` datetime NOT NULL,
+  PRIMARY KEY (`id_client`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
 
-)ENGINE=InnoDB;
+--
+-- Structure de la table `commande`
+--
 
+DROP TABLE IF EXISTS `commande`;
+CREATE TABLE IF NOT EXISTS `commande` (
+  `id_commande` int(11) NOT NULL AUTO_INCREMENT,
+  `id_client` int(11) NOT NULL,
+  `date_commande` datetime NOT NULL,
+  `statut_commande` tinyint(1) NOT NULL,
+  `id_detail_commande` int(11) NOT NULL,
+  PRIMARY KEY (`id_commande`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-#------------------------------------------------------------
-# Table: client
-#------------------------------------------------------------
+-- --------------------------------------------------------
 
-CREATE TABLE client(
-        id_client     Int  Auto_increment  NOT NULL ,
-        prenom        Varchar (150) NOT NULL ,
-        nom           Varchar (150) NOT NULL ,
-        civilite      Varchar (50) NOT NULL ,
-        telephone     Varchar (50) NOT NULL ,
-        email         Varchar (150) NOT NULL ,
-        password      Varchar (250) NOT NULL ,
-        is_admin      Bool NOT NULL ,
-        date_registre Datetime NOT NULL
-	,CONSTRAINT client_PK PRIMARY KEY (id_client)
-)ENGINE=InnoDB;
+--
+-- Structure de la table `couleur`
+--
 
+DROP TABLE IF EXISTS `couleur`;
+CREATE TABLE IF NOT EXISTS `couleur` (
+  `id_couleur` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_couleur` varchar(100) NOT NULL,
+  `image_couleur` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_couleur`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-#------------------------------------------------------------
-# Table: livraison
-#------------------------------------------------------------
+-- --------------------------------------------------------
 
-CREATE TABLE livraison(
-        id_livraison Int  Auto_increment  NOT NULL ,
-        nom_livreur  Varchar (250) NOT NULL ,
-        prix_livreur Float NOT NULL
-	,CONSTRAINT livraison_PK PRIMARY KEY (id_livraison)
-)ENGINE=InnoDB;
+--
+-- Structure de la table `detail_commande`
+--
 
+DROP TABLE IF EXISTS `detail_commande`;
+CREATE TABLE IF NOT EXISTS `detail_commande` (
+  `id_detail_commande` int(11) NOT NULL AUTO_INCREMENT,
+  `id_article` int(11) NOT NULL,
+  `quantite_article` int(11) NOT NULL,
+  `id_client` int(11) NOT NULL,
+  PRIMARY KEY (`id_detail_commande`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-#------------------------------------------------------------
-# Table: facture
-#------------------------------------------------------------
+-- --------------------------------------------------------
 
-CREATE TABLE facture(
-        id_facture           Int  Auto_increment  NOT NULL ,
-        id_commande          Int NOT NULL ,
-        nb_total_articles    Int NOT NULL ,
-        prix_total_articles  Float NOT NULL ,
-        id_livraison         Int NOT NULL ,
-        prix_total           Float NOT NULL ,
-        id_client            Int NOT NULL ,
-        date_facture         Datetime NOT NULL ,
-        id_livraison_Fournir Int NOT NULL
-	,CONSTRAINT facture_PK PRIMARY KEY (id_facture)
+--
+-- Structure de la table `facture`
+--
 
+DROP TABLE IF EXISTS `facture`;
+CREATE TABLE IF NOT EXISTS `facture` (
+  `id_facture` int(11) NOT NULL AUTO_INCREMENT,
+  `id_commande` int(11) NOT NULL,
+  `nb_total_articles` int(11) NOT NULL,
+  `prix_total_articles` float NOT NULL,
+  `id_livraison` int(11) NOT NULL,
+  `prix_total` float NOT NULL,
+  `id_client` int(11) NOT NULL,
+  `date_facture` datetime NOT NULL,
+  PRIMARY KEY (`id_facture`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-)ENGINE=InnoDB;
+-- --------------------------------------------------------
 
+--
+-- Structure de la table `livraison`
+--
 
-#------------------------------------------------------------
-# Table: commande
-#------------------------------------------------------------
+DROP TABLE IF EXISTS `livraison`;
+CREATE TABLE IF NOT EXISTS `livraison` (
+  `id_livraison` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_livreur` varchar(250) NOT NULL,
+  `prix_livreur` float NOT NULL,
+  PRIMARY KEY (`id_livraison`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE commande(
-        id_commande        Int  Auto_increment  NOT NULL ,
-        id_client          Int NOT NULL ,
-        date_commande      Datetime NOT NULL ,
-        statut_commande    Bool NOT NULL ,
-        id_detail_commande Int NOT NULL ,
-        id_facture         Int
-	,CONSTRAINT commande_PK PRIMARY KEY (id_commande)
+-- --------------------------------------------------------
 
+--
+-- Structure de la table `taille`
+--
 
-)ENGINE=InnoDB;
+DROP TABLE IF EXISTS `taille`;
+CREATE TABLE IF NOT EXISTS `taille` (
+  `id_taille` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_taille` varchar(10) NOT NULL,
+  `cm_taille` varchar(10) NOT NULL,
+  PRIMARY KEY (`id_taille`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+COMMIT;
 
-
-#------------------------------------------------------------
-# Table: detail_commande
-#------------------------------------------------------------
-
-CREATE TABLE detail_commande(
-        id_detail_commande   Int  Auto_increment  NOT NULL ,
-        id_article           Int NOT NULL ,
-        quantite_article     Int NOT NULL ,
-        id_client            Int NOT NULL ,
-        id_article_Concerner Int NOT NULL ,
-        id_commande          Int NOT NULL ,
-        id_client_Effectuer  Int NOT NULL
-	,CONSTRAINT detail_commande_PK PRIMARY KEY (id_detail_commande)
-
-
-)ENGINE=InnoDB;
-
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
