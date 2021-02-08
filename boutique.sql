@@ -42,8 +42,7 @@ CREATE TABLE article(
         date_registre     Date NOT NULL ,
         prix              Float NOT NULL ,
         disponible        Bool NOT NULL ,
-        id_taille_mesurer Int NOT NULL ,
-        id_couleur_Avoir  Int NOT NULL
+       
 	,CONSTRAINT article_PK PRIMARY KEY (id_article)
 
 
@@ -91,7 +90,7 @@ CREATE TABLE facture(
         id_livraison         Int NOT NULL ,
         prix_total           Float NOT NULL ,
         date_facture         Datetime NOT NULL ,
-        id_livraison_Fournir Int NOT NULL
+      
 	,CONSTRAINT facture_PK PRIMARY KEY (id_facture)
 
 	
@@ -107,7 +106,7 @@ CREATE TABLE commande(
         date_commande    Datetime NOT NULL ,
         statut_commande  Bool NOT NULL ,
         id_facture       Int NOT NULL ,
-        id_facture_payer Int
+       
 	,CONSTRAINT commande_PK PRIMARY KEY (id_commande)
 
 
@@ -124,9 +123,7 @@ CREATE TABLE detail_commande(
         quantite_article       Int NOT NULL ,
         id_commande            Int NOT NULL ,
         id_user                Int NOT NULL ,
-        id_article_Concerner   Int NOT NULL ,
-        id_commande_Appartenir Int ,
-        id_user_Effectuer      Int NOT NULL
+       
 	,CONSTRAINT detail_commande_PK PRIMARY KEY (id_detail_commande)
 
 
