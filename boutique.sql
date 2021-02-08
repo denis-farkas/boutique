@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` varchar(250) NOT NULL,
   `is_admin` tinyint(1) NOT NULL,
   `date_registre` datetime NOT NULL,
-  PRIMARY KEY (`id_client`)
+  PRIMARY KEY (`id_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
