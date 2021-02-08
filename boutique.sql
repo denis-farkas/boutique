@@ -41,8 +41,7 @@ CREATE TABLE article(
         image             Varchar (250) NOT NULL ,
         date_registre     Date NOT NULL ,
         prix              Float NOT NULL ,
-        disponible        Bool NOT NULL ,
-       
+        disponible        Bool NOT NULL        
 	,CONSTRAINT article_PK PRIMARY KEY (id_article)
 
 
@@ -89,8 +88,7 @@ CREATE TABLE facture(
         prix_total_articles  Float NOT NULL ,
         id_livraison         Int NOT NULL ,
         prix_total           Float NOT NULL ,
-        date_facture         Datetime NOT NULL ,
-      
+        date_facture         Datetime NOT NULL     
 	,CONSTRAINT facture_PK PRIMARY KEY (id_facture)
 
 	
@@ -105,11 +103,8 @@ CREATE TABLE commande(
         id_commande      Int  Auto_increment  NOT NULL ,
         date_commande    Datetime NOT NULL ,
         statut_commande  Bool NOT NULL ,
-        id_facture       Int NOT NULL ,
-       
+        id_facture       Int NOT NULL       
 	,CONSTRAINT commande_PK PRIMARY KEY (id_commande)
-
-
 )ENGINE=InnoDB;
 
 
@@ -122,9 +117,8 @@ CREATE TABLE detail_commande(
         id_article             Int NOT NULL ,
         quantite_article       Int NOT NULL ,
         id_commande            Int NOT NULL ,
-        id_user                Int NOT NULL ,
-       
-	,CONSTRAINT detail_commande_PK PRIMARY KEY (id_detail_commande)
+        id_user                Int NOT NULL ,    
+	CONSTRAINT detail_commande_PK PRIMARY KEY (id_detail_commande)
 
 
 )ENGINE=InnoDB;
