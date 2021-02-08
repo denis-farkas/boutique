@@ -1,0 +1,15 @@
+.gold{
+    color: #ab9159;
+}
+
+.stretch{
+    list-style: none;
+}
+
+.card .content{
+    position: left; /* Position the background text */
+  top: 0; /* At the bottom. Use top:0 to append it to the top */
+  width: 50%; /* Full width */
+  padding: 10px; /* Some padding */
+}
+
