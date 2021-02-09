@@ -5,7 +5,7 @@
         private $dbHost = 'localhost';
         private $dbUser ='root';
         private $dbPass = '';
-        private $dbName = 'forum';
+        private $dbName = 'boutique';
 
         private $statement;
         private $dbHandler;
