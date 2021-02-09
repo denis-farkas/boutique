@@ -13,3 +13,17 @@
   padding: 10px; /* Some padding */
 }
 
+.banner{
+    background-image: url("../images/pressage_banner.jpg") ;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height:40vh;
+}
+
+.banner .img-fluid {
+    max-width: 100%;
+    height: 60%;
+  }
+  
