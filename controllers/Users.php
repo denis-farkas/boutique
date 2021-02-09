@@ -4,18 +4,19 @@ class Users extends Controller {
         $this->userModel = $this->model('User');
     }
 
-    public function valid_data($data){
-        $data = trim($data);/*enlève les espaces en début et fin de chaîne*/
-        $data = stripslashes($data);/*enlève les slashs dans les textes*/
-        $data = htmlspecialchars($data);/*enlève les balises html comme ""<>...*/
-        return $data;
-    }
 
     public function connexion() {
         $data = [
             'title' => 'page de connexion',
             'emailError' => ''
         ];
+
+        function valid_data($data){
+            $data = trim($data);/*enlève les espaces en début et fin de chaîne*/
+            $data = stripslashes($data);/*enlève les slashs dans les textes*/
+            $data = htmlspecialchars($data);/*enlève les balises html comme ""<>...*/
+            return $data;
+        }
 
         //validation des post
         if(isset($_POST['submit'])) {
@@ -37,27 +38,23 @@ class Users extends Controller {
         } else {
             $data = ['emailError' => ''];
         $this->view('users/connexion', $data);
+        }
     }
 
 
     public function inscription() {
         $data = [
-            'login' => '',
-            'loginError' =>'',
+            'prenom' => '',
+            'nom' =>'',
+            'civilite' =>'',
+            'telephone' =>'',
+            'email'=> '',
+            'emailError'=> '',
             'password' => '',
             'confirmPassword' => '',
             'confirmPasswordError' => '',
-            'fieldsEmptyError' =>'',
-            'email'=> '',
-            'emailError'=> '',
-            'intranet' =>'',
-            'avatar'=> '',
-            'naissance'=>'',
-            'creation'=> '',
-            'genre'=>'',
-            'role' => '',
-            'blocage'=> '',
-            'periode_blocage'=> ''
+            'is_admin'=> '',
+            'date_registre'=>''          
             ];
 
 
@@ -68,38 +65,31 @@ class Users extends Controller {
 
 
             $data = [
-                'login' => trim($_POST['login']),
-                'loginError' =>'',
+                'prenom' => trim($_POST['prenom']),
+                'nom' => trim($_POST['nom']),
+                'civilite' => trim($_POST['civilite']),
+                'telephone' => trim($_POST['telephone']),
+                'email'=> trim($_POST["email"]),
+                'emailError'=>'',
                 'password' => trim($_POST['password']),
                 'confirmPassword' => trim($_POST['confirmPassword']),
                 'confirmPasswordError' => '',
-                'fieldsEmptyError' =>'',
-                'email'=> trim($_POST["email"]),
-                'emailError'=>'',
-                'intranet'=>$_POST['login'].'@intranet',
-                'avatar'=> trim($_POST["avatar"]),
-                'naissance'=>trim($_POST["naissance"]),
-                'creation'=> date('Y-m-d'),
-                'genre'=>trim($_POST["genre"]),
-                'role' => trim($_POST['role']),
-                'blocage'=> trim($_POST['blocage']),
-                'periode_blocage'=> trim($_POST['periode_blocage'])
+                'is_admin' =>'0',
+                'date_registre'=> date('Y-m-d')
+               
             ];
 
 
                 if ($data['password'] != $data['confirmPassword']) {
                     $data['confirmPasswordError'] = 'Les passwords ne correspondent pas.';
-                }elseif(empty($data['avatar']) || empty($data['naissance']) ||empty($data['genre'])){$data['fielfdsEmptyError']= 'Tous les champs doivent être renseignés';
                 }elseif
                     ($this->userModel->findUserByEmail($data['email'])) {
                         $data['emailError'] = 'Cet email est déja utilisé.';
-                }elseif
-                ($this->userModel->findUserByLogin($data['login'])) {
-                    $data['loginError'] = 'Ce login est déja utilisé.';}
+                }
 
 
             // error vide
-            if (empty($data['confirmPasswordError']) && empty($data['loginError']) && empty($data['emailError']) && empty($data['fieldsEmptyError'])) {
+            if (empty($data['confirmPasswordError']) && empty($data['emailError'])) {
 
                 // Hash password
                 $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
@@ -120,14 +110,15 @@ class Users extends Controller {
     public function profil() {
         $data = [
             'id'=> '',
-            'login' => '',
-            'password' => '',
-            'confirmPassword' => '',
-            'confirmPasswordError' => '',
-            'fieldsEmptyError' =>'',
+            'prenom' => '',
+            'nom' =>'',
+            'civilite' =>'',
+            'telephone' =>'',
             'email'=> '',
             'emailError'=> '',
-            'avatar'=> '',
+            'password' => '',
+            'confirmPassword' => '',
+            'confirmPasswordError' => '', 
             ];
 
         if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['modifier'])){
@@ -137,14 +128,15 @@ class Users extends Controller {
 
             $data = [
                 'id' => $_SESSION['id'],
-                'login' => $_SESSION['login'],
-                'password' => trim($_POST['password']),
-                'confirmPassword' => trim($_POST['confirmPassword']),
-                'confirmPasswordError' => '',
-                'fieldsEmptyError' =>'',
+                'prenom' => trim($_POST['prenom']),
+                'nom' => trim($_POST['nom']),
+                'civilite' => trim($_POST['civilite']),
+                'telephone' => trim($_POST['telephone']),
                 'email'=> trim($_POST["email"]),
                 'emailError'=>'',
-                'avatar'=> trim($_POST["avatar"]),
+                'password' => trim($_POST['password']),
+                'confirmPassword' => trim($_POST['confirmPassword']),
+                'confirmPasswordError' => '',  
 
             ];
 
@@ -152,13 +144,12 @@ class Users extends Controller {
 
             if ($data['password'] != $data['confirmPassword']) {
                 $data['confirmPasswordError'] = 'Les passwords ne correspondent pas.';
-            }elseif(empty($data['avatar']) ){$data['fielfdsEmptyError']= 'L\'avatar doit être renseigné';
             }elseif
                 ($_POST['email']!= $_SESSION['email'] && $this->userModel->findUserByEmail($data['email'])) {
                     $data['emailError'] = 'Cet email est déja utilisé.';
             }
         // error vide
-        if (empty($data['confirmPasswordError']) && empty($data['emailError']) && empty($data['fieldsEmptyError'])) {
+        if (empty($data['confirmPasswordError']) && empty($data['emailError'])) {
 
                 // Hash password
                 $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
@@ -181,8 +172,8 @@ class Users extends Controller {
         $_SESSION['id'] = $user->id;
         $_SESSION['prenom'] = $user->prenom;
 
-         if ($user->is_admin==1){
-           $_SESSION['is_admin']= 1;
+         if ($user->is_admin == 1){
+           $_SESSION['is_admin'] = 1;
            header('location:' . WWW_ROOT . 'pages/admin');
        }else{
            header('location:' . WWW_ROOT . 'pages/index');
@@ -194,7 +185,7 @@ class Users extends Controller {
        
         unset($_SESSION['id']);
         unset($_SESSION['prenom']);
-       if ($_SESSION['is_admin']== 1){
+       if ($_SESSION['is_admin'] == 1){
         unset($_SESSION['is_admin']);
        }
         header('location:' . WWW_ROOT . 'pages/index');
