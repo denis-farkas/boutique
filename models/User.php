@@ -37,7 +37,7 @@ class User {
         $this->db->bind(':telephone', $data['telephone']);
         $this->db->bind(':email', $data['email']);
         $this->db->bind(':password', $data['password']);
-        $this->db->bind(':is_admin', $data['is_admin']);
+        $this->db->bind(':is_admin', '0');
         $this->db->bind(':date_registre', $registre);
             
                 //Execute function
