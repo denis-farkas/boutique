@@ -88,7 +88,7 @@ class User {
     }
 
       public function view($id) {
-        $this->db->query('SELECT * FROM utilisateurs WHERE id = :id');
+        $this->db->query('SELECT * FROM user WHERE id = :id');
 
         //Bind 
         $this->db->bind(':id', $id);
