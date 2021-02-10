@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 09 fév. 2021 à 07:00
+-- Généré le : mer. 10 fév. 2021 à 10:02
 -- Version du serveur :  5.7.31
--- Version de PHP : 7.4.9
+-- Version de PHP : 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `article` (
   `image` varchar(250) NOT NULL,
   `date_registre` date NOT NULL,
   `prix` float NOT NULL,
-  `disponible` tinyint(1) NOT NULL,
+  `quantite` int(10) NOT NULL,
   PRIMARY KEY (`id_article`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -76,6 +76,7 @@ CREATE TABLE IF NOT EXISTS `commande` (
   `date_commande` datetime NOT NULL,
   `statut_commande` tinyint(1) NOT NULL,
   `id_facture` int(11) NOT NULL,
+  `id_user` int(10) NOT NULL,
   PRIMARY KEY (`id_commande`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -105,7 +106,6 @@ CREATE TABLE IF NOT EXISTS `detail_commande` (
   `id_article` int(11) NOT NULL,
   `quantite_article` int(11) NOT NULL,
   `id_commande` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL,
   PRIMARY KEY (`id_detail_commande`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -174,7 +174,14 @@ CREATE TABLE IF NOT EXISTS `user` (
   `is_admin` tinyint(1) NOT NULL,
   `date_registre` datetime NOT NULL,
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`id_user`, `prenom`, `nom`, `civilite`, `telephone`, `email`, `password`, `is_admin`, `date_registre`) VALUES
+(1, 'toto', 'toto', 'Monsieur', '0602020202', 'toto@gmail.com', '$2y$10$b6niia3Stq38LmEmD1dasej5J5mJ0fTvw85iVnrw4xVXSvr0/io3e', 0, '2021-02-09 00:00:00');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
