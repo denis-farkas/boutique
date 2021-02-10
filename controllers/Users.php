@@ -149,7 +149,7 @@ class Users extends Controller {
             if ($data['password'] != $data['confirmPassword']) {
                 $data['confirmPasswordError'] = 'Les passwords ne correspondent pas.';
             }elseif
-                ($_POST['email']!= $_SESSION['email'] && $this->userModel->findUserByEmail($data['email'])) {
+                ($_POST['email']!= $data['user']->email && $this->userModel->findUserByEmail($data['email'])) {
                     $data['emailError'] = 'Cet email est déja utilisé.';
             }
             // error vide
@@ -181,7 +181,7 @@ class Users extends Controller {
 
     public function createUserSession($user) {
       
-        $_SESSION['id'] = $user->id;
+        $_SESSION['id'] = $user->id_user;
         $_SESSION['prenom'] = $user->prenom;
 
          if ($user->is_admin == 1){

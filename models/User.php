@@ -7,7 +7,7 @@ class User {
 
     public function profil($data){
             
-            $this->db->query('UPDATE user SET prenom= :prenom, nom= :nom, civilite= :civilite, telephone= :telephone, email= :email, password= :password WHERE id= :id');
+            $this->db->query('UPDATE user SET prenom= :prenom, nom= :nom, civilite= :civilite, telephone= :telephone, email= :email, password= :password WHERE id_user= :id_user');
         $this->db->bind(':prenom', $data['prenom']);
         $this->db->bind(':nom', $data['nom']);
         $this->db->bind(':civilite', $data['civilite']);

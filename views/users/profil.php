@@ -37,6 +37,8 @@
             </div>
             <section class="col-sm-12 col-md-9 my-5">
                 <div class="container">
+
+                
                     <div class="row">
                         <div class="col-md-6">
                             <form action="<?php echo WWW_ROOT;?>users/profil" method="post">
@@ -56,17 +58,17 @@
                             </div>
                             <div class="form-group">
                                 <label for="prenom">Prénom</label>
-                                <input type="text" class="form-control" id="prenom" name="prenom" >
+                                <input type="text" class="form-control" id="prenom" name="prenom" value="<?php echo $data['user']->prenom; ?>" >
                             </div>
 
                             <div class="form-group">
                                 <label for="telephone">Téléphone</label>
-                                <input type="tel" class="form-control" id="telephone" name="telephone" >
+                                <input type="tel" class="form-control" id="telephone" name="telephone" value="<?php echo $data['user']->telephone; ?>" >
                             </div>
                             
                             <div class="form-group">
                                 <label for="email">Adresse email </label>
-                                <input type="email" class="form-control" id="email" name="email">
+                                <input type="email" class="form-control" id="email" name="email" value="<?php echo $data['user']->email; ?>">
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
@@ -77,7 +79,7 @@
                                 <input type="password" class="form-control" id="confirmPassword" name="confirmPassword">
                             </div>
                             
-                            <input type="submit" class="btn btn-primary" name="inscrire" value="S'inscrire">
+                            <input type="submit" class="btn btn-primary" name="modifier" value="Modifier">
                             </fieldset>
                             </form>
                         </div> 
