@@ -108,18 +108,22 @@ class Users extends Controller {
     }
 
     public function profil() {
-        $data = [
-            'id'=> '',
-            'prenom' => '',
-            'nom' =>'',
-            'civilite' =>'',
-            'telephone' =>'',
-            'email'=> '',
-            'emailError'=> '',
-            'password' => '',
-            'confirmPassword' => '',
-            'confirmPasswordError' => '', 
-            ];
+        
+          
+            $data = [
+                'user'=>'',
+                'id'=> '',
+                'prenom' => '',
+                'nom' =>'',
+                'civilite' =>'',
+                'telephone' =>'',
+                'email'=> '',
+                'emailError'=> '',
+                'password' => '',
+                'confirmPassword' => '',
+                'confirmPasswordError' => '', 
+                ];
+    
 
         if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['modifier'])){
 
@@ -148,8 +152,8 @@ class Users extends Controller {
                 ($_POST['email']!= $_SESSION['email'] && $this->userModel->findUserByEmail($data['email'])) {
                     $data['emailError'] = 'Cet email est déja utilisé.';
             }
-        // error vide
-        if (empty($data['confirmPasswordError']) && empty($data['emailError'])) {
+            // error vide
+            if (empty($data['confirmPasswordError']) && empty($data['emailError'])) {
 
                 // Hash password
                 $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
@@ -161,9 +165,17 @@ class Users extends Controller {
                 } else {
                     die('Erreur système.');
                 }
-            }
+            }else{
+                $this->view('users/profil', $data);
+            }  
+        
+        }else{
+            
+            $id = $_SESSION['id'];
+            $user = $this->userModel->view($id);
+            $data = ['user' => $user] ;
+            $this->view('users/profil', $data);
         }
-        $this->view('users/profil', $data);
     }
 
 

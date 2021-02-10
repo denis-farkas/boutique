@@ -44,7 +44,7 @@
                             <legend>MODIFIER VOTRE PROFIL</legend>
                             <div class="form-group">
                                 <label for="genre">Civilité</label>
-                                <select class="form-control" id="genre" name="civilite">
+                                <select class="form-control" id="genre" name="civilite" value="<?php echo $data['user']->civilite; ?>">
                                     <option>Monsieur</option>
                                     <option>Madame</option>
                                 </select>
@@ -52,7 +52,7 @@
 
                             <div class="form-group">
                                 <label for="nom">Nom</label>
-                                <input type="text" class="form-control" id="nom" name="nom" >
+                                <input type="text" class="form-control" id="nom" name="nom" value="<?php echo $data['user']->nom; ?>">
                             </div>
                             <div class="form-group">
                                 <label for="prenom">Prénom</label>

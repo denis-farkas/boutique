@@ -88,10 +88,10 @@ class User {
     }
 
       public function view($id) {
-        $this->db->query('SELECT * FROM user WHERE id = :id');
+        $this->db->query('SELECT * FROM user WHERE id_user = :id_user');
 
         //Bind 
-        $this->db->bind(':id', $id);
+        $this->db->bind(':id_user', $id);
         //méthode row comme objet de database
         $user = $this->db->single();
         return $user;
