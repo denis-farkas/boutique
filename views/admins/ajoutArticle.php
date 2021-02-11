@@ -13,7 +13,7 @@
         
         
         <div class="col-md-12 mt-5">
-            <div class="row banner banner_image2 pt-3">                               
+            <div class="row banner banner_image1 pt-3">                               
                 <img class="ml-5 img-fluid mt-5" src="<?php echo WWW_ROOT; ?>public/images/logo.png" alt="Logo">                 
                 <h2 class="mt-5 pt-5 champain">PANAMA HATS<br /><small>Chapeaux de Légende</small></h2>                              
             </div>
@@ -32,8 +32,9 @@
             </section>
             <section class="col-sm-12 col-md-9 my-5">
                 <div class="container">
-                    
-                    <div class="col-md-12">
+                    <div class="row">
+                    <div class="col-lg-2"></div>
+                    <div class="col-md-6">
                         <h5>Ajout Article</h5>
                         <form action="<?php echo WWW_ROOT;?>admins/ajoutArticle" method="post">
                             <fieldset>
@@ -106,6 +107,8 @@
                             </form>
                         
                     </div> 
+                    <div class="col-lg-4"></div>
+                    </div>
                 </div>  
               
             </section>

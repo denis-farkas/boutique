@@ -41,7 +41,7 @@
                     {
                         echo '<li class="nav-item"><span class="nav-link">'.$_SESSION['prenom'].', vous êtes connecté(e) comme Administrateur.</span></li>';  
                         echo '<li class="nav-item">';
-                        echo '<a href="'.WWW_ROOT.'admins/index" class="nav-link">Gestion</a></li>';
+                        echo '<a href="'.WWW_ROOT.'admins/crudArticles" class="nav-link">Gestion</a></li>';
                         echo '<li class="nav-item">';
                         echo '<a href="'.WWW_ROOT.'users/logout" class="nav-link">Déconnexion</a></li>';
                        
