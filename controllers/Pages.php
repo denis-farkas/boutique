@@ -12,6 +12,16 @@ class Pages extends Controller
         $this->view('main/index', $data);
     }
 
+    public function result()
+    {
+        $data = [
+            'title' => 'result'
+        ];
+
+        $this->view('main/result', $data);
+    }
+
+
   
    
 

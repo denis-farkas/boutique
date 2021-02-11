@@ -84,6 +84,8 @@
                                 <?php echo $data['confirmPasswordError']; ?>
                                 </span>
                             </div>
+
+                            <input type="hidden" name="date_registre" value="<?= $data['user']->date_registre ?>" >
                             
                             <input type="submit" class="btn btn-primary" name="modifier" value="Modifier">
                             </fieldset>

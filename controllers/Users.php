@@ -116,16 +116,17 @@ class Users extends Controller {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             $data = [
-                'id_user' => $_SESSION['id'],
+                'id_user' => $_SESSION['id_user'],
                 'prenom' => trim($_POST['prenom']),
                 'nom' => trim($_POST['nom']),
                 'civilite' => trim($_POST['civilite']),
                 'telephone' => trim($_POST['telephone']),
-                'email'=> trim($_POST["email"]),
+                'email'=> $_POST['email'],
                 'emailError'=>'',
                 'password' => trim($_POST['password']),
                 'confirmPassword' => trim($_POST['confirmPassword']),
-                'confirmPasswordError' => ''  
+                'confirmPasswordError' => '',
+                'date_registre' => $_POST['date_registre']  
 
             ];
 
@@ -169,7 +170,8 @@ class Users extends Controller {
             'emailError'=> '',
             'password' => '',
             'confirmPassword' => '',
-            'confirmPasswordError' => '', 
+            'confirmPasswordError' => '',
+            'date_registre' => '' 
             ] ;
             $this->view('users/profil', $data);
         }
