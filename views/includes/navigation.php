@@ -28,16 +28,27 @@
             <?php 
                     if(isset($_SESSION['id_user']) && ($_SESSION['is_admin']== 0)) //message de connexion dans la navbar et bouton de déconnexion
                     {
-                        echo '<li class="nav-item"><span class="nav-link">'.$_SESSION['prenom'].', vous êtes connecté comme Membre.</span></li>';  
+                        echo '<li class="nav-item"><span class="nav-link">'.$_SESSION['prenom'].', vous êtes connecté(e).</span></li>';  
                         echo '<li class="nav-item">';
                         echo '<a href="'. WWW_ROOT.'users/profil" class="nav-link">Modifier</a>';
                         echo '</li>';
                         echo '<li class="nav-item">';
-                        echo '<a href="'.WWW_ROOT.'users/logout" class="nav-link">Déconnexion</a>
+                        echo '<a href="'.WWW_ROOT.'users/logout" class="nav-link">Déconnexion</a></li>
                         <li class="nav-item mr-5">
                         <a class="nav-link" href="#">Panier</a>
                         </li>';
+                    }elseif(isset($_SESSION['id_user']) && ($_SESSION['is_admin']== 1))
+                    {
+                        echo '<li class="nav-item"><span class="nav-link">'.$_SESSION['prenom'].', vous êtes connecté(e) comme Administrateur.</span></li>';  
+                        echo '<li class="nav-item">';
+                        echo '<a href="'.WWW_ROOT.'crud/crudIndex" class="nav-link">CRUD</a></li>';
+                        echo '<li class="nav-item">';
+                        echo '<a href="'.WWW_ROOT.'users/logout" class="nav-link">Déconnexion</a></li>';
+                       
+
                     }else{
+                        echo '<li class="nav-item mr-3">
+                        <a class="nav-link" href="'. WWW_ROOT.'users/inscription">Inscription</a></li>';
                         echo '<li class="nav-item">
                         <a class="nav-link" href="'. WWW_ROOT.'users/connexion">Connexion</a></li>';
                     }
