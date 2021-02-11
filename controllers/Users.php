@@ -108,21 +108,6 @@ class Users extends Controller {
     }
 
     public function profil() {
-        
-          
-            $data = [
-                'user'=>'',
-                'id'=> '',
-                'prenom' => '',
-                'nom' =>'',
-                'civilite' =>'',
-                'telephone' =>'',
-                'email'=> '',
-                'emailError'=> '',
-                'password' => '',
-                'confirmPassword' => '',
-                'confirmPasswordError' => '', 
-                ];
     
 
         if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['modifier'])){
@@ -131,7 +116,7 @@ class Users extends Controller {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             $data = [
-                'id' => $_SESSION['id'],
+                'id_user' => $_SESSION['id'],
                 'prenom' => trim($_POST['prenom']),
                 'nom' => trim($_POST['nom']),
                 'civilite' => trim($_POST['civilite']),
@@ -140,7 +125,7 @@ class Users extends Controller {
                 'emailError'=>'',
                 'password' => trim($_POST['password']),
                 'confirmPassword' => trim($_POST['confirmPassword']),
-                'confirmPasswordError' => '',  
+                'confirmPasswordError' => ''  
 
             ];
 
@@ -149,7 +134,7 @@ class Users extends Controller {
             if ($data['password'] != $data['confirmPassword']) {
                 $data['confirmPasswordError'] = 'Les passwords ne correspondent pas.';
             }elseif
-                ($_POST['email']!= $data['user']->email && $this->userModel->findUserByEmail($data['email'])) {
+                ($_SESSION['email']!= $data['email'] && $this->userModel->findUserByEmail($data['email'])) {
                     $data['emailError'] = 'Cet email est déja utilisé.';
             }
             // error vide
@@ -171,9 +156,21 @@ class Users extends Controller {
         
         }else{
             
-            $id = $_SESSION['id'];
+            $id = $_SESSION['id_user'];
             $user = $this->userModel->view($id);
-            $data = ['user' => $user] ;
+            $data = [
+            'user' => $user,
+            'id_user'=> '',
+            'prenom' => '',
+            'nom' =>'',
+            'civilite' =>'',
+            'telephone' =>'',
+            'email'=> '',
+            'emailError'=> '',
+            'password' => '',
+            'confirmPassword' => '',
+            'confirmPasswordError' => '', 
+            ] ;
             $this->view('users/profil', $data);
         }
     }
@@ -181,13 +178,15 @@ class Users extends Controller {
 
     public function createUserSession($user) {
       
-        $_SESSION['id'] = $user->id_user;
+        $_SESSION['id_user'] = $user->id_user;
         $_SESSION['prenom'] = $user->prenom;
+        $_SESSION['email'] = $user->email;
 
          if ($user->is_admin == 1){
            $_SESSION['is_admin'] = 1;
            header('location:' . WWW_ROOT . 'pages/admin');
        }else{
+           $_SESSION['is_admin'] = 0;
            header('location:' . WWW_ROOT . 'pages/index');
        }        
         
@@ -195,12 +194,13 @@ class Users extends Controller {
 
     public function logout() {
        
-        unset($_SESSION['id']);
+        unset($_SESSION['id_user']);
         unset($_SESSION['prenom']);
+        unset($_SESSION['email']);
        if ($_SESSION['is_admin'] == 1){
         unset($_SESSION['is_admin']);
        }
-        header('location:' . WWW_ROOT . 'pages/index');
+        header('location:' . WWW_ROOT . 'users/connexion');
     }
 
      public function vueProfil($id){

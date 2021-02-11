@@ -69,6 +69,9 @@
                             <div class="form-group">
                                 <label for="email">Adresse email </label>
                                 <input type="email" class="form-control" id="email" name="email" value="<?php echo $data['user']->email; ?>">
+                                <span class="invalidFeedback">
+                                <?php echo $data['emailError']; ?>
+                                </span>
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
@@ -77,6 +80,9 @@
                             <div class="form-group">
                                 <label for="confirmPassword">Confirmer Password</label>
                                 <input type="password" class="form-control" id="confirmPassword" name="confirmPassword">
+                                <span class="invalidFeedback">
+                                <?php echo $data['confirmPasswordError']; ?>
+                                </span>
                             </div>
                             
                             <input type="submit" class="btn btn-primary" name="modifier" value="Modifier">

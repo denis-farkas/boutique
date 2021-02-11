@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarColor03">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item ml-5 active">
-                <a class="nav-link" href="#">MA BOUTIQUE
+                <a class="nav-link" href=" <?= WWW_ROOT ?>pages/index">MA BOUTIQUE
                 <span class="sr-only">(current)</span>
                 </a>
             </li>
@@ -23,15 +23,26 @@
         
         </ul>
         <ul class="navbar-nav my-2 my-lg-0">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Votre compte</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Connexion</a>
-            </li>
-            <li class="nav-item mr-5">
-                <a class="nav-link" href="#">Panier</a>
-            </li>
+            
+            
+            <?php 
+                    if(isset($_SESSION['id_user']) && ($_SESSION['is_admin']== 0)) //message de connexion dans la navbar et bouton de déconnexion
+                    {
+                        echo '<li class="nav-item"><span class="nav-link">'.$_SESSION['prenom'].', vous êtes connecté comme Membre.</span></li>';  
+                        echo '<li class="nav-item">';
+                        echo '<a href="'. WWW_ROOT.'users/profil" class="nav-link">Modifier</a>';
+                        echo '</li>';
+                        echo '<li class="nav-item">';
+                        echo '<a href="'.WWW_ROOT.'users/logout" class="nav-link">Déconnexion</a>
+                        <li class="nav-item mr-5">
+                        <a class="nav-link" href="#">Panier</a>
+                        </li>';
+                    }else{
+                        echo '<li class="nav-item">
+                        <a class="nav-link" href="'. WWW_ROOT.'users/connexion">Connexion</a></li>';
+                    }
+            ?>    
+            
         </ul> 
     </div>
 </nav>

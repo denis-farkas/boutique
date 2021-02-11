@@ -47,3 +47,8 @@
     background-image: url("../images/tissage3_banner.jpg") ;
 }
 
+.invalidFeedback {
+    color: #ff0000;
+    display: block;
+}
+
