@@ -186,7 +186,7 @@ class Users extends Controller {
 
          if ($user->is_admin == 1){
            $_SESSION['is_admin'] = 1;
-           header('location:' . WWW_ROOT . 'pages/admin');
+           header('location:' . WWW_ROOT . 'pages/index');
        }else{
            $_SESSION['is_admin'] = 0;
            header('location:' . WWW_ROOT . 'pages/index');
