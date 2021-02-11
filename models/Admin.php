@@ -42,15 +42,16 @@ class Admin {
     public function updateArticle($article){
             
             $this->db->query('UPDATE article SET origine= :origine, genre= :genre, qualite= :qualite, id_taille= :id_taille, id_couleur= :id_couleur, image= :image, date_registre= :date_registre, prix= :prix, quantite= :quantite WHERE id_article= :id_article');
-            $this->db->bind(':origine', $data['origine']);
-            $this->db->bind(':genre', $data['genre']);
-            $this->db->bind(':qualite', $data['qualite']);
-            $this->db->bind(':id_taille', $data['id_taille']);
-            $this->db->bind(':id_couleur', $data['id_couleur']);
-            $this->db->bind(':image', $data['image']);
-            $this->db->bind(':date_registre', $data['date_registre']);
-            $this->db->bind(':prix', $data['prix']);
-            $this->db->bind(':quantite', $data['quantite']);            
+            $this->db->bind(':origine', $article['origine']);
+            $this->db->bind(':genre', $article['genre']);
+            $this->db->bind(':qualite', $article['qualite']);
+            $this->db->bind(':id_taille', $article['id_taille']);
+            $this->db->bind(':id_couleur', $article['id_couleur']);
+            $this->db->bind(':image', $article['image']);
+            $this->db->bind(':date_registre', $article['date_registre']);
+            $this->db->bind(':prix', $article['prix']);
+            $this->db->bind(':quantite', $article['quantite']);
+            $this->db->bind(':id_article', $article['id_article']);            
            
             //Execute function
         if ($this->db->execute()) {
@@ -68,15 +69,15 @@ class Admin {
 
 
         //Bind values
-        $this->db->bind(':origine', $data['origine']);
-        $this->db->bind(':genre', $data['genre']);
-        $this->db->bind(':qualite', $data['qualite']);
-        $this->db->bind(':id_taille', $data['id_taille']);
-        $this->db->bind(':id_couleur', $data['id_couleur']);        
-        $this->db->bind(':image', $data['image']);        
-        $this->db->bind(':date_registre', $creation);
-        $this->db->bind(':prix', $data['prix']);
-        $this->db->bind(':quantite', $data['quantite']);
+            $this->db->bind(':origine', $article['origine']);
+            $this->db->bind(':genre', $article['genre']);
+            $this->db->bind(':qualite', $article['qualite']);
+            $this->db->bind(':id_taille', $article['id_taille']);
+            $this->db->bind(':id_couleur', $article['id_couleur']);
+            $this->db->bind(':image', $article['image']);
+            $this->db->bind(':date_registre', $creation);
+            $this->db->bind(':prix', $article['prix']);
+            $this->db->bind(':quantite', $article['quantite']);      
                
         //Execute function
         if ($this->db->execute()) {

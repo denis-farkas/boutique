@@ -87,7 +87,7 @@ class Admins extends Controller {
                 'id_taille'=> $_POST['id_taille'],
                 'id_couleur'=> $_POST['id_couleur'],
                 'image'=> $_POST['image'],
-                'date_registre'=> date(Y-m-d),
+                'date_registre'=> date("Y-m-d"),
                 'prix'=> $_POST['prix'],
                 'quantite'=> $_POST['quantite']
                 ];
@@ -129,7 +129,7 @@ class Admins extends Controller {
                     'id_taille'=> $_POST['id_taille'],
                     'id_couleur'=> $_POST['id_couleur'],
                     'image'=> $_POST['image'],
-                    'date_registre'=> date(Y-m-d),
+                    'date_registre'=> date("Y-m-d"),
                     'prix'=> $_POST['prix'],
                     'quantite'=> $_POST['quantite']
                     ];
