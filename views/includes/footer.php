@@ -1,6 +1,6 @@
   <footer>
-                <div class="container">
-                <div class="col-md-12 mt-5">
+                <div class="container pt-1">
+                <div class="col-md-12 mt-2">
                     
                                                  
                                        
