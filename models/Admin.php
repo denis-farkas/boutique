@@ -13,7 +13,7 @@ class Admin {
     }
 
     public function view($id) {
-        $this->db->query('SELECT * FROM user WHERE id_user = :id_user');
+        $this->db->query('SELECT prenom, nom, civilite, telephone, email, date_registre, num_rue, nom_rue, batiment, code_postal, ville, pays FROM user JOIN adresse ON user.id_user = adresse.id_user WHERE user.id_user = :id_user AND adresse.domicile = 1');
 
         //Bind 
         $this->db->bind(':id_user', $id);
@@ -30,7 +30,7 @@ class Admin {
 
 
     public function viewArticle($id_article) {
-        $this->db->query('SELECT * FROM article WHERE id_article = :id_article');
+        $this->db->query('SELECT id_article, origine, genre, qualite, nom_taille, nom_couleur, image, date_registre, prix, quantite  FROM article JOIN taille ON article.id_taille = taille.id_taille JOIN couleur ON article.id_couleur = couleur.id_couleur  WHERE id_article = :id_article');
 
         //Bind 
         $this->db->bind(':id_article', $id_article);
@@ -41,14 +41,8 @@ class Admin {
     
     public function updateArticle($article){
             
-            $this->db->query('UPDATE article SET origine= :origine, genre= :genre, qualite= :qualite, id_taille= :id_taille, id_couleur= :id_couleur, image= :image, date_registre= :date_registre, prix= :prix, quantite= :quantite WHERE id_article= :id_article');
-            $this->db->bind(':origine', $article['origine']);
-            $this->db->bind(':genre', $article['genre']);
-            $this->db->bind(':qualite', $article['qualite']);
-            $this->db->bind(':id_taille', $article['id_taille']);
-            $this->db->bind(':id_couleur', $article['id_couleur']);
+            $this->db->query('UPDATE article SET image= :image, prix= :prix, quantite= :quantite WHERE id_article= :id_article');
             $this->db->bind(':image', $article['image']);
-            $this->db->bind(':date_registre', $article['date_registre']);
             $this->db->bind(':prix', $article['prix']);
             $this->db->bind(':quantite', $article['quantite']);
             $this->db->bind(':id_article', $article['id_article']);            

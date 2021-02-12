@@ -48,7 +48,7 @@
                                 <th scope="col">Date</th>
                                 <th scope="col">Prix</th>
                                 <th scope="col">Quantité</th>
-                                
+                                <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -67,7 +67,7 @@
                                         echo "<td>".$article->quantite."</td>";
                                     
                                         echo '<td><a  href="'.WWW_ROOT .'admins/formArticle/'.$article->id_article.'">
-                                        Voir</a></td>';
+                                        Modifier</a></td>';
                                         echo "</tr>";
                                         }                             
                                     } 
@@ -88,6 +88,7 @@
                                 <th scope="col">Date</th>
                                 <th scope="col">Prix</th>
                                 <th scope="col">Quantité</th>
+                                <th scope="col">Action</th>
                                 
                                 </tr>
                             </thead>
@@ -107,7 +108,7 @@
                                         echo "<td>".$article->quantite."</td>";
                                     
                                         echo '<td><a  href="'.WWW_ROOT .'admins/formArticle/'.$article->id_article.'">
-                                        Voir</a></td>';
+                                        Modifier</a></td>';
                                         echo "</tr>";
                                         }                             
                                     } 

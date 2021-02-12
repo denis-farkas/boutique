@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 10 fév. 2021 à 10:02
+-- Généré le : ven. 12 fév. 2021 à 10:04
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -34,14 +34,21 @@ CREATE TABLE IF NOT EXISTS `adresse` (
   `prenom_adresse` varchar(50) NOT NULL,
   `num_rue` varchar(50) NOT NULL,
   `nom_rue` varchar(250) NOT NULL,
-  `batiment` varchar(50) NOT NULL,
+  `batiment` varchar(50) DEFAULT NULL,
   `code_postal` varchar(50) NOT NULL,
   `ville` varchar(250) NOT NULL,
   `pays` varchar(250) NOT NULL,
   `id_user` int(10) NOT NULL,
   `domicile` tinyint(4) NOT NULL,
   PRIMARY KEY (`id_adresse`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `adresse`
+--
+
+INSERT INTO `adresse` (`id_adresse`, `nom_adresse`, `prenom_adresse`, `num_rue`, `nom_rue`, `batiment`, `code_postal`, `ville`, `pays`, `id_user`, `domicile`) VALUES
+(1, 'tota', 'tota', '5', 'rue albeniz', '', '13009', 'Marseille', 'France', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -62,7 +69,44 @@ CREATE TABLE IF NOT EXISTS `article` (
   `prix` float NOT NULL,
   `quantite` int(10) NOT NULL,
   PRIMARY KEY (`id_article`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `article`
+--
+
+INSERT INTO `article` (`id_article`, `origine`, `genre`, `qualite`, `id_taille`, `id_couleur`, `image`, `date_registre`, `prix`, `quantite`) VALUES
+(1, 'Montecristi', 'Masculin', 'Fin', 1, 1, 'mh-exf.jpg', '2021-02-12', 199, 6),
+(2, 'Montecristi', 'Masculin', 'Fin', 2, 1, 'mh-exf.jpg', '2021-02-12', 199, 5),
+(3, 'Montecristi', 'Masculin', 'Fin', 3, 1, 'mh-exf.jpg', '2021-02-12', 199, 5),
+(4, 'Montecristi', 'Masculin', 'Fin', 4, 1, 'mh-exf.jpg', '2021-02-12', 199, 5),
+(5, 'Montecristi', 'Masculin', 'Superfin', 1, 1, 'mh-exf.jpg', '2021-02-12', 399, 5),
+(6, 'Montecristi', 'Masculin', 'Superfin', 2, 1, 'mh-exf.jpg', '2021-02-12', 399, 5),
+(7, 'Montecristi', 'Masculin', 'Superfin', 3, 1, 'mh-exf.jpg', '2021-02-12', 399, 5),
+(8, 'Montecristi', 'Masculin', 'Superfin', 4, 1, 'mh-exf.jpg', '2021-02-12', 399, 5),
+(9, 'Cuenca', 'Masculin', 'Fin', 1, 2, 'ch-f.jpg', '2021-02-12', 49, 20),
+(10, 'Cuenca', 'Masculin', 'Fin', 2, 2, 'ch-f.jpg', '2021-02-12', 49, 20),
+(11, 'Cuenca', 'Masculin', 'Fin', 3, 2, 'ch-f.jpg', '2021-02-12', 49, 20),
+(12, 'Cuenca', 'Masculin', 'Fin', 4, 2, 'ch-f.jpg', '2021-02-12', 49, 20),
+(13, 'Cuenca', 'Masculin', 'Fin', 1, 3, 'ch-f-beige.jpg', '2021-02-12', 49, 20),
+(14, 'Cuenca', 'Masculin', 'Fin', 2, 3, 'ch-f-beige.jpg', '2021-02-12', 49, 20),
+(15, 'Cuenca', 'Masculin', 'Fin', 3, 3, 'ch-f-beige.jpg', '2021-02-12', 49, 20),
+(16, 'Cuenca', 'Masculin', 'Fin', 4, 3, 'ch-f-beige.jpg', '2021-02-12', 49, 20),
+(17, 'Cuenca', 'Masculin', 'Superfin', 1, 2, 'ch-supfin-bl.jpg', '2021-02-12', 79, 20),
+(18, 'Cuenca', 'Masculin', 'Superfin', 2, 2, 'ch-supfin-bl.jpg', '2021-02-12', 79, 20),
+(19, 'Cuenca', 'Masculin', 'Superfin', 3, 2, 'ch-supfin-bl.jpg', '2021-02-12', 79, 20),
+(20, 'Cuenca', 'Masculin', 'Superfin', 4, 2, 'ch-supfin-bl.jpg', '2021-02-12', 79, 20),
+(21, 'Cuenca', 'Masculin', 'Superfin', 1, 3, 'ch-sf.jpg', '2021-02-12', 79, 20),
+(22, 'Cuenca', 'Masculin', 'Superfin', 2, 3, 'ch-sf.jpg', '2021-02-12', 79, 20),
+(23, 'Cuenca', 'Masculin', 'Superfin', 3, 3, 'ch-sf.jpg', '2021-02-12', 79, 20),
+(24, 'Cuenca', 'Masculin', 'Superfin', 4, 3, 'ch-sf.jpg', '2021-02-12', 79, 20),
+(25, 'Cuenca', 'Feminin', 'Buly', 2, 8, 'buly.jpg', '2021-02-12', 59, 20),
+(26, 'Cuenca', 'Feminin', 'Crochet', 2, 3, 'cf-crochet.jpg', '2021-02-12', 49, 20),
+(27, 'Cuenca', 'Feminin', 'Dos Calidades', 2, 4, 'cf-deux.jpg', '2021-02-12', 59, 20),
+(28, 'Cuenca', 'Feminin', 'Dos Calidades', 2, 5, 'cf-deux.jpg', '2021-02-12', 59, 20),
+(29, 'Cuenca', 'Feminin', 'Dos Calidades', 2, 6, 'cf-deux.jpg', '2021-02-12', 59, 20),
+(30, 'Cuenca', 'Feminin', 'Dos Calidades', 2, 7, 'cf-deux.jpg', '2021-02-12', 59, 20),
+(31, 'Cuenca', 'Feminin', 'Dos Calidades', 2, 8, 'cf-deux.jpg', '2021-02-12', 59, 20);
 
 -- --------------------------------------------------------
 
@@ -92,7 +136,21 @@ CREATE TABLE IF NOT EXISTS `couleur` (
   `nom_couleur` varchar(100) NOT NULL,
   `image_couleur` varchar(100) NOT NULL,
   PRIMARY KEY (`id_couleur`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `couleur`
+--
+
+INSERT INTO `couleur` (`id_couleur`, `nom_couleur`, `image_couleur`) VALUES
+(1, 'Naturel', 'naturel.jpg'),
+(2, 'Blanc', 'blanc.jpg'),
+(3, 'Beige', 'beige.jpg'),
+(4, 'Moutarde', 'moutarde.jpg'),
+(5, 'Olive', 'olive.jpg'),
+(6, 'Rouge', 'rouge.jpg'),
+(7, 'Noir', 'noir.jpg'),
+(8, 'Cafe', 'cafe.jpg');
 
 -- --------------------------------------------------------
 
@@ -154,7 +212,17 @@ CREATE TABLE IF NOT EXISTS `taille` (
   `nom_taille` varchar(10) NOT NULL,
   `cm_taille` varchar(10) NOT NULL,
   PRIMARY KEY (`id_taille`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `taille`
+--
+
+INSERT INTO `taille` (`id_taille`, `nom_taille`, `cm_taille`) VALUES
+(1, 'S', '56-57 cm'),
+(2, 'M', '58-59 cm'),
+(3, 'L', '60-61 cm'),
+(4, 'XL', '62 cm');
 
 -- --------------------------------------------------------
 
@@ -174,14 +242,15 @@ CREATE TABLE IF NOT EXISTS `user` (
   `is_admin` tinyint(1) NOT NULL,
   `date_registre` datetime NOT NULL,
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `user`
 --
 
 INSERT INTO `user` (`id_user`, `prenom`, `nom`, `civilite`, `telephone`, `email`, `password`, `is_admin`, `date_registre`) VALUES
-(1, 'toto', 'toto', 'Monsieur', '0602020202', 'toto@gmail.com', '$2y$10$b6niia3Stq38LmEmD1dasej5J5mJ0fTvw85iVnrw4xVXSvr0/io3e', 0, '2021-02-09 00:00:00');
+(1, 'tota', 'tota', 'Monsieur', '0602020202', 'toto@gmail.com', '$2y$10$FkeZTklFHUBDhcRDGXEfOu0VvuncJEmyb6qw1Q617QRLmBqthLZui', 0, '2021-02-09 00:00:00'),
+(2, 'admin', 'admin', 'Monsieur', '0505050505', 'admin@gmail.com', '$2y$10$lgB6KBXrpFhURnyqVec3qemvZF9u.xIp9bXlNSvwbjE1WK1BZO1o2', 1, '2021-02-11 00:00:00');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

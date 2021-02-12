@@ -62,14 +62,8 @@ class Admins extends Controller {
 
     public function updateArticle(){
         $article = [
-            'id_article'=> '',
-            'origine'=> '',
-            'genre'=> '',
-            'qualite'=> '',
-            'id_taille'=> '',
-            'id_couleur'=> '',
-            'image'=> '',
-            'date_registre'=> '',
+            'id_article'=> '',            
+            'image'=> '',            
             'prix'=> '',
             'quantite'=> ''
             ];
@@ -81,13 +75,7 @@ class Admins extends Controller {
 
             $article = [
                 'id_article'=> $_POST['id_article'],
-                'origine'=> $_POST['origine'],
-                'genre'=> $_POST['genre'],
-                'qualite'=> $_POST['qualite'],
-                'id_taille'=> $_POST['id_taille'],
-                'id_couleur'=> $_POST['id_couleur'],
                 'image'=> $_POST['image'],
-                'date_registre'=> date("Y-m-d"),
                 'prix'=> $_POST['prix'],
                 'quantite'=> $_POST['quantite']
                 ];
@@ -102,6 +90,7 @@ class Admins extends Controller {
             }else{$this->view('pages/home'); }
             
         }
+        
         public function ajoutArticle(){
             $article = [
                 'id_article'=> '',
