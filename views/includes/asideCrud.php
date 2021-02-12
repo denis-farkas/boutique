@@ -2,22 +2,17 @@
     <div class="container">
         
         <hr class="my-4">
-            <h4>CATALOGUE</h4>    
-                <h6>Catégories</h6>       
+            <h4>FONCTIONS</h4>    
+                <h6>Clients</h6>       
                 <ul class="list-group list-group-flush text-left">
-                    <li class="list-group-item "><a class="nav-link" href="">Montecristi</a></li>
-                    <li class="list-group-item"><a class="nav-link" href="">Fedora</a></li>
-                    <li class="list-group-item"><a class="nav-link" href="">Mode</a></li>
+                    <li class="list-group-item "><a class="nav-link" href="<?php echo WWW_ROOT.'admins/crudUsers';?>">Liste clients</a></li>
                 </ul>    
                 
         <hr class="my-4">
-            <h4>Information</h4><br>
+                <h6>Produits</h6><br>
                 <ul class="list-group list-group-flush text-left">
-                    <li class="list-group-item"><a class="nav-link" href="">Termes et conditions de vente</a></li>
-                    <li class="list-group-item"><a class="nav-link" href="">Paiement sécurisé</a></li>
-                    <li class="list-group-item"><a class="nav-link" href="">Livraison</a></li>
-                    <li class="list-group-item"><a class="nav-link" href="">A notre sujet</a></li>
-                    <li class="list-group-item"><a class="nav-link" href="">Notre magasin</a></li>
+                    <li class="list-group-item"><a class="nav-link" href="<?php echo WWW_ROOT.'admins/crudArticles';?>">Liste articles</a></li>
+                    <li class="list-group-item"><a class="nav-link" href="<?php echo WWW_ROOT.'admins/ajoutArticle';?>">Ajout article</a></li>
                 </ul>
 
     </div>
