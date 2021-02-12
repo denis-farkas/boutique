@@ -23,7 +23,7 @@ class Admin {
     }
 
     public function crudArticles(){
-        $this->db->query('SELECT id_article, origine, genre, qualite, nom_taille, nom_couleur, image, date_registre, prix, quantite  FROM article JOIN taille ON article.id_taille = taille.id_taille JOIN couleur ON article.id_couleur = couleur.id_couleur ORDER BY date_registre DESC');
+        $this->db->query('SELECT id_article, origine, genre, qualite, nom_taille, nom_couleur, image, date_registre, prix, quantite  FROM article JOIN taille ON article.id_taille = taille.id_taille JOIN couleur ON article.id_couleur = couleur.id_couleur ');
         $articles=$this->db->resultSet();
         return $articles;
     }

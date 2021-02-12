@@ -54,7 +54,7 @@
                             <tbody>
                                 <?php                       
                                 foreach($data['articles'] as $article){
-                                    if($article->origine == 'montecristi'){
+                                    if($article->origine == 'Montecristi'){
                                         echo "<tr>";//affiche en boucle les données de la table
                                         echo "<td>".$article->id_article."</td>";
                                         echo "<td>".$article->genre."</td>";
@@ -94,7 +94,7 @@
                             <tbody>
                                 <?php                       
                                 foreach($data['articles'] as $article){
-                                    if($article->origine == 'cuenca'){
+                                    if($article->origine == 'Cuenca'){
                                         echo "<tr>";//affiche en boucle les données de la table
                                         echo "<td>".$article->id_article."</td>";
                                         echo "<td>".$article->genre."</td>";

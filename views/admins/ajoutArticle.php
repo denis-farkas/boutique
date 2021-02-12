@@ -56,10 +56,7 @@
 
                             <div class="form-group">
                                 <label for="qualite">Qualité</label>
-                                <select class="form-control" id="qualite" name="qualite">
-                                    <option>Fin</option>
-                                    <option>Superfin</option>
-                                </select>
+                                <input type="text" class="form-control" id="qualite" name="qualite" >
                             </div>
 
                             <div class="form-group">
@@ -82,6 +79,7 @@
                                     <option value="5">Olive</option>
                                     <option value="6">Rouge</option>
                                     <option value="7">Noir</option>
+                                    <option value="8">Cafe</option>
                                 </select>
                             </div>
 
