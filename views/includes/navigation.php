@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarColor03">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item ml-5 active">
-                <a class="nav-link" href=" <?= WWW_ROOT ?>pages/index">MA BOUTIQUE
+                <a class="nav-link" href=" <?= WWW_ROOT ?>pages/index">BOUTIQUE
                 <span class="sr-only">(current)</span>
                 </a>
             </li>
