@@ -21,8 +21,30 @@ class Pages extends Controller
         $this->view('main/result', $data);
     }
 
+    public function montecristi()
+    {
+        $data = [
+            'title' => 'Montécristi'
+        ];
 
-  
+        $this->view('main/montecristi', $data);
+    }
+
+    public function fedora()
+    {
+        $data = [
+            'title' => 'Fedora'
+        ];
+
+        $this->view('main/fedora', $data);
+    }
    
+    public function mode()
+    {
+        $data = [
+            'title' => 'Mode'
+        ];
 
+        $this->view('main/mode', $data);
+    }
 }
