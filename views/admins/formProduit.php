@@ -45,6 +45,11 @@
                               
                             </div>
                             <div class="form-group">
+                                <label for="categorie">Catégorie</label>
+                                <input type="text" class="form-control" id="categorie" name="categorie_produit" value="<?= $data['produit']->categorie_produit ?>" >
+                              
+                            </div>
+                            <div class="form-group">
                                 <label for="genre">Genre</label>
                                 <input type="text" class="form-control" id="genre" name="genre_produit" value="<?= $data['produit']->genre_produit ?>" >
                             </div>

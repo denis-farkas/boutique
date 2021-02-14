@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 12 fév. 2021 à 10:04
+-- Généré le : Dim 14 fév. 2021 à 21:49
 -- Version du serveur :  5.7.31
--- Version de PHP : 7.3.21
+-- Version de PHP : 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -59,54 +59,63 @@ INSERT INTO `adresse` (`id_adresse`, `nom_adresse`, `prenom_adresse`, `num_rue`,
 DROP TABLE IF EXISTS `article`;
 CREATE TABLE IF NOT EXISTS `article` (
   `id_article` int(11) NOT NULL AUTO_INCREMENT,
-  `origine` varchar(45) NOT NULL,
-  `genre` varchar(45) NOT NULL,
-  `qualite` varchar(45) NOT NULL,
+  `id_produit` int(10) NOT NULL,
   `id_taille` int(11) NOT NULL,
-  `id_couleur` int(11) NOT NULL,
-  `image` varchar(250) NOT NULL,
+  `id_couleur` int(10) NOT NULL,
   `date_registre` date NOT NULL,
-  `prix` float NOT NULL,
+  `remise` int(10) DEFAULT NULL,
   `quantite` int(10) NOT NULL,
   PRIMARY KEY (`id_article`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `article`
 --
 
-INSERT INTO `article` (`id_article`, `origine`, `genre`, `qualite`, `id_taille`, `id_couleur`, `image`, `date_registre`, `prix`, `quantite`) VALUES
-(1, 'Montecristi', 'Masculin', 'Fin', 1, 1, 'mh-exf.jpg', '2021-02-12', 199, 6),
-(2, 'Montecristi', 'Masculin', 'Fin', 2, 1, 'mh-exf.jpg', '2021-02-12', 199, 5),
-(3, 'Montecristi', 'Masculin', 'Fin', 3, 1, 'mh-exf.jpg', '2021-02-12', 199, 5),
-(4, 'Montecristi', 'Masculin', 'Fin', 4, 1, 'mh-exf.jpg', '2021-02-12', 199, 5),
-(5, 'Montecristi', 'Masculin', 'Superfin', 1, 1, 'mh-exf.jpg', '2021-02-12', 399, 5),
-(6, 'Montecristi', 'Masculin', 'Superfin', 2, 1, 'mh-exf.jpg', '2021-02-12', 399, 5),
-(7, 'Montecristi', 'Masculin', 'Superfin', 3, 1, 'mh-exf.jpg', '2021-02-12', 399, 5),
-(8, 'Montecristi', 'Masculin', 'Superfin', 4, 1, 'mh-exf.jpg', '2021-02-12', 399, 5),
-(9, 'Cuenca', 'Masculin', 'Fin', 1, 2, 'ch-f.jpg', '2021-02-12', 49, 20),
-(10, 'Cuenca', 'Masculin', 'Fin', 2, 2, 'ch-f.jpg', '2021-02-12', 49, 20),
-(11, 'Cuenca', 'Masculin', 'Fin', 3, 2, 'ch-f.jpg', '2021-02-12', 49, 20),
-(12, 'Cuenca', 'Masculin', 'Fin', 4, 2, 'ch-f.jpg', '2021-02-12', 49, 20),
-(13, 'Cuenca', 'Masculin', 'Fin', 1, 3, 'ch-f-beige.jpg', '2021-02-12', 49, 20),
-(14, 'Cuenca', 'Masculin', 'Fin', 2, 3, 'ch-f-beige.jpg', '2021-02-12', 49, 20),
-(15, 'Cuenca', 'Masculin', 'Fin', 3, 3, 'ch-f-beige.jpg', '2021-02-12', 49, 20),
-(16, 'Cuenca', 'Masculin', 'Fin', 4, 3, 'ch-f-beige.jpg', '2021-02-12', 49, 20),
-(17, 'Cuenca', 'Masculin', 'Superfin', 1, 2, 'ch-supfin-bl.jpg', '2021-02-12', 79, 20),
-(18, 'Cuenca', 'Masculin', 'Superfin', 2, 2, 'ch-supfin-bl.jpg', '2021-02-12', 79, 20),
-(19, 'Cuenca', 'Masculin', 'Superfin', 3, 2, 'ch-supfin-bl.jpg', '2021-02-12', 79, 20),
-(20, 'Cuenca', 'Masculin', 'Superfin', 4, 2, 'ch-supfin-bl.jpg', '2021-02-12', 79, 20),
-(21, 'Cuenca', 'Masculin', 'Superfin', 1, 3, 'ch-sf.jpg', '2021-02-12', 79, 20),
-(22, 'Cuenca', 'Masculin', 'Superfin', 2, 3, 'ch-sf.jpg', '2021-02-12', 79, 20),
-(23, 'Cuenca', 'Masculin', 'Superfin', 3, 3, 'ch-sf.jpg', '2021-02-12', 79, 20),
-(24, 'Cuenca', 'Masculin', 'Superfin', 4, 3, 'ch-sf.jpg', '2021-02-12', 79, 20),
-(25, 'Cuenca', 'Feminin', 'Buly', 2, 8, 'buly.jpg', '2021-02-12', 59, 20),
-(26, 'Cuenca', 'Feminin', 'Crochet', 2, 3, 'cf-crochet.jpg', '2021-02-12', 49, 20),
-(27, 'Cuenca', 'Feminin', 'Dos Calidades', 2, 4, 'cf-deux.jpg', '2021-02-12', 59, 20),
-(28, 'Cuenca', 'Feminin', 'Dos Calidades', 2, 5, 'cf-deux.jpg', '2021-02-12', 59, 20),
-(29, 'Cuenca', 'Feminin', 'Dos Calidades', 2, 6, 'cf-deux.jpg', '2021-02-12', 59, 20),
-(30, 'Cuenca', 'Feminin', 'Dos Calidades', 2, 7, 'cf-deux.jpg', '2021-02-12', 59, 20),
-(31, 'Cuenca', 'Feminin', 'Dos Calidades', 2, 8, 'cf-deux.jpg', '2021-02-12', 59, 20);
+INSERT INTO `article` (`id_article`, `id_produit`, `id_taille`, `id_couleur`, `date_registre`, `remise`, `quantite`) VALUES
+(1, 1, 1, 1, '2021-02-12', 10, 5),
+(2, 1, 2, 1, '2021-02-12', NULL, 5),
+(3, 1, 3, 1, '2021-02-12', NULL, 5),
+(4, 1, 4, 1, '2021-02-12', NULL, 5),
+(5, 2, 1, 1, '2021-02-12', NULL, 5),
+(6, 2, 2, 1, '2021-02-12', NULL, 5),
+(7, 2, 3, 1, '2021-02-12', NULL, 5),
+(8, 2, 4, 1, '2021-02-12', NULL, 5),
+(9, 3, 1, 2, '2021-02-12', NULL, 20),
+(10, 3, 2, 2, '2021-02-12', NULL, 20),
+(11, 3, 3, 2, '2021-02-12', NULL, 20),
+(12, 3, 4, 2, '2021-02-12', NULL, 20),
+(13, 4, 1, 2, '2021-02-12', NULL, 20),
+(14, 4, 2, 2, '2021-02-12', NULL, 20),
+(15, 4, 3, 2, '2021-02-12', NULL, 20),
+(16, 4, 4, 2, '2021-02-12', NULL, 20),
+(17, 5, 1, 3, '2021-02-12', NULL, 20),
+(18, 5, 2, 3, '2021-02-12', NULL, 20),
+(19, 5, 3, 3, '2021-02-12', NULL, 20),
+(20, 5, 4, 3, '2021-02-12', NULL, 20),
+(21, 6, 1, 3, '2021-02-12', NULL, 20),
+(22, 6, 2, 3, '2021-02-12', NULL, 20),
+(23, 6, 3, 3, '2021-02-12', NULL, 20),
+(24, 6, 4, 3, '2021-02-12', NULL, 20),
+(53, 7, 1, 4, '2021-02-14', NULL, 10),
+(54, 7, 2, 4, '2021-02-14', NULL, 10),
+(55, 7, 1, 7, '2021-02-14', NULL, 10),
+(56, 7, 2, 7, '2021-02-14', NULL, 10),
+(57, 7, 1, 8, '2021-02-14', NULL, 10),
+(58, 7, 2, 8, '2021-02-14', NULL, 10),
+(59, 8, 1, 3, '2021-02-14', NULL, 10),
+(60, 8, 2, 3, '2021-02-14', NULL, 10),
+(61, 9, 1, 4, '2021-02-14', NULL, 10),
+(62, 9, 2, 4, '2021-02-14', NULL, 10),
+(63, 9, 1, 5, '2021-02-14', NULL, 10),
+(64, 9, 2, 5, '2021-02-14', NULL, 10),
+(65, 9, 1, 6, '2021-02-14', NULL, 10),
+(66, 9, 2, 6, '2021-02-14', NULL, 10),
+(67, 9, 1, 7, '2021-02-14', NULL, 10),
+(68, 9, 2, 7, '2021-02-14', NULL, 10),
+(69, 9, 1, 8, '2021-02-14', NULL, 10),
+(70, 9, 2, 8, '2021-02-14', NULL, 10),
+(71, 9, 1, 1, '2021-02-14', 0, 5);
 
 -- --------------------------------------------------------
 
@@ -199,6 +208,39 @@ CREATE TABLE IF NOT EXISTS `livraison` (
   `prix_livreur` float NOT NULL,
   PRIMARY KEY (`id_livraison`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `produit`
+--
+
+DROP TABLE IF EXISTS `produit`;
+CREATE TABLE IF NOT EXISTS `produit` (
+  `id_produit` int(11) NOT NULL AUTO_INCREMENT,
+  `origine_produit` varchar(50) NOT NULL,
+  `categorie_produit` varchar(50) NOT NULL,
+  `genre_produit` varchar(50) NOT NULL,
+  `nom_produit` varchar(50) NOT NULL,
+  `image_produit` varchar(50) NOT NULL,
+  `prix_produit` double NOT NULL,
+  PRIMARY KEY (`id_produit`)
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `produit`
+--
+
+INSERT INTO `produit` (`id_produit`, `origine_produit`, `categorie_produit`, `genre_produit`, `nom_produit`, `image_produit`, `prix_produit`) VALUES
+(1, 'Montecristi', 'Montecristi', 'Masculin', 'Fin Naturel', 'mh-exf.jpg', 199),
+(2, 'Montecristi', 'Montecristi', 'Masculin', 'Extra Fin Naturel', 'mh-sf.jpg', 399),
+(3, 'Cuenca', 'Fedora', 'Masculin', 'Blanc Fin', 'ch-f.jpg', 49),
+(4, 'Cuenca', 'Fedora', 'Masculin', 'Blanc Super Fin', 'ch-sup-fin-bl.jpg', 79),
+(5, 'Cuenca', 'Fedora', 'Masculin', 'Beige Fin', 'ch-f-beige.jpg', 49),
+(6, 'Cuenca', 'Fedora', 'Masculin', 'Beige Super Fin', 'ch-sf.jpg', 79),
+(7, 'Cuenca', 'Mode', 'Feminin', 'Buly', 'buly.jpg', 79),
+(8, 'Cuenca', 'Mode', 'Feminin', 'Crochet', 'cf-crochet.jpg', 49),
+(9, 'Cuenca', 'Mode', 'Feminin', 'Dos Calidades', 'cf-deux.jpg', 59);
 
 -- --------------------------------------------------------
 

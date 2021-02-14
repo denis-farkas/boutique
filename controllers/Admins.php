@@ -150,6 +150,7 @@ class Admins extends Controller {
             public function ajoutProduit(){
                 $produit = [
                     'origine_produit'=> '',
+                    'categorie_produit'=> '',
                     'genre_produit'=> '',
                     'nom_produit'=> '',
                     'image_produit'=> '',
@@ -163,6 +164,7 @@ class Admins extends Controller {
         
                     $produit = [
                         'origine_produit'=> $_POST['origine_produit'],
+                        'categorie_produit'=> $_POST['categorie_produit'],
                         'genre_produit'=> $_POST['genre_produit'],
                         'nom_produit'=> $_POST['nom_produit'],
                         'image_produit'=> $_POST['image_produit'],
@@ -197,6 +199,7 @@ class Admins extends Controller {
                     $produit = [
                         'id_produit'=> '',
                         'origine_produit'=> '',
+                        'categorie_produit'=> '',
                         'genre_produit'=> '',
                         'nom_produit'=> '',
                         'image_produit'=> '',
@@ -212,6 +215,7 @@ class Admins extends Controller {
                     $produit = [
                         'id_produit'=> $_POST['id_produit'],
                         'origine_produit'=> $_POST['origine_produit'],
+                        'categorie_produit'=> $_POST['categorie_produit'],
                         'genre_produit'=> $_POST['genre_produit'],
                         'nom_produit'=> $_POST['nom_produit'],
                         'image_produit'=> $_POST['image_produit'],

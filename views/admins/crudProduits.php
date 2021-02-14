@@ -41,6 +41,7 @@
                                 <tr class="table-active">
                                 <th scope="col">ID </th>
                                 <th scope="col">Origine </th>
+                                <th scope="col">Catégorie</th>
                                 <th scope="col">Genre</th>
                                 <th scope="col">Nom</th>
                                 <th scope="col">Image</th>
@@ -55,6 +56,7 @@
                                         echo "<tr>";//affiche en boucle les données de la table
                                         echo "<td>".$produit->id_produit."</td>";
                                         echo "<td>".$produit->origine_produit."</td>";
+                                        echo "<td>".$produit->categorie_produit."</td>";
                                         echo "<td>".$produit->genre_produit."</td>";
                                         echo "<td>".$produit->nom_produit."</td>";
                                         echo "<td>".$produit->image_produit."</td>";

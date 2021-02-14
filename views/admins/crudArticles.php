@@ -55,7 +55,7 @@
                             <tbody>
                                 <?php                       
                                 foreach($data['articles'] as $article){
-                                    if($article->origine_produit == 'Montecristi'){
+                                    if($article->categorie_produit == 'Montecristi'){
                                         echo "<tr>";//affiche en boucle les données de la table
                                         echo "<td>".$article->id_article."</td>";
                                         echo "<td>".$article->genre_produit."</td>";
@@ -77,7 +77,7 @@
                             </tbody>
                         </table><br>
 
-                        <h5>CUENCA</h5>                        
+                        <h5>FEDORA</h5>                        
                         <table class="table table-hover">
                             <thead>
                             <tr class="table-active">
@@ -98,7 +98,49 @@
                             <tbody>
                                 <?php                       
                                 foreach($data['articles'] as $article){
-                                    if($article->origine_produit == 'Cuenca'){
+                                    if($article->categorie_produit == 'Fedora'){
+                                        echo "<td>".$article->id_article."</td>";
+                                        echo "<td>".$article->genre_produit."</td>";
+                                        echo "<td>".$article->nom_produit."</td>";
+                                        echo "<td>".$article->nom_taille."</td>";
+                                        echo "<td>".$article->nom_couleur."</td>";
+                                        echo "<td>".$article->image_produit."</td>";
+                                        echo "<td>".$article->date_registre."</td>";
+                                        echo "<td>".$article->prix_produit."</td>";
+                                        echo "<td>".$article->remise."</td>";
+                                        echo "<td>".$article->quantite."</td>";
+                                    
+                                        echo '<td><a  href="'.WWW_ROOT .'admins/formArticle/'.$article->id_article.'">
+                                        Modifier</a></td>';
+                                        echo "</tr>";
+                                        }                             
+                                    } 
+                                    ?>  
+                            </tbody>
+                        </table>
+
+                        <h5>MODE</h5>                        
+                        <table class="table table-hover">
+                            <thead>
+                            <tr class="table-active">
+                                <th scope="col">ID </th>
+                                <th scope="col">Genre</th>
+                                <th scope="col">Nom</th>
+                                <th scope="col">Taille</th>
+                                <th scope="col">Couleur</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Prix</th>
+                                <th scope="col">Remise</th>
+                                <th scope="col">Quantité</th>
+                                <th scope="col">Action</th>
+                                
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php                       
+                                foreach($data['articles'] as $article){
+                                    if($article->categorie_produit == 'Mode'){
                                         echo "<td>".$article->id_article."</td>";
                                         echo "<td>".$article->genre_produit."</td>";
                                         echo "<td>".$article->nom_produit."</td>";

@@ -46,6 +46,16 @@
                                     <option>Cuenca</option>
                                 </select>
                             </div>
+
+                            <div class="form-group">
+                                <label for="categorie">Catégorie</label>
+                                <select class="form-control" id="categorie" name="categorie_produit">
+                                    <option>Montecristi</option>
+                                    <option>Fedora</option>
+                                    <option>Mode</option> 
+                                </select>
+                            </div>
+
                             <div class="form-group">
                                 <label for="genre">Genre</label>
                                 <select class="form-control" id="genre" name="genre_produit">

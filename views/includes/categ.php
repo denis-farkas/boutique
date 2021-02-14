@@ -10,7 +10,7 @@ echo '<div class="card">
       <div class="card-text text-muted mt-5 " >
          Des chapeaux de légende.<br /> Un savoir-faire <br />en provenance du <br />canton de Montecristi.
       </div>
-      <a href="#" class="btn btn-warning btn-sm mt-3">Voir</a>   
+      <a href="'.WWW_ROOT.'produits/montecristi" class="btn btn-warning btn-sm mt-3">Voir</a>   
    </div>
 </div>
 
@@ -24,7 +24,7 @@ echo '<div class="card">
       <div class="card-text text-muted mt-5 " >
          Le borsalino.<br /> ou Fedora <br />style <br />Cuenca.
       </div>
-      <a href="#" class="btn btn-warning btn-sm mt-3">Voir</a>     
+      <a href=" '.WWW_ROOT.'produits/fedora" class="btn btn-warning btn-sm mt-3">Voir</a>     
    </div>
 </div>
 
@@ -38,7 +38,7 @@ echo '<div class="card">
       <div class="card-text text-muted mt-5 " >
          Des chapeaux féminins.<br /> La mode <br />en provenance<br /> de Cuenca.
       </div>
-      <a href="#" class="btn btn-warning btn-sm mt-3">Voir</a>    
+      <a href="'.WWW_ROOT.'produits/mode" class="btn btn-warning btn-sm mt-3">Voir</a>    
    </div>
   
 </div>
