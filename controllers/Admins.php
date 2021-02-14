@@ -46,6 +46,20 @@ class Admins extends Controller {
                      header('location:' . WWW_ROOT . 'pages/index');
                 }
             }
+
+            public function crudProduits(){
+                if (!empty($_SESSION['id_user']) && $_SESSION['is_admin']==1){
+                   $produits = $this->adminModel->crudProduits();
+        
+                $data = [
+                    'produits' => $produits
+                ];
+        
+                $this->view('admins/crudProduits', $data);
+                } else {
+                         header('location:' . WWW_ROOT . 'pages/index');
+                    }
+                }
                  
     
     public function formArticle($id_article){
@@ -62,10 +76,9 @@ class Admins extends Controller {
 
     public function updateArticle(){
         $article = [
-            'id_article'=> '',            
-            'image'=> '',            
-            'prix'=> '',
-            'quantite'=> ''
+            'id_article'=> '',                     
+            'quantite'=> '',
+            'remise'=> ''
             ];
 
         if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update'])){
@@ -75,9 +88,8 @@ class Admins extends Controller {
 
             $article = [
                 'id_article'=> $_POST['id_article'],
-                'image'=> $_POST['image'],
-                'prix'=> $_POST['prix'],
-                'quantite'=> $_POST['quantite']
+                'quantite'=> $_POST['quantite'],
+                'remise'=> $_POST['remise']
                 ];
 
                 //modifie utilisateur
@@ -92,16 +104,17 @@ class Admins extends Controller {
         }
         
         public function ajoutArticle(){
+
+            $produits = $this->adminModel->crudProduits();
+
             $article = [
+                'produits' =>'',
                 'id_article'=> '',
-                'origine'=> '',
-                'genre'=> '',
-                'qualite'=> '',
+                'id_produit'=> '',
                 'id_taille'=> '',
                 'id_couleur'=> '',
-                'image'=> '',
                 'date_registre'=> '',
-                'prix'=> '',
+                'remise'=> '',
                 'quantite'=> ''
                 ];
     
@@ -109,29 +122,112 @@ class Admins extends Controller {
     
                 // Sanitize POST data
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-    
+              
                 $article = [
                     'id_article'=> $_POST['id_article'],
-                    'origine'=> $_POST['origine'],
-                    'genre'=> $_POST['genre'],
-                    'qualite'=> $_POST['qualite'],
+                    'id_produit'=> $_POST['id_produit'],
                     'id_taille'=> $_POST['id_taille'],
                     'id_couleur'=> $_POST['id_couleur'],
-                    'image'=> $_POST['image'],
                     'date_registre'=> date("Y-m-d"),
-                    'prix'=> $_POST['prix'],
+                    'remise'=> $_POST['remise'],
                     'quantite'=> $_POST['quantite']
                     ];
     
-                    //modifie utilisateur
+                    
                     if ($this->adminModel->ajoutArticle($article)) {
-                        //Redirect page connexion
+                       
                         header('location: ' . WWW_ROOT . 'admins/crudArticles');
                     } else {
                         die('Erreur système.');
                     }
-                }else{$this->view('admins/ajoutArticle'); }
+                }else{
+                    $produits = $this->adminModel->crudProduits();
+                    $data = ['produits' => $produits];
+                    $this->view('admins/ajoutArticle', $data); }
                 
             }
+
+            public function ajoutProduit(){
+                $produit = [
+                    'origine_produit'=> '',
+                    'genre_produit'=> '',
+                    'nom_produit'=> '',
+                    'image_produit'=> '',
+                    'prix_produit'=> ''
+                    ];
+        
+                if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['ajoutProd'])){
+        
+                    // Sanitize POST data
+                    $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        
+                    $produit = [
+                        'origine_produit'=> $_POST['origine_produit'],
+                        'genre_produit'=> $_POST['genre_produit'],
+                        'nom_produit'=> $_POST['nom_produit'],
+                        'image_produit'=> $_POST['image_produit'],
+                        'prix_produit'=> $_POST['prix_produit']
+                        
+                        ];
+        
+                        //modifie utilisateur
+                        if ($this->adminModel->ajoutProduit($produit)) {
+                            //Redirect page connexion
+                            header('location: ' . WWW_ROOT . 'admins/crudArticles');
+                        } else {
+                            die('Erreur système.');
+                        }
+                    }else{$this->view('admins/ajoutProduit'); }
+                    
+                }
+
+                public function formProduit($id_produit){
+                    if (!empty($_SESSION['id_user']) && $_SESSION['is_admin']==1){
+                    $produit = $this->adminModel->viewProduit($id_produit);
+                    $data = [
+                        'produit' => $produit];
+            
+                    $this->view('admins/formProduit', $data);
+                    } else {
+                            header('location:' . WWW_ROOT . 'pages/index');
+                        }
+                    }
+            
+                public function updateProduit(){
+                    $produit = [
+                        'id_produit'=> '',
+                        'origine_produit'=> '',
+                        'genre_produit'=> '',
+                        'nom_produit'=> '',
+                        'image_produit'=> '',
+                        'prix_produit'=> ''
+                        ];
+            
+                    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['updateProd'])){
+            
+                        // Sanitize POST data
+                        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            
+                      
+                    $produit = [
+                        'id_produit'=> $_POST['id_produit'],
+                        'origine_produit'=> $_POST['origine_produit'],
+                        'genre_produit'=> $_POST['genre_produit'],
+                        'nom_produit'=> $_POST['nom_produit'],
+                        'image_produit'=> $_POST['image_produit'],
+                        'prix_produit'=> $_POST['prix_produit']
+                        
+                        ];
+            
+                            //modifie utilisateur
+                            if ($this->adminModel->updateProduit($produit)) {
+                                //Redirect page connexion
+                                header('location: ' . WWW_ROOT . 'admins/crudProduits');
+                            } else {
+                                die('Erreur système.');
+                            }
+                        }else{$this->view('pages/home'); }
+                        
+                    }
         
     }

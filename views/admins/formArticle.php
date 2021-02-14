@@ -41,17 +41,17 @@
                            
                             <div class="form-group">
                                 <label for="origine">Origine</label>
-                                <input type="text" class="form-control" id="origine" name="origine" value="<?= $data['article']->origine ?>" disabled>
+                                <input type="text" class="form-control" id="origine" name="origine" value="<?= $data['article']->origine_produit ?>" disabled>
                               
                             </div>
                             <div class="form-group">
                                 <label for="genre">Genre</label>
-                                <input type="text" class="form-control" id="genre" name="genre" value="<?= $data['article']->genre ?>" disabled >
+                                <input type="text" class="form-control" id="genre" name="genre" value="<?= $data['article']->genre_produit ?>" disabled >
                             </div>
 
                             <div class="form-group">
                                 <label for="qualite">Qualité</label>
-                                <input type="text" class="form-control" id="qualite" name="qualite" value="<?= $data['article']->qualite ?>" disabled>
+                                <input type="text" class="form-control" id="qualite" name="qualite" value="<?= $data['article']->nom_produit ?>" disabled>
                             </div>
 
                             <div class="form-group">
@@ -66,17 +66,22 @@
 
                             <div class="form-group">
                                 <label for="image">Image</label>
-                                <input type="text" class="form-control" id="image" name="image" value="<?= $data['article']->image ?>" >
+                                <input type="text" class="form-control" id="image" name="image" value="<?= $data['article']->image_produit ?>" disabled >
                             </div>
                             
                             <div class="form-group">
                                 <label for="prix">Prix</label>
-                                <input type="number" class="form-control" id="prix" name="prix" value="<?= $data['article']->prix ?>" >
+                                <input type="number" class="form-control" id="prix" name="prix" value="<?= $data['article']->prix_produit ?>" disabled >
                             </div>
 
                             <div class="form-group">
                                 <label for="quantite">Quantité</label>
                                 <input type="number" class="form-control" id="quantite" name="quantite" value="<?= $data['article']->quantite ?>" >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="remise">Remise</label>
+                                <input type="number" class="form-control" id="remise" name="remise" value="<?= $data['article']->remise ?>" >
                             </div>
 
                             <div class="form-group">

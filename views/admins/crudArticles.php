@@ -31,7 +31,7 @@
                 
             </section>
             <section class="col-sm-12 col-md-9 my-5">
-                <div class="container">
+                <div class="container-fluid">
                     
                     <div class="col-md-12">
                         <h5>MONTECRISTI</h5>
@@ -41,12 +41,13 @@
                                 <tr class="table-active">
                                 <th scope="col">ID </th>
                                 <th scope="col">Genre</th>
-                                <th scope="col">Qualité</th>
+                                <th scope="col">Nom</th>
                                 <th scope="col">Taille</th>
                                 <th scope="col">Couleur</th>
                                 <th scope="col">Image</th>
                                 <th scope="col">Date</th>
                                 <th scope="col">Prix</th>
+                                <th scope="col">Remise</th>
                                 <th scope="col">Quantité</th>
                                 <th scope="col">Action</th>
                                 </tr>
@@ -54,16 +55,17 @@
                             <tbody>
                                 <?php                       
                                 foreach($data['articles'] as $article){
-                                    if($article->origine == 'Montecristi'){
+                                    if($article->origine_produit == 'Montecristi'){
                                         echo "<tr>";//affiche en boucle les données de la table
                                         echo "<td>".$article->id_article."</td>";
-                                        echo "<td>".$article->genre."</td>";
-                                        echo "<td>".$article->qualite."</td>";
+                                        echo "<td>".$article->genre_produit."</td>";
+                                        echo "<td>".$article->nom_produit."</td>";
                                         echo "<td>".$article->nom_taille."</td>";
                                         echo "<td>".$article->nom_couleur."</td>";
-                                        echo "<td>".$article->image."</td>";
+                                        echo "<td>".$article->image_produit."</td>";
                                         echo "<td>".$article->date_registre."</td>";
-                                        echo "<td>".$article->prix."</td>";
+                                        echo "<td>".$article->prix_produit."</td>";
+                                        echo "<td>".$article->remise."</td>";
                                         echo "<td>".$article->quantite."</td>";
                                     
                                         echo '<td><a  href="'.WWW_ROOT .'admins/formArticle/'.$article->id_article.'">
@@ -78,15 +80,16 @@
                         <h5>CUENCA</h5>                        
                         <table class="table table-hover">
                             <thead>
-                                <tr class="table-active">
+                            <tr class="table-active">
                                 <th scope="col">ID </th>
                                 <th scope="col">Genre</th>
-                                <th scope="col">Qualité</th>
+                                <th scope="col">Nom</th>
                                 <th scope="col">Taille</th>
                                 <th scope="col">Couleur</th>
                                 <th scope="col">Image</th>
                                 <th scope="col">Date</th>
                                 <th scope="col">Prix</th>
+                                <th scope="col">Remise</th>
                                 <th scope="col">Quantité</th>
                                 <th scope="col">Action</th>
                                 
@@ -95,16 +98,16 @@
                             <tbody>
                                 <?php                       
                                 foreach($data['articles'] as $article){
-                                    if($article->origine == 'Cuenca'){
-                                        echo "<tr>";//affiche en boucle les données de la table
+                                    if($article->origine_produit == 'Cuenca'){
                                         echo "<td>".$article->id_article."</td>";
-                                        echo "<td>".$article->genre."</td>";
-                                        echo "<td>".$article->qualite."</td>";
+                                        echo "<td>".$article->genre_produit."</td>";
+                                        echo "<td>".$article->nom_produit."</td>";
                                         echo "<td>".$article->nom_taille."</td>";
                                         echo "<td>".$article->nom_couleur."</td>";
-                                        echo "<td>".$article->image."</td>";
+                                        echo "<td>".$article->image_produit."</td>";
                                         echo "<td>".$article->date_registre."</td>";
-                                        echo "<td>".$article->prix."</td>";
+                                        echo "<td>".$article->prix_produit."</td>";
+                                        echo "<td>".$article->remise."</td>";
                                         echo "<td>".$article->quantite."</td>";
                                     
                                         echo '<td><a  href="'.WWW_ROOT .'admins/formArticle/'.$article->id_article.'">

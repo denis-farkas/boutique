@@ -39,24 +39,16 @@
                         <form action="<?php echo WWW_ROOT;?>admins/ajoutArticle" method="post">
                             <fieldset>
                            
-                            <div class="form-group">
-                                <label for="origine">Origine</label>
-                                <select class="form-control" id="origine" name="origine">
-                                    <option>Montecristi</option>
-                                    <option>Cuenca</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="genre">Genre</label>
-                                <select class="form-control" id="genre" name="genre">
-                                    <option>Masculin</option>
-                                    <option>Feminin</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="qualite">Qualité</label>
-                                <input type="text" class="form-control" id="qualite" name="qualite" >
+                            <div class="form-group">  
+                                <?php 
+                                echo ' <label for="produit">Produit</label>
+                                <select class="form-control" id="produit" name="id_produit">';
+                                foreach($data['produits'] as $produit){
+                                    echo '<option value="'.$produit->id_produit.'">'.$produit->origine_produit.' '.$produit->nom_produit.'</option>'; 
+                                }
+                                echo '</select>';
+                                ?>     
+                                
                             </div>
 
                             <div class="form-group">
@@ -82,15 +74,10 @@
                                     <option value="8">Cafe</option>
                                 </select>
                             </div>
-
-                            <div class="form-group">
-                                <label for="image">Image</label>
-                                <input type="text" class="form-control" id="image" name="image" >
-                            </div>
                             
                             <div class="form-group">
-                                <label for="prix">Prix</label>
-                                <input type="number" class="form-control" id="prix" name="prix">
+                                <label for="remise">Remise</label>
+                                <input type="number" class="form-control" id="remise" name="remise">
                             </div>
 
                             <div class="form-group">

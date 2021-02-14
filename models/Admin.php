@@ -23,14 +23,20 @@ class Admin {
     }
 
     public function crudArticles(){
-        $this->db->query('SELECT id_article, origine, genre, qualite, nom_taille, nom_couleur, image, date_registre, prix, quantite  FROM article JOIN taille ON article.id_taille = taille.id_taille JOIN couleur ON article.id_couleur = couleur.id_couleur ');
+        $this->db->query('SELECT id_article, origine_produit, genre_produit, nom_produit, nom_taille, nom_couleur, image_produit, date_registre, prix_produit, quantite, remise  FROM article JOIN produit ON article.id_produit = produit.id_produit JOIN taille ON article.id_taille = taille.id_taille JOIN couleur ON article.id_couleur = couleur.id_couleur ');
         $articles=$this->db->resultSet();
         return $articles;
     }
 
+    public function crudProduits(){
+        $this->db->query('SELECT * FROM produit');
+        $produits=$this->db->resultSet();
+        return $produits;
+    }
+
 
     public function viewArticle($id_article) {
-        $this->db->query('SELECT id_article, origine, genre, qualite, nom_taille, nom_couleur, image, date_registre, prix, quantite  FROM article JOIN taille ON article.id_taille = taille.id_taille JOIN couleur ON article.id_couleur = couleur.id_couleur  WHERE id_article = :id_article');
+        $this->db->query('SELECT id_article, origine_produit, genre_produit, nom_produit, nom_taille, nom_couleur, image_produit, date_registre, prix_produit, quantite, remise  FROM article JOIN produit ON article.id_produit = produit.id_produit JOIN taille ON article.id_taille = taille.id_taille JOIN couleur ON article.id_couleur = couleur.id_couleur  WHERE id_article = :id_article');
 
         //Bind 
         $this->db->bind(':id_article', $id_article);
@@ -38,39 +44,31 @@ class Admin {
         $article = $this->db->single();
         return $article;
     }
+
+    public function viewProduit($id_produit) {
+        $this->db->query('SELECT *  FROM produit  WHERE id_produit = :id_produit');
+
+        //Bind 
+        $this->db->bind(':id_produit', $id_produit);
+        //méthode row comme objet de database
+        $produit = $this->db->single();
+        return $produit;
+    }
     
-    public function updateArticle($article){
-            
-            $this->db->query('UPDATE article SET image= :image, prix= :prix, quantite= :quantite WHERE id_article= :id_article');
-            $this->db->bind(':image', $article['image']);
-            $this->db->bind(':prix', $article['prix']);
-            $this->db->bind(':quantite', $article['quantite']);
-            $this->db->bind(':id_article', $article['id_article']);            
-           
-            //Execute function
-        if ($this->db->execute()) {
-            return true;
-        } else {
-            return false;
-        }         
-    }  
     
     public function ajoutArticle($article) {
         $creation= date("Y-m-d");
        
-        $this->db->query('INSERT INTO article (origine, genre, qualite, id_taille, id_couleur, image, date_registre, prix, quantite) 
-        VALUES(:origine, :genre, :qualite, :id_taille, :id_couleur, :image, :date_registre, :prix, :quantite)');
+        $this->db->query('INSERT INTO article (id_produit, id_taille, id_couleur, date_registre, remise, quantite) 
+        VALUES(:id_produit, :id_taille, :id_couleur, :date_registre, :remise, :quantite)');
 
 
         //Bind values
-            $this->db->bind(':origine', $article['origine']);
-            $this->db->bind(':genre', $article['genre']);
-            $this->db->bind(':qualite', $article['qualite']);
+            $this->db->bind(':id_produit', $article['id_produit']);
             $this->db->bind(':id_taille', $article['id_taille']);
             $this->db->bind(':id_couleur', $article['id_couleur']);
-            $this->db->bind(':image', $article['image']);
             $this->db->bind(':date_registre', $creation);
-            $this->db->bind(':prix', $article['prix']);
+            $this->db->bind(':remise', $article['remise']);
             $this->db->bind(':quantite', $article['quantite']);      
                
         //Execute function
@@ -80,6 +78,46 @@ class Admin {
             return false;
         }
     }
+
+    public function ajoutProduit($produit) {
+        
+        $this->db->query('INSERT INTO produit (origine_produit, genre_produit, nom_produit, image_produit, prix_produit) 
+        VALUES(:origine_produit, :genre_produit, :nom_produit, :image_produit, :prix_produit)');
+
+
+        //Bind values
+            $this->db->bind(':origine_produit', $produit['origine_produit']);
+            $this->db->bind(':genre_produit', $produit['genre_produit']);
+            $this->db->bind(':nom_produit', $produit['nom_produit']);
+            $this->db->bind(':image_produit', $produit['image_produit']);
+            $this->db->bind(':prix_produit', $produit['prix_produit']);      
+               
+        //Execute function
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function updateProduit($produit){
+            
+        $this->db->query('UPDATE produit SET origine_produit= :origine_produit, genre_produit= :genre_produit, nom_produit= :nom_produit, image_produit= :image_produit, prix_produit= :prix_produit WHERE id_produit= :id_produit');
+       
+        $this->db->bind(':origine_produit', $produit['origine_produit']);
+        $this->db->bind(':genre_produit', $produit['genre_produit']);
+        $this->db->bind(':nom_produit', $produit['nom_produit']);
+        $this->db->bind(':image_produit', $produit['image_produit']);
+        $this->db->bind(':prix_produit', $produit['prix_produit']);      
+        $this->db->bind(':id_produit', $produit['id_produit']);            
+       
+        //Execute function
+    if ($this->db->execute()) {
+        return true;
+    } else {
+        return false;
+    }         
+}  
 
 
     public function connexion($login, $password) {
