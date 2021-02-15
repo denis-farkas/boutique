@@ -88,28 +88,28 @@
                     </div>
 
                 </div>
-                <hr class="my-4">
+               
                 <div class="jumbotron">
-                    <h1 class="display-5">Catalogue</h1>
-                    <hr class="my-4">
+                    <h1 class="display-5 mb-5">Catalogue</h1>
+                  
                
               
                     <?php foreach($data['produits'] as $montecristi){
                         echo '
-                        <div class="row">
+                        <div class="row back">
                             <div class="col-md-4 w-100">
                                 <img class="img-fluid w-100 mt-1" src="'.WWW_ROOT.'public/images/hats_big/'.$montecristi->image_produit.'" alt="montecristi">   
                             </div>
                             <div class="col-md-4 w-100>
-                                <p class="lead mt-2">Exclusivité Web!</p>
-                                <h3 mt-5>'.$montecristi->origine_produit.' '.$montecristi->nom_produit.'</h3>
+                                <p class="lead mt-4">Exclusivité Web!</p>
+                                <h4 mt-5>'.$montecristi->origine_produit.' '.$montecristi->nom_produit.'</h4>
                             </div>
-                            <div class="col-md-4 border-left border-warning w-100">
-                                <h1 class="display-6 gold mt-5">'.$montecristi->prix_produit.'</h1><h4>Euros</h4>
+                            <div class="col-md-4  w-100">
+                                <h4 class="gold mt-5">'.$montecristi->prix_produit.' €</h4>
                                 <br />
                                 <button type="button" class="btn btn-outline-warning">Voir</button> 
                             </div>
-                        </div><hr class="my-2">';
+                        </div>';
                     }
                     ?>
                 </div>
