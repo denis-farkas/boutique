@@ -39,4 +39,20 @@ class Produits extends Controller {
 
         $this->view('produits/mode', $data);
     }
+
+      public function ficheArticle($id_produit){
+        if (!empty($_SESSION['id_user'])){
+        $article = $this->adminModel->listArticles($id_produit);
+        $data = [
+            'articles' => $articles];
+
+        $this->view('produits/ficheArticle', $data);
+        } else {
+                header('location:' . WWW_ROOT . 'pages/index');
+            }
+        }
+
+
+
+
 }

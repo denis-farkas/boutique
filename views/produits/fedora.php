@@ -83,7 +83,7 @@
                        Il  bénéficie donc tout de même d'un savoir-faire artisanal de qualité. Il est par ailleurs teinté en blanc ou en couleur à la différence du Montecristi.</div>
                     </div>
                     <div class="col-md-4">
-                    <img class="img-fluid w-100 mt-2" src="<?php echo WWW_ROOT; ?>public/images/fedora.jpg" alt="tissage">
+                    <img class="img-fluid w-100 mt-2" src="<?php echo WWW_ROOT; ?>public/images/fedora.jpg" alt="fedora">
                     </div>
 
                 </div>
