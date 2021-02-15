@@ -98,11 +98,12 @@
                         echo '
                         <div class="row back">
                             <div class="col-md-4 w-100">
-                                <img class="img-fluid w-100 mt-1" src="'.WWW_ROOT.'public/images/hats_big/'.$montecristi->image_produit.'" alt="montecristi">   
+                                <img class="img-fluid w-75 mt-1" src="'.WWW_ROOT.'public/images/hats_big/'.$montecristi->image_produit.'" alt="montecristi">   
                             </div>
-                            <div class="col-md-4 w-100>
-                                <p class="lead mt-4">Exclusivité Web!</p>
-                                <h4 mt-5>'.$montecristi->origine_produit.' '.$montecristi->nom_produit.'</h4>
+                            <div class="col-md-4 mt-3 w-100>
+                                <p class="lead mt-5">Exclusivité Web!</p>
+                                <h4 mt-5>'.$montecristi->origine_produit.' '.$montecristi->nom_produit.'</h4><br>
+                                <span class="badge badge-pill badge-success">Disponible</span>
                             </div>
                             <div class="col-md-4  w-100">
                                 <h4 class="gold mt-5">'.$montecristi->prix_produit.' €</h4>
