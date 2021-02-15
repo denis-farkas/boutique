@@ -84,7 +84,7 @@
                         </div>
                     </div>
                     <div class="col-md-4">
-                    <img class="img-fluid w-100 mt-2" src="<?php echo WWW_ROOT; ?>public/images/mode.jpeg" alt="mode">
+                    <img class="img-fluid w-100" src="<?php echo WWW_ROOT; ?>public/images/mode.jpeg" alt="mode">
                     </div>
 
                 </div>
