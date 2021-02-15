@@ -20,5 +20,14 @@ class Pages extends Controller
         $this->view('main/result', $data);
     }
 
+    public function fiche()
+    {
+        $data = [
+            'title' => 'result'
+        ];
+
+        $this->view('main/fiche', $data);
+    }
+
   
 }
