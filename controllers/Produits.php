@@ -13,7 +13,7 @@ class Produits extends Controller {
             'produits' => $produits
         ];
 
-        $this->view('main/montecristi', $data);
+        $this->view('produits/montecristi', $data);
     }
 
     public function fedora()
@@ -25,7 +25,7 @@ class Produits extends Controller {
             'produits' => $produits
         ];
 
-        $this->view('main/fedora', $data);
+        $this->view('produits/fedora', $data);
     }
    
     public function mode()
@@ -37,6 +37,6 @@ class Produits extends Controller {
             'produits' => $produits
         ];
 
-        $this->view('main/mode', $data);
+        $this->view('produits/mode', $data);
     }
 }
