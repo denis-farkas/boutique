@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : Dim 14 fév. 2021 à 21:49
+-- Généré le : mar. 16 fév. 2021 à 13:26
 -- Version du serveur :  5.7.31
--- Version de PHP : 7.4.9
+-- Version de PHP : 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -164,6 +164,37 @@ INSERT INTO `couleur` (`id_couleur`, `nom_couleur`, `image_couleur`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `detail_article`
+--
+
+DROP TABLE IF EXISTS `detail_article`;
+CREATE TABLE IF NOT EXISTS `detail_article` (
+  `id_detail` int(11) NOT NULL AUTO_INCREMENT,
+  `id_produit` int(10) NOT NULL,
+  `description` text NOT NULL,
+  `img_palme` varchar(50) NOT NULL,
+  `calibre` double NOT NULL,
+  PRIMARY KEY (`id_detail`)
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `detail_article`
+--
+
+INSERT INTO `detail_article` (`id_detail`, `id_produit`, `description`, `img_palme`, `calibre`) VALUES
+(1, 1, 'Ruban satin trois plis - Tissage 1 X 1 brin qui entraine plus d\'un mois de travail.', 'fino.jpg', 1.5),
+(2, 2, 'Ruban satin trois plis - Tissage 1 X 1 brin qui entraine plus de deux mois de travail.', 'extrafino.jpg', 1),
+(3, 3, 'Ruban simple - Tissage 1 X 2 brins qui entraine moins d\'une semaine de travail.', 'c_fino.jpg', 3),
+(4, 4, 'Ruban simple - Tissage 1 X 2 brins qui entraine moins d\'une semaine de travail.', 'c_superfino.jpg', 2),
+(5, 5, 'Ruban simple - Tissage 1 X 2 brins qui entraine moins d\'une semaine de travail.\r\nPalme teintée beige.', 'c_fino_beige.jpg', 3),
+(6, 6, 'Ruban simple - Tissage 1 X 2 brins qui entraine moins d\'une semaine de travail.\r\nPalme teintée en beige.', 'c_superfino_beige.jpg', 2),
+(7, 7, 'Ruban coton noir plissé avec noeud - Tissage 1 X 2 brins (une semaine de travail).\r\nPalme colorée. Bords enroulés à la vapeur.', 'buly.jpg', 3),
+(8, 8, 'Ruban coton noir plissé avec noeud - Tissage au crochet.\r\nPalme colorée. ', 'crochet_beige.jpg', 4),
+(9, 9, 'Ruban coton noir simple - Coupole au crochet, ailes tissées 1X2 brins.\r\nPalme colorée. ', 'deux.jpg', 4);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `detail_commande`
 --
 
@@ -235,7 +266,7 @@ INSERT INTO `produit` (`id_produit`, `origine_produit`, `categorie_produit`, `ge
 (1, 'Montecristi', 'Montecristi', 'Masculin', 'Fin Naturel', 'mh-exf.jpg', 199),
 (2, 'Montecristi', 'Montecristi', 'Masculin', 'Extra Fin Naturel', 'mh-sf.jpg', 399),
 (3, 'Cuenca', 'Fedora', 'Masculin', 'Blanc Fin', 'ch-f.jpg', 49),
-(4, 'Cuenca', 'Fedora', 'Masculin', 'Blanc Super Fin', 'ch-sup-fin-bl.jpg', 79),
+(4, 'Cuenca', 'Fedora', 'Masculin', 'Blanc Super Fin', 'ch-supfin-bl.jpg', 79),
 (5, 'Cuenca', 'Fedora', 'Masculin', 'Beige Fin', 'ch-f-beige.jpg', 49),
 (6, 'Cuenca', 'Fedora', 'Masculin', 'Beige Super Fin', 'ch-sf.jpg', 79),
 (7, 'Cuenca', 'Mode', 'Feminin', 'Buly', 'buly.jpg', 79),
