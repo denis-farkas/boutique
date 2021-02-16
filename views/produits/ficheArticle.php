@@ -59,35 +59,67 @@
             </div>
         </div>
         
-        <div class="col-md-12">
-                <div class="jumbotron">
-                    <h1 class="display-5 mb-5">ARTICLE </h1>
+        
+            <div class="jumbotron">
+                <h1 class="display-5 mb-5">ARTICLE </h1>   
+                <div class="container backy">                                  
+                                
                   
-               
-              
-                    
-                      
-                        <div class="row back">
-                            <div class="col-md-6 w-100">
-                                <img class="img-fluid w-50 mt-1" src="<?php echo WWW_ROOT.'public/images/hats_big/'.$data['produit']->image_produit; ?>" alt="">   
-                            </div>
-                            <div class="col-md-6 mt-3 w-100">
-                                <p class="lead mt-5">Exclusivité Web!</p>
-                                <h4 mt-5><?php echo $data['produit']->categorie_produit.' '.$data['produit']->nom_produit; ?></h4><br>
-                                <span class="badge badge-pill badge-success">Disponible</span>
-                                <h4 class="gold mt-5"><?= $data['produit']->prix_produit ?> €</h4>
-                                <br />
-                              
-                                    <p>tailles disponibles:  <?php foreach($data['articles'] as $article){ if($article->quantite >=1){echo $article->nom_taille.' '; } } ?></p> <!--$article->id_article -->
-                                    <p>couleurs disponibles:  <?php if($data['produit']->nom_produit== 'Buly' || $data['produit']->nom_produit== 'Dos Calidades' ){ foreach($data['articles'] as $article){ if($article->quantite >=1){ echo $article->nom_couleur; } } }else{echo $data['produit']->nom_produit;} ?></p>
-                              
-                            </div>
+                    <div class="row">
+                        <div class="col-md-6 w-100">
+                        <img class="img-fluid w-75 m-5" src="<?php echo WWW_ROOT.'public/images/hats_big/'.$data['produit']->image_produit; ?>" alt="">   
                         </div>
-                    
-                </div>
-                
-            </section>
-        </div>
+                        <div class="col-md-6 mt-3 w-100">
+                       
+                        <h4 mt-5><?php echo $data['produit']->categorie_produit.' '.$data['produit']->nom_produit; ?></h4>
+                        <span class="badge badge-pill badge-success">Disponible</span>
+                        <p><?= $data['detail']->description ?></p>
+                        <img class="img-thumbnail ml-5 " src="<?php echo WWW_ROOT.'public/images/palme/'.$data['detail']->img_palme; ?>" alt="">
+                        <span class="ml-2">Calibre de palme de: <?= $data['detail']->calibre ?> mm.</span>
+                        <h4 class="gold mt-5"><?= $data['produit']->prix_produit ?> €</h4>
+                        <br />
+                        <form action="<?php echo WWW_ROOT;?>produits/viewDetail" method="post">
+                            <fieldset>
+                            <div class="form-group">
+                                <label for="taille">Taille</label>
+                                <input type="text" class="form-control" id="taille" name="taille" value="<?= $data['article']->nom_taille ?>" disabled >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="couleur">Couleur</label>
+                                <input type="text" class="form-control" id="couleur" name="couleur" value="<?= $data['article']->nom_couleur ?>" disabled >
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="quantite">Quantité</label>
+                                <input type="number" class="form-control" id="quantite" name="quantite" value="<?= $data['article']->quantite ?>" >
+                            </div>
+
+                            <input type="hidden" name="id_produit" value="<?= $data['produit']->id_produit ?>">
+                            <input type="submit" class="btn btn-primary" name="update" value="Modifier">
+                            </fieldset>
+                            </form>
+                        
+                        <p>tailles disponibles:  <?php foreach($data['articles'] as $article){ if($article->quantite >=1){echo $article->nom_taille.' '; } } ?></p> <!--$article->id_article -->
+                        <p>couleurs disponibles:  <?php if($data['produit']->nom_produit== 'Buly' || $data['produit']->nom_produit== 'Dos Calidades' ){ foreach($data['articles'] as $article){ if($article->quantite >=1){ echo $article->nom_couleur; } } }else{echo $data['produit']->nom_produit;} ?></p>
+                        </div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-md-2 w-100"></div>
+
+                        <div class="col-md-8 w-100">
+                            <?php
+                            require (ROOT.'views/includes/nav_tab.php');
+                            ?>
+                        </div>
+                        
+                        <div class="col-md-2 w-100"></div>
+                    </div>
+                </div>    
+               
+            </div>                
+            
+       
 
 
         <?php
