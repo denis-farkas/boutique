@@ -59,31 +59,31 @@
             </div>
         </div>
         
-        <div class="row">
+        <div class="col-md-12">
                 <div class="jumbotron">
-                    <h1 class="display-5 mb-5">Catalogue</h1>
+                    <h1 class="display-5 mb-5">ARTICLE </h1>
                   
                
               
-                    <?php foreach($data['produits'] as $montecristi){
-                        echo '
+                    
+                      
                         <div class="row back">
-                            <div class="col-md-4 w-100">
-                                <img class="img-fluid w-75 mt-1" src="'.WWW_ROOT.'public/images/hats_big/'.$montecristi->image_produit.'" alt="montecristi">   
+                            <div class="col-md-6 w-100">
+                                <img class="img-fluid w-50 mt-1" src="<?php echo WWW_ROOT.'public/images/hats_big/'.$data['produit']->image_produit; ?>" alt="">   
                             </div>
-                            <div class="col-md-4 mt-3 w-100>
+                            <div class="col-md-6 mt-3 w-100>
                                 <p class="lead mt-5">Exclusivité Web!</p>
-                                <h4 mt-5>'.$montecristi->origine_produit.' '.$montecristi->nom_produit.'</h4><br>
+                                <h4 mt-5><?php echo $data['produit']->origine_produit.' '.$data['produit']->nom_produit; ?></h4><br>
                                 <span class="badge badge-pill badge-success">Disponible</span>
-                            </div>
-                            <div class="col-md-4  w-100">
-                                <h4 class="gold mt-5">'.$montecristi->prix_produit.' €</h4>
+                                <h4 class="gold mt-5"><?= $data['produit']->prix_produit ?> €</h4>
                                 <br />
-                                <button type="button" class="btn btn-outline-warning">Voir</button> 
+                              
+                                    <p>tailles disponibles:  <?php foreach($data['articles'] as $article){ if($article->quantite >=1){echo $article->nom_taille.' '; } } ?></p> <!--$article->id_article -->
+                                    <p>couleurs disponibles:  <?php if($data['produit']->nom_produit== 'Buly' || $data['produit']->nom_produit== 'Dos Calidades' ){ foreach($data['articles'] as $article){ if($article->quantite >=1){ echo $article->nom_couleur; } } }else{echo $data['produit']->nom_produit;} ?></p>
+                              
                             </div>
-                        </div>';
-                    }
-                    ?>
+                        </div>
+                    
                 </div>
                 
             </section>

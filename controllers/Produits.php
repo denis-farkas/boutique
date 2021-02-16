@@ -42,8 +42,10 @@ class Produits extends Controller {
 
       public function ficheArticle($id_produit){
         if (!empty($_SESSION['id_user'])){
-        $article = $this->adminModel->listArticles($id_produit);
+        $produit= $this->produitModel->viewProduit($id_produit);
+        $articles = $this->produitModel->listArticles($id_produit);
         $data = [
+            'produit' => $produit,
             'articles' => $articles];
 
         $this->view('produits/ficheArticle', $data);

@@ -26,14 +26,14 @@
         </div>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <ul class="navbar-nav ml-5 mx-auto">                        
-                    <li class="nav-item">
-                        <h3><a class="nav-link" href="#">MONTECRISTI</a></h3>
+                <li class="nav-item">
+                        <h3><a class="nav-link" href="<?= WWW_ROOT ?>produits/montecristi">MONTECRISTI</a></h3>
                     </li>
                     <li class="nav-item">
-                        <h3><a class="nav-link" href="#">FEDORA</a></h3>
+                        <h3><a class="nav-link" href="<?= WWW_ROOT ?>produits/fedora">FEDORA</a></h3>
                     </li>
                     <li class="nav-item">
-                        <h3><a class="nav-link" href="#">MODE</a></h3>
+                        <h3><a class="nav-link" href="<?= WWW_ROOT ?>produits/mode">MODE</a></h3>
                     </li>
                     
                 
@@ -94,21 +94,21 @@
                   
                
               
-                    <?php foreach($data['produits'] as $montecristi){
+                    <?php foreach($data['produits'] as $mode){
                         echo '
                         <div class="row back">
                             <div class="col-md-4 w-100">
-                                <img class="img-fluid w-75 mt-1" src="'.WWW_ROOT.'public/images/hats_big/'.$montecristi->image_produit.'" alt="montecristi">   
+                                <img class="img-fluid w-75 mt-1" src="'.WWW_ROOT.'public/images/hats_big/'.$mode->image_produit.'" alt="montecristi">   
                             </div>
                             <div class="col-md-4 mt-3 w-100>
                                 <p class="lead mt-5">Exclusivité Web!</p>
-                                <h4 mt-5>'.$montecristi->origine_produit.' '.$montecristi->nom_produit.'</h4><br>
+                                <h4 mt-5>'.$mode->origine_produit.' '.$mode->nom_produit.'</h4><br>
                                 <span class="badge badge-pill badge-success">Disponible</span>
                             </div>
                             <div class="col-md-4  w-100">
-                                <h4 class="gold mt-5">'.$montecristi->prix_produit.' €</h4>
+                                <h4 class="gold mt-5">'.$mode->prix_produit.' €</h4>
                                 <br />
-                                <button type="button" class="btn btn-outline-warning">Voir</button> 
+                                <a class="btn btn-outline-warning"  href="'.WWW_ROOT.'produits/ficheArticle/'.$mode->id_produit.'">Voir</a> 
                             </div>
                         </div>';
                     }
