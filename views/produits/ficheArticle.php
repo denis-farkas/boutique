@@ -71,9 +71,9 @@
                             <div class="col-md-6 w-100">
                                 <img class="img-fluid w-50 mt-1" src="<?php echo WWW_ROOT.'public/images/hats_big/'.$data['produit']->image_produit; ?>" alt="">   
                             </div>
-                            <div class="col-md-6 mt-3 w-100>
+                            <div class="col-md-6 mt-3 w-100">
                                 <p class="lead mt-5">Exclusivité Web!</p>
-                                <h4 mt-5><?php echo $data['produit']->origine_produit.' '.$data['produit']->nom_produit; ?></h4><br>
+                                <h4 mt-5><?php echo $data['produit']->categorie_produit.' '.$data['produit']->nom_produit; ?></h4><br>
                                 <span class="badge badge-pill badge-success">Disponible</span>
                                 <h4 class="gold mt-5"><?= $data['produit']->prix_produit ?> €</h4>
                                 <br />

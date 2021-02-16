@@ -28,4 +28,11 @@ class Produit {
         $produit=$this->db->single();
         return $produit; 
     }
+
+    public function viewDetail($id_produit) {
+        $this->db->query('SELECT * FROM detail_article WHERE id_produit= :id_produit');
+        $this->db->bind(':id_produit', $id_produit);
+        $detail=$this->db->single();
+        return $detail; 
+    }
 }
