@@ -12,7 +12,7 @@
     <a class="nav-link" data-toggle="tab" href="#livraison">Livraison et retour</a>
   </li>  
 </ul>
-<div id="myTabContent" class="tab-content">
+<div id="myTabContent" class="tab-content m-3">
   <div class="tab-pane fade show active" id="description">
     <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
   </div>

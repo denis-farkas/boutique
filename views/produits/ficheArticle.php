@@ -61,21 +61,21 @@
         
         
             <div class="jumbotron">
-                <h1 class="display-5 mb-5">ARTICLE </h1>   
+                <h1 class="display-5 mb-5 text-center">ARTICLE </h1>   
                 <div class="container backy">                           
                                                  
                     <div class="row">
-                        <div class="col-md-6 w-100">
+                        <div class="col-md-6 w-100 mt-5">
                         <img class="img-fluid w-75 m-5" src="<?php echo WWW_ROOT.'public/images/hats_big/'.$data['produit']->image_produit; ?>" alt="">   
                         </div>
-                        <div class="col-md-6 mt-3 w-100">
+                        <div class="col-md-6 mt-5 w-100">
                        
                         <h4 mt-5><?php echo $data['produit']->categorie_produit.' '.$data['produit']->nom_produit; ?></h4>
                         <span class="badge badge-pill badge-success">Disponible</span>
-                        <p><?= $data['detail']->description ?></p>
+                        <p class="mt-4"><?= $data['detail']->description ?></p>
                         <img class="img-thumbnail ml-5 " src="<?php echo WWW_ROOT.'public/images/palme/'.$data['detail']->img_palme; ?>" alt="">
                         <span class="ml-2">Calibre de palme de: <?= $data['detail']->calibre ?> mm.</span>
-                        <h4 class="gold mt-5"><?= $data['produit']->prix_produit ?> €</h4>
+                        <h2 class="gold mt-4 text-center"><?= $data['produit']->prix_produit ?> €</h2>
                         <br />
                         <form action="<?php echo WWW_ROOT;?>produits/viewDetail" method="post">
                             <fieldset>
@@ -94,7 +94,7 @@
                                 ?>     
                                 
                             </div>
-                            <div class="form-group">
+                            <div class="form-group m-4">
                                 <p>Couleur(s) disponible(s) : </p>
                                 <?php
                                 if ($data['produit']->id_produit == 1  || $data['produit']->id_produit == 2){
@@ -118,7 +118,7 @@
                                 ?>
                             </div>
                             
-                            <div class="form-group">
+                            <div class="form-group mb-4">
                                 <label for="quantite">Quantité</label>
                                 <input type="number" class="form-control" id="quantite" name="quantite" value="1">
                             </div>
@@ -131,7 +131,7 @@
                        
                         </div>
                     </div>
-                    <div class="row text-center">
+                    <div class="row mt-5 text-center">
                         <div class="col-md-2 w-100"></div>
 
                         <div class="col-md-8 w-100">
