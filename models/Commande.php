@@ -30,7 +30,25 @@ class Commande {
         } else {
             return false;
         }
+    }
 
-        
+    public function detailCommande($article){
+        $this->db->query('INSERT INTO detail_commande (id_article, quantite_article, id_commande)
+        VALUES(:id_article, :quantite_article, :id_commande)');
+
+
+        //Bind values
+            $this->db->bind(':id_article', $article->);
+            $this->db->bind(':quantite_article', 0);
+            $this->db->bind(':id_commande', $id_user);
+                          
+        //Execute function
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
+        
+ 
