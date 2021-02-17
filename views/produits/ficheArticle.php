@@ -97,24 +97,14 @@
                             <div class="form-group m-4">
                                 <p>Couleur(s) disponible(s) : </p>
                                 <?php
-                                if ($data['produit']->id_produit == 1  || $data['produit']->id_produit == 2){
-                                    echo '<img class="img-thumbnail ml-5 " src="'.WWW_ROOT.'public/images/couleur/naturel.jpg" alt="">';
-                                }elseif($data['produit']->id_produit == 3  || $data['produit']->id_produit == 4){
-                                        echo '<img class="img-thumbnail ml-5 " src="'.WWW_ROOT.'public/images/couleur/blanc.jpg" alt="">'; 
-                                }elseif($data['produit']->id_produit == 5  || $data['produit']->id_produit == 6 || $data['produit']->id_produit == 8){
-                                    echo '<img class="img-thumbnail ml-5 " src="'.WWW_ROOT.'public/images/couleur/beige.jpg" alt="">'; 
-                            }elseif($data['produit']->id_produit == 7){
-                                echo '<img class="img-thumbnail ml-5 " src="'.WWW_ROOT.'public/images/couleur/moutarde.jpg" alt="">';
-                                echo '<img class="img-thumbnail ml-5 " src="'.WWW_ROOT.'public/images/couleur/noir.jpg" alt="">';
-                                echo '<img class="img-thumbnail ml-5 " src="'.WWW_ROOT.'public/images/couleur/cafe.jpg" alt="">';
-                            }else{
-                                echo '<img class="img-thumbnail ml-5 " src="'.WWW_ROOT.'public/images/couleur/moutarde.jpg" alt="">';
-                                echo '<img class="img-thumbnail ml-5 " src="'.WWW_ROOT.'public/images/couleur/noir.jpg" alt="">';
-                                echo '<img class="img-thumbnail ml-5 " src="'.WWW_ROOT.'public/images/couleur/cafe.jpg" alt="">';
-                                echo '<img class="img-thumbnail ml-5 " src="'.WWW_ROOT.'public/images/couleur/olive.jpg" alt="">';
-                                echo '<img class="img-thumbnail ml-5 " src="'.WWW_ROOT.'public/images/couleur/rouge.jpg" alt="">';
-                               
-                            }
+                                $color= 'Neutre';
+                                foreach($data['articles'] as $article){
+                                        $j = $article->nom_couleur;
+                                        if($color != $j){echo '<img class="img-thumbnail ml-5 " src="'.WWW_ROOT.'public/images/couleur/'.$article->image_couleur.'" alt="">';}
+                                        $color=$j;
+                                    }
+                                
+                
                                 ?>
                             </div>
                             
