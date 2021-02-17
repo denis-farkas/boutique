@@ -80,7 +80,7 @@
                         <span class="ml-2">Calibre de palme de: <?= $data['detail']->calibre ?> mm.</span>
                         <h2 class="gold mt-4 text-center"><?= $data['produit']->prix_produit ?> €</h2>
                         <br />
-                        <form action="<?php echo WWW_ROOT;?>produits/commande" method="post">
+                        <form action="<?php echo WWW_ROOT;?>commandes/commande" method="post">
                             <fieldset>
                             <div class="row">
                                 <div class="form-group">  
@@ -111,19 +111,13 @@
                                         $j = $article->nom_couleur;
                                         if($color != $j){echo '<img class="img-thumbnail ml-5 " src="'.WWW_ROOT.'public/images/couleur/'.$article->image_couleur.'" alt="">';}
                                         $color=$j;
-                                    }
-                                
-                
+                                    }                                               
                                 ?>
-                            </div>
-                            
-                            
+                            </div>                                                       
 
-                            <input type="hidden" name="id_produit" value="<?= $data['produit']->id_produit ?>">
                             <input type="submit" class="btn btn-primary" name="ajout" value="Ajouter au panier">
                             </fieldset>
-                            </form>
-                        
+                            </form>                        
                        
                         </div>
                     </div>

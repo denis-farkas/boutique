@@ -5,7 +5,7 @@ class Commandes extends Controller {
     }
 
     public function commande() {
-        if (!empty($_SESSION['id_user'] && isset($_POST['ajout'])) {
+        if (!empty($_SESSION['id_user'] && isset($_POST['ajout']))) {
 
             $article = [
                 'id_article'=> '',                     
@@ -13,7 +13,7 @@ class Commandes extends Controller {
                 'id_commande'=> ''
                 ];
 
-                $panier= $this->commandeModel->viewCommande($_POST['$id_user']);
+                $panier= $this->commandeModel->viewCommande($_SESSION['id_user']);
                 if($panier){
                     // Sanitize POST data
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -21,12 +21,17 @@ class Commandes extends Controller {
                 $article = [
                     'id_article'=> $_POST['id_article'],
                     'quantite'=> $_POST['quantite'],
-                    'id_commande'=> $panier->id_commande;
+                    'id_commande'=> $panier->id_commande
                     ];
                     
-                    header('location:' . WWW_ROOT . 'commandes/ajoutPanier/'.$article);
+                    if ($this->commandeModel->detailCommande($article)) {
+                       
+                        header('location: ' . WWW_ROOT . 'commandes/listCommandes');
+                    } else {
+                        die('Erreur système.');
+                    }
                 }else{
-                    $commande= $this->commandeModel->ajoutCommande($_POST['id_user']);
+                    $commande= $this->commandeModel->ajoutCommande($_SESSION['id_user']);
                     header('location:' . WWW_ROOT . 'commandes/commande');
                 }                  
             
@@ -34,4 +39,6 @@ class Commandes extends Controller {
             header('location:'. WWW_ROOT . 'users/connexion');
         }
     }
-}
+
+    
+    }
