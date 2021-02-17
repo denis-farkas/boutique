@@ -80,19 +80,23 @@
                         <br />
                         <form action="<?php echo WWW_ROOT;?>produits/viewDetail" method="post">
                             <fieldset>
-                            <div class="form-group">
-                                <label for="taille">Taille</label>
-                                <input type="text" class="form-control" id="taille" name="taille" value="<?= $data['article']->nom_taille ?>" disabled >
-                            </div>
-
-                            <div class="form-group">
-                                <label for="couleur">Couleur</label>
-                                <input type="text" class="form-control" id="couleur" name="couleur" value="<?= $data['article']->nom_couleur ?>" disabled >
+                            <div class="form-group">  
+                                <?php 
+                                echo ' <label for="article">Article</label>
+                                <select class="form-control" id="article" name="id_article">';
+                                foreach($data['articles'] as $articles){
+                                    if($articles->quantite >= 1){
+                                        echo '<option value="'.$articles->id_article.'"><img src="'. WWW_ROOT.'public/images/couleur/'.$articles->image_couleur.'" alt="'.$articles->nom_couleur.'"> '.$articles->nom_taille.' '.$articles->cm_taille.'</option>' ;
+                                    } 
+                                }
+                                echo '</select>';
+                                ?>     
+                                
                             </div>
                             
                             <div class="form-group">
                                 <label for="quantite">Quantité</label>
-                                <input type="number" class="form-control" id="quantite" name="quantite" value="<?= $data['article']->quantite ?>" >
+                                <input type="number" class="form-control" id="quantite" name="quantite" >
                             </div>
 
                             <input type="hidden" name="id_produit" value="<?= $data['produit']->id_produit ?>">
@@ -100,8 +104,7 @@
                             </fieldset>
                             </form>
                         
-                        <p>tailles disponibles:  <?php foreach($data['articles'] as $article){ if($article->quantite >=1){echo $article->nom_taille.' '; } } ?></p> <!--$article->id_article -->
-                        <p>couleurs disponibles:  <?php if($data['produit']->nom_produit== 'Buly' || $data['produit']->nom_produit== 'Dos Calidades' ){ foreach($data['articles'] as $article){ if($article->quantite >=1){ echo $article->nom_couleur; } } }else{echo $data['produit']->nom_produit;} ?></p>
+                       
                         </div>
                     </div>
                     <div class="row text-center">

@@ -13,7 +13,7 @@ class Produit {
     }
 
      public function listArticles($id_produit) {
-        $this->db->query('SELECT id_article, nom_taille, nom_couleur, quantite, remise  FROM article JOIN taille ON article.id_taille = taille.id_taille JOIN couleur ON article.id_couleur = couleur.id_couleur  WHERE article.id_produit = :id_produit');
+        $this->db->query('SELECT id_article, nom_taille, cm_taille, nom_couleur, image_couleur, quantite, remise  FROM article JOIN taille ON article.id_taille = taille.id_taille JOIN couleur ON article.id_couleur = couleur.id_couleur  WHERE article.id_produit = :id_produit');
 
         //Bind 
         $this->db->bind(':id_produit', $id_produit);
