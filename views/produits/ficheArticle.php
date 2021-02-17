@@ -62,9 +62,8 @@
         
             <div class="jumbotron">
                 <h1 class="display-5 mb-5">ARTICLE </h1>   
-                <div class="container backy">                                  
-                                
-                  
+                <div class="container backy">                           
+                                                 
                     <div class="row">
                         <div class="col-md-6 w-100">
                         <img class="img-fluid w-75 m-5" src="<?php echo WWW_ROOT.'public/images/hats_big/'.$data['produit']->image_produit; ?>" alt="">   
@@ -86,17 +85,42 @@
                                 <select class="form-control" id="article" name="id_article">';
                                 foreach($data['articles'] as $articles){
                                     if($articles->quantite >= 1){
-                                        echo '<option value="'.$articles->id_article.'"><img src="'. WWW_ROOT.'public/images/couleur/'.$articles->image_couleur.'" alt="'.$articles->nom_couleur.'"> '.$articles->nom_taille.' '.$articles->cm_taille.'</option>' ;
-                                    } 
+                                        echo '<option value="'.$articles->id_article.'" >';
+                                        echo 'Couleur : '.$articles->nom_couleur. ', ';
+                                        echo ' Taille : '.$articles->nom_taille.', soit : '.$articles->cm_taille.'</option>';
+                                    }
                                 }
                                 echo '</select>';
                                 ?>     
                                 
                             </div>
+                            <div class="form-group">
+                                <p>Couleur(s) disponible(s) : </p>
+                                <?php
+                                if ($data['produit']->id_produit == 1  || $data['produit']->id_produit == 2){
+                                    echo '<img class="img-thumbnail ml-5 " src="'.WWW_ROOT.'public/images/couleur/naturel.jpg" alt="">';
+                                }elseif($data['produit']->id_produit == 3  || $data['produit']->id_produit == 4){
+                                        echo '<img class="img-thumbnail ml-5 " src="'.WWW_ROOT.'public/images/couleur/blanc.jpg" alt="">'; 
+                                }elseif($data['produit']->id_produit == 5  || $data['produit']->id_produit == 6 || $data['produit']->id_produit == 8){
+                                    echo '<img class="img-thumbnail ml-5 " src="'.WWW_ROOT.'public/images/couleur/beige.jpg" alt="">'; 
+                            }elseif($data['produit']->id_produit == 7){
+                                echo '<img class="img-thumbnail ml-5 " src="'.WWW_ROOT.'public/images/couleur/moutarde.jpg" alt="">';
+                                echo '<img class="img-thumbnail ml-5 " src="'.WWW_ROOT.'public/images/couleur/noir.jpg" alt="">';
+                                echo '<img class="img-thumbnail ml-5 " src="'.WWW_ROOT.'public/images/couleur/cafe.jpg" alt="">';
+                            }else{
+                                echo '<img class="img-thumbnail ml-5 " src="'.WWW_ROOT.'public/images/couleur/moutarde.jpg" alt="">';
+                                echo '<img class="img-thumbnail ml-5 " src="'.WWW_ROOT.'public/images/couleur/noir.jpg" alt="">';
+                                echo '<img class="img-thumbnail ml-5 " src="'.WWW_ROOT.'public/images/couleur/cafe.jpg" alt="">';
+                                echo '<img class="img-thumbnail ml-5 " src="'.WWW_ROOT.'public/images/couleur/olive.jpg" alt="">';
+                                echo '<img class="img-thumbnail ml-5 " src="'.WWW_ROOT.'public/images/couleur/rouge.jpg" alt="">';
+                               
+                            }
+                                ?>
+                            </div>
                             
                             <div class="form-group">
                                 <label for="quantite">Quantité</label>
-                                <input type="number" class="form-control" id="quantite" name="quantite" >
+                                <input type="number" class="form-control" id="quantite" name="quantite" value="1">
                             </div>
 
                             <input type="hidden" name="id_produit" value="<?= $data['produit']->id_produit ?>">
