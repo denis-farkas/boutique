@@ -9,7 +9,7 @@ class Commandes extends Controller {
 
             $article = [
                 'id_article'=> '',                     
-                'quantite'=> '',
+                'quantite_article'=> '',
                 'id_commande'=> ''
                 ];
 
@@ -20,13 +20,13 @@ class Commandes extends Controller {
     
                 $article = [
                     'id_article'=> $_POST['id_article'],
-                    'quantite'=> $_POST['quantite'],
+                    'quantite_article'=> $_POST['quantite'],
                     'id_commande'=> $panier->id_commande
                     ];
                     
                     if ($this->commandeModel->detailCommande($article)) {
                        
-                        header('location: ' . WWW_ROOT . 'commandes/listCommandes');
+                        header('location: ' . WWW_ROOT . 'commandes/listeCommande/'.$panier->id_commande);
                     } else {
                         die('Erreur système.');
                     }
@@ -40,5 +40,15 @@ class Commandes extends Controller {
         }
     }
 
+        public function listeCommande($id_commande){
+            $commandes= $this->commandeModel->listeCommande($id_commande);
+            if($commandes){
+                $data = ['commandes' => $commandes];
+                $this->view('produits/listeCommande', $data);
+            }else{
+                header('location:'. WWW_ROOT . 'users/connexion');  
+            }          
+
+        }
     
     }

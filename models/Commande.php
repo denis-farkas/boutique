@@ -38,9 +38,9 @@ class Commande {
 
 
         //Bind values
-            $this->db->bind(':id_article', $article->);
-            $this->db->bind(':quantite_article', 0);
-            $this->db->bind(':id_commande', $id_user);
+            $this->db->bind(':id_article', $article['id_article']);
+            $this->db->bind(':quantite_article', $article['quantite_article']);
+            $this->db->bind(':id_commande', $article['id_commande']);
                           
         //Execute function
         if ($this->db->execute()) {
@@ -48,6 +48,13 @@ class Commande {
         } else {
             return false;
         }
+    }
+
+    public function listeCommande($id_commande){
+        $this->db->query('SELECT * FROM detail_commande WHERE id_commande= :id_commande');
+        $this->db->bind(':id_commande', $id_commande);
+        $commandes = $this->db->resultSet();
+        return $commandes;
     }
 }
         
