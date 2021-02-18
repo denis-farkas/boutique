@@ -20,13 +20,13 @@ class Pages extends Controller
         $this->view('main/result', $data);
     }
 
-    public function fiche()
+    public function termes()
     {
         $data = [
-            'title' => 'result'
+            'title' => 'termes et conditions de vente'
         ];
 
-        $this->view('main/fiche', $data);
+        $this->view('main/termes', $data);
     }
 
   
