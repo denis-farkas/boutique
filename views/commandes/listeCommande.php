@@ -41,15 +41,14 @@ var_dump($data);
         <div class="jumbotron">
             <div class="container">
                 <ol class="breadcrumb ml-5">
-                        <li class="breadcrumb-item"><a href="<?= WWW_ROOT ?>pages/index">Boutique</a></li>
-                        <li class="breadcrumb-item active">Panier</li>
-                    </ol>
+                    <li class="breadcrumb-item"><a href="<?= WWW_ROOT ?>pages/index">Boutique</a></li>
+                    <li class="breadcrumb-item active">Panier</li>
+                </ol>
                 <h1 class="display-5">Panier</h1>
                 
-                <div><a href="">
-                    <h6 class="mb-5">Poursuivre vos achats</h6></a>
-                </div>
+                <a href=""><h6 class="mb-5">Poursuivre vos achats</h6></a>    
             </div>
+
             <div class="container backy pt-3">
                 <h3>Récapitulatif</h3>
                 <div class="row m-5">
@@ -71,39 +70,28 @@ var_dump($data);
                         echo '
                     <div class="container backy">  
                         <div class="row">
-                            <div class="col-md-2 w-100">
-                                <img class="img-fluid w-25 mt-1" src="'.WWW_ROOT.'public/images/hats_big/'.$commandes->image_produit.'" alt="commande">   
+                            <div class="col-md-3 w-75">
+                                <img class="img-fluid w-50 mt-1" src="'.WWW_ROOT.'public/images/hats_big/'.$commandes->image_produit.'" alt="commande">   
                             </div>
-                            <div class="col-md-3  w-100>                                
-                                <h4 mt-2>'.$commandes->categorie_produit.' '.$commandes->nom_produit.'</h4><br>
-                                <h4 mt-2>'.$commandes->nom_taille.' '.$commandes->nom_couleur.'</h4>
+                            <div class="col-md-4  w-100">                                
+                                <h5 class="mt-2">'.$commandes->categorie_produit.' '.$commandes->nom_produit.'</h5>
+                                <h5 class="mt-2">Taille: '.$commandes->nom_taille.',  Couleur: '.$commandes->nom_couleur.'</h5>
+                                <h4 class="gold">Prix: '.$commandes->prix_produit.' €</h4>   
                             </div>
 
                             <div class="col-md-2  w-100">
-                                <h4 class="gold mt-5">'.$commandes->prix_produit.' €</h4>                                                       
-                            </div>
-
-                            <div class="col-md-2  w-100>
-                                <div class="form-group  ml-3">
+                                <div class="form-group">
                                 <label for="quantite">Quantité</label>
                                 <input type="number" class="form-control" id="quantite" name="quantite" value="1">
-                                </div>                                               
-                            
+                                </div>                                                                          
                             </div>
-
-                            <div class="col-md-2  w-100">
-                                <h4 class="gold mt-5">'.$commandes->prix_produit.' €</h4>                                                       
+                       
+                            <div class="col-md-3  w-100">                                
+                            <span class="close heavy m-3"></span>
                             </div>
-
-
-                            <div class=" col-md-1  w-100 modal>                                
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-
+                                                    
                         </div>
-                    </div>';                        
+                    </div><br />';                        
                     }
                    ?>
             
