@@ -42,7 +42,7 @@
                                     <li class="list-group-item"><a class="nav-link" href="">Meilleures Ventes</a></li>
                                     <li class="list-group-item"><a class="nav-link" href="">Notre magasin</a></li>
                                     <li class="list-group-item"><a class="nav-link" href="">Contactez-nous</a></li>
-                                    <li class="list-group-item"><a class="nav-link" href="">Conditions de vente</a></li>
+                                    <li class="list-group-item"><a class="nav-link" href="<?php echo WWW_ROOT.'pages/termes'; ?>">Conditions de vente</a></li>
                                     <li class="list-group-item"><a class="nav-link" href="">A notre sujet</a></li>
                                 </ul>
                             </div>
@@ -58,8 +58,8 @@
                     </div>
                     <div class="col-md-4 border-left">
                         
-                        <h5>INFORMATIONS SUR VOTRE BOUTIQUE</h5>
-                        <p>My Company , 42 avenue des Champs Elysées 75000 Paris France</p>
+                        <h5>INFORMATIONS SUR PANAMAHATS.COM</h5>
+                        <p>panamahats.com , 42 avenue des Champs Elysées 75000 Paris France</p>
                         <br />
                         <h5>APPELEZ-NOUS AU :</h5>
                         <h2 class="gold">0123-456-789</h2>
