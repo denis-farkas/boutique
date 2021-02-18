@@ -44,7 +44,7 @@ class Commandes extends Controller {
             $commandes= $this->commandeModel->listeCommande($id_commande);
             if($commandes){
                 $data = ['commandes' => $commandes];
-                $this->view('produits/listeCommande', $data);
+                $this->view('commandes/listeCommande', $data);
             }else{
                 header('location:'. WWW_ROOT . 'users/connexion');  
             }          
