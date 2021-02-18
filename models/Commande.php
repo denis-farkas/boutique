@@ -51,7 +51,7 @@ class Commande {
     }
 
     public function listeCommande($id_commande){
-        $this->db->query('SELECT * FROM detail_commande WHERE id_commande= :id_commande');
+        $this->db->query('SELECT detail_commande.id_article, categorie_produit, nom_produit, image_produit, prix_produit, nom_taille, cm_taille, nom_couleur, image_couleur, date_commande, remise  FROM detail_commande JOIN article ON detail_commande.id_article = article.id_article JOIN produit ON article.id_produit=produit.id_produit JOIN taille ON article.id_taille=taille.id_taille JOIN couleur ON article.id_couleur=couleur.id_couleur JOIN commande ON detail_commande.id_commande=commande.id_commande WHERE detail_commande.id_commande= :id_commande');
         $this->db->bind(':id_commande', $id_commande);
         $commandes = $this->db->resultSet();
         return $commandes;
