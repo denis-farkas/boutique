@@ -13,7 +13,7 @@ class Commande {
     }
 
     public function ajoutCommande($id_user) {
-        $creation= date("Y-m-d");
+        $creation= date("Y-m-d H:i:s");
        
         $this->db->query('INSERT INTO commande (date_commande, statut_commande, id_user)
         VALUES(:date_commande, :statut_commande, :id_user)');

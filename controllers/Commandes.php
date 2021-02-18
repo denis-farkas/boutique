@@ -78,19 +78,13 @@ class Commandes extends Controller {
                          
         }
 
-        public function deleteCommande($id_detail_commande){
+        public function deleteCommande($id_detail_commande, $id_commande){
 
-            if (!empty($_SESSION['id_user'] && isset($_POST['delete']))) {
-
-                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
-                $article = [
-                    'id_commande'=> $_POST['id_commande'] 
-                    ];
+            if (!empty($_SESSION['id_user'])) {
                         
                         if ($this->commandeModel->deleteCommande($id_detail_commande)) {
                            
-                            header('location: ' . WWW_ROOT . 'commandes/listeCommande/'.$article['id_commande']);
+                            header('location: ' . WWW_ROOT . 'commandes/listeCommande/'.$id_commande);
                         } else {
                             die('Erreur système.');
                         }

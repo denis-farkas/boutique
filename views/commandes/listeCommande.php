@@ -93,7 +93,7 @@ var_dump($data);
                             </div>
                        
                             <div class="col-md-2  w-100">                                
-                            <span class="close heavy m-3"></span>
+                            <a href="'.WWW_ROOT.'commandes/deleteCommande/'.$commandes->id_detail_commande.'/'.$commandes->id_commande.'"><span class="close heavy m-3"></span></a>
                             </div>
                                                     
                         </div>
