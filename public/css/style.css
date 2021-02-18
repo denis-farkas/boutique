@@ -69,8 +69,8 @@ footer{
 .close {
     position: relative;
     display: inline-block;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     overflow: hidden;
   }
   .close:hover::before, .close:hover::after {
@@ -102,6 +102,6 @@ footer{
   }
 
   .close.heavy::before, .close.heavy::after {
-    height: 7px;
+    height: 3px;
     margin-top: -3px;
   }
