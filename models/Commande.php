@@ -56,6 +56,32 @@ class Commande {
         $commandes = $this->db->resultSet();
         return $commandes;
     }
+
+    public function modifierCommande($id_detail_commande, $article){
+            
+        $this->db->query('UPDATE detail_commande SET quantite_article= :quantite_article WHERE id_detail_commande= :id_detail_commande');
+        $this->db->bind(':quantite_article', $article['quantite_article']);
+        $this->db->bind(':id_detail_commande', $id_detail_commande);
+                
+            //Execute function
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }         
+    }
+    
+    public function deleteCommande($id_detail_commande){
+    
+        $this->db->query('DELETE FROM detail_commande WHERE id_detail_commande = :id_detail_commande');
+        $this->db->bind('id_detail_commande', $id_detail_commande);
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
 }
         
  

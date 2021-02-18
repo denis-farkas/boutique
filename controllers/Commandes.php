@@ -50,5 +50,56 @@ class Commandes extends Controller {
             }          
 
         }
+
+        public function modifierCommande($id_detail_commande){
+
+            if (!empty($_SESSION['id_user'] && isset($_POST['modifier']))) {
+
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+                $article = [
+                    'id_article'=> $_POST['id_article'],
+                        'quantite_article'=> $_POST['quantite'],
+                        'id_commande'=> $_POST['id_commande'] 
+                    ];
+                        
+                        if ($this->commandeModel->modifierCommande($id_detail_commande, $article)) {
+                           
+                            header('location: ' . WWW_ROOT . 'commandes/listeCommande/'.$article['id_commande']);
+                        } else {
+                            die('Erreur système.');
+                        }
+            }else{
+                
+                header('location:' . WWW_ROOT . 'users/connexion');
+            }                  
+                         
+        }
+
+        public function deleteCommande($id_detail_commande){
+
+            if (!empty($_SESSION['id_user'] && isset($_POST['delete']))) {
+
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+                $article = [
+                    'id_commande'=> $_POST['id_commande'] 
+                    ];
+                        
+                        if ($this->commandeModel->deleteCommande($id_detail_commande)) {
+                           
+                            header('location: ' . WWW_ROOT . 'commandes/listeCommande/'.$article['id_commande']);
+                        } else {
+                            die('Erreur système.');
+                        }
+            }else{
+                
+                header('location:' . WWW_ROOT . 'users/connexion');
+            }                  
+                         
+        }
+
+       
+
+}
     
-    }
