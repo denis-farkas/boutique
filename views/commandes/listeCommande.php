@@ -70,23 +70,29 @@ var_dump($data);
                         echo '
                     <div class="container backy">  
                         <div class="row">
-                            <div class="col-md-3 w-75">
-                                <img class="img-fluid w-50 mt-1" src="'.WWW_ROOT.'public/images/hats_big/'.$commandes->image_produit.'" alt="commande">   
+                            <div class="col-md-3 w-50 text-center">
+                                <img class="img-fluid w-25 m-3" src="'.WWW_ROOT.'public/images/hats_big/'.$commandes->image_produit.'" alt="commande">   
                             </div>
-                            <div class="col-md-4  w-100">                                
-                                <h5 class="mt-2">'.$commandes->categorie_produit.' '.$commandes->nom_produit.'</h5>
-                                <h5 class="mt-2">Taille: '.$commandes->nom_taille.',  Couleur: '.$commandes->nom_couleur.'</h5>
-                                <h4 class="gold">Prix: '.$commandes->prix_produit.' €</h4>   
+                            <div class="col-md-4 mt-2 w-100">                                
+                                <h6 class="mt-2">'.$commandes->categorie_produit.' '.$commandes->nom_produit.'</h6>
+                                <h6 class="mt-2">Taille: '.$commandes->nom_taille.',  Couleur: '.$commandes->nom_couleur.'</h6>
+                                <h6 class="gold">Prix: '.$commandes->prix_produit.' €</h6>  
                             </div>
 
-                            <div class="col-md-2  w-100">
+                            <div class="col-md-3  w-75">
+                            <form method="post" action="'.WWW_ROOT.'commandes/modifierCommande/'.$commandes->id_detail_commande.'" >
+                            <input type="hidden" value="'.$commandes->id_article.'">
+                            <input type="hidden" value="'.$commandes->quantite_article.'">
+                            <input type="hidden" value="'.$commandes->id_commande.'">
                                 <div class="form-group">
                                 <label for="quantite">Quantité</label>
-                                <input type="number" class="form-control" id="quantite" name="quantite" value="1">
-                                </div>                                                                          
+                                <input type="number" class="form-control" id="quantite" name="quantite" value="'.$commandes->quantite_article.'">
+                                </div>
+                                <input type="submit" class="btn btn-primary" name="modifier" value="Modifier">
+                                </form>                                                                                             
                             </div>
                        
-                            <div class="col-md-3  w-100">                                
+                            <div class="col-md-2  w-100">                                
                             <span class="close heavy m-3"></span>
                             </div>
                                                     
