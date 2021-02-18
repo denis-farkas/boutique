@@ -81,9 +81,9 @@ var_dump($data);
 
                             <div class="col-md-3 mt-3 w-75">
                                 <form method="post" action="'.WWW_ROOT.'commandes/modifierCommande/'.$commandes->id_detail_commande.'" >
-                                    <input type="hidden" value="'.$commandes->id_article.'">
-                                    <input type="hidden" value="'.$commandes->quantite_article.'">
-                                    <input type="hidden" value="'.$commandes->id_commande.'">
+                                    <input type="hidden" name="id_article" value="'.$commandes->id_article.'">
+                                    <input type="hidden" name="quantite_article" value="'.$commandes->quantite_article.'">
+                                    <input type="hidden" name="id_commande" value="'.$commandes->id_commande.'">
                                 <div class="form-group">
                                     <label for="quantite">Quantité</label>
                                     <input type="number" class="form-control" id="quantite" name="quantite" value="'.$commandes->quantite_article.'">

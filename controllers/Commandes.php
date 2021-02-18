@@ -62,10 +62,12 @@ class Commandes extends Controller {
                         'quantite_article'=> $_POST['quantite'],
                         'id_commande'=> $_POST['id_commande'] 
                     ];
+
+                    $id_commande=$_POST['id_commande'];
                         
                         if ($this->commandeModel->modifierCommande($id_detail_commande, $article)) {
                            
-                            header('location: ' . WWW_ROOT . 'commandes/listeCommande/'.$article['id_commande']);
+                            header('location: ' .WWW_ROOT.'commandes/listeCommande/'.$id_commande);
                         } else {
                             die('Erreur système.');
                         }
