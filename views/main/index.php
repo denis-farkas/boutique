@@ -75,54 +75,54 @@
                 </div>
             </div>
             <section class="col-sm-12 col-md-9 my-5 text-center">
-                <div class="container">
-                <?php
-                    require (ROOT.'views/includes/card.php');                        
-                ?>  
-
-                <div class="card-deck">
-                    <div class="card" >
-                        <img src="<?php echo WWW_ROOT.'public/images/hats_big/'.$data['promotion']->image_produit; ?>" alt="" width="100%">
-
-                        <div class="card-body">
-                            <h5 class="card-title gold"><?php $data['promotion']->categorie_produit ?></h5>
-                            <p class="card-text"><?= $data['promotion']->nom_produit ?></p>
-                            <h5 class="gold"><?= $data['promotion']->prix_produit ?> €</h5>
-                            <p class="text-danger">- <?= $data['promotion']->remise ?> %</p>
-                            <a href="#" class="btn btn-primary btn-sm">Consulter</a><br>
-                            <span class="badge badge-success">Disponible</span>
-                        </div>
-                    </div>
-                
-                    <div class="card" >
-                        <img src="<?php echo WWW_ROOT; ?>public/images/hats_big/'.$data['meilleurVente']->image_produit; ?>" alt="" width="100%">
-
-                        <div class="card-body">
-                            <h5 class="card-title gold"><?= $data['meilleurVente']->categorie_produit ?></h5>
-                            <p class="card-text"><?= $data['meilleurVente']->nom_produit ?></p>
-                            <h5 class="gold"><?= $data['meilleurVente']->prix_produit ?> €</h5>
-                            <a href="#" class="btn btn-primary btn-sm">Consulter</a><br>
-                            <span class="badge badge-success">Disponible</span>
-                        </div>
+                <div class="jumbotron">
                     
-                    </div>
-                
-                    <div class="card" >
-                    <img src="<?php echo WWW_ROOT; ?>public/images/hats_big/'.$data['plusRecent']->image_produit; ?>" alt="" width="100%">
+                    <h3 class="mb-5">Nos promotions</h3>
+                    <div class='row'>
+                        <div class="card-deck">
+                            
+                            <?php foreach($data['promotion'] as $promotion){
+                                echo'
+                            <div class="card">
+                                <img src="'. WWW_ROOT.'public/images/hats_big/'.$promotion->image_produit.'" alt="" width="75%">
 
-                        <div class="card-body">
-                            <h5 class="card-title gold"><?php $data['plusRecent']->categorie_produit ?></h5> 
-                            <p class="card-text"><?= $data['plusRecent']->nom_produit ?></p>
-                            <h5 class="gold"><?= $data['meilleurVente']->prix_produit ?> €</h5>
-                            <a href="#" class="btn btn-primary btn-sm">Consulter</a><br>
-                            <span class="badge badge-success">Disponible</span>
+                                <div class="card-body">
+                                    <h5 class="card-title gold">'.$promotion->categorie_produit.'</h5>
+                                    <p class="card-text">'.$promotion->nom_produit.'</p>
+                                    <h5 class="gold">'.$promotion->prix_produit.' €</h5>
+                                    <p class="text-danger">- '.$promotion->remise.' %</p>
+                                    <a href="#" class="btn btn-primary btn-sm m-3">Consulter</a><br>
+                                    <span class="badge badge-pill badge-success">Disponible</span>
+                                </div>
+                            </div>';
+                            }
+                            ?>
                         </div>
                     </div>
-                
                 </div>
 
-
                 
+                <div class="jumbotron">
+                    <h3 class="mb-5">Nos meilleures ventes</h3>
+                    <div class='row'>
+                        <div class="card-deck">
+                            <?php foreach($data['meilleureVente'] as $meilleureVente){
+                            echo'
+                            <div class="card" >
+                                <img src="'.WWW_ROOT.'public/images/hats_big/'.$meilleureVente->image_produit.'" alt="" width="75%">
+
+                                <div class="card-body">
+                                    <h5 class="card-title gold">'.$meilleureVente->categorie_produit.'</h5>
+                                    <p class="card-text">'.$meilleureVente->nom_produit.'</p>
+                                    <h5 class="gold">'.$meilleureVente->prix_produit.' €</h5>
+                                    <a href="#" class="btn btn-primary btn-sm m-3">Consulter</a><br>
+                                    <span class="badge badge-pill badge-success">Disponible</span>
+                                </div>
+                            </div>';
+                            }
+                            ?>
+                        </div>                                    
+                    </div>                
                 </div>
             </section>
         </div>

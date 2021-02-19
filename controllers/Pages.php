@@ -7,47 +7,16 @@ class Pages extends Controller {
     
     public function index()
     {
+        $promotion= $this->pageModel->promotion();
+        $meilleureVente = $this->pageModel->meilleureVente();
+       
         $data = [
-            'title' => 'index'
+            'title' => 'index',
+            'promotion' => $promotion,
+            'meilleureVente' => $meilleureVente            
         ];
 
         $this->view('main/index', $data);
-    }
-
-    public function promotion($id_article)
-    {
-        $promotion= $this->pageModel->promotion($id_article);
-        
-                $data = [
-                    'title' => 'promotion',
-                    'promotion' => $promotion
-                ];
-        
-                $this->view('main/index', $data);
-    }
-
-    public function meilleureVente($id_article)
-    {
-        $meilleureVente = $this->pageModel->meilleureVente($id_article);
-        
-                $data = [
-                    'title' => 'meilleure Vente',
-                    'meilleureVente' => $meilleurVente
-                ];
-        
-                $this->view('main/index', $data);
-    }
-
-    public function plusRecent($id_article)
-    {
-        $plusRecent = $this->pageModel->plusRecent($id_article);
-        
-                $data = [
-                    'title' => 'plus Réçent',
-                    'plusRecent' => $plusRecent
-                ];
-        
-                $this->view('main/index', $data);
     }
 
     public function result()
