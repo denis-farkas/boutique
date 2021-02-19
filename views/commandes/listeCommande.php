@@ -44,7 +44,7 @@
                 </ol>
                 <h1 class="display-5">Panier</h1>
                 
-                <a href="<?= WWW_ROOT ?>pages/index"><h6 class="mb-5">Poursuivre vos achats</h6></a>    
+                <a href="<?= WWW_ROOT ?>pages/index"><h6 class="mb-5"><< Poursuivre vos achats</h6></a>    
             </div>
 
             <div class="container backy pt-3">
@@ -63,7 +63,7 @@
                         <p>Nombre articles: <?= $nombre ?></p>
                     </div> 
                     <div class="col-md-4 w-100">
-                        <h4>Total: <?= $total ?> euros</h4>
+                        <h4>Total: <?= $total ?> €</h4>
                     </div>
                     <div class="col-md-4 w-100">
                         <a type="button" class="btn btn-primary" href="<?= WWW_ROOT ?>commandes/acheter" >Commander</a><br><br>
