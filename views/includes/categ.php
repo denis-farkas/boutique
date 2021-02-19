@@ -1,7 +1,7 @@
 <?php
 echo '<div class="card-deck mt-2">';
 echo '<div class="card">
-<img class="card-img-top" src="'.WWW_ROOT.'public/images/hats_big/half-mh.png" alt="montecristi" width="100%" >
+<img class="card-img-top" src="'.WWW_ROOT.'public/images/hats_big/half-mh.png" alt="montecristi" width="75%" >
  
    <div class="card-img-overlay   text-left">
 
@@ -15,7 +15,7 @@ echo '<div class="card">
 </div>
 
 <div class="card">
-<img class="card-img-top" src="'.WWW_ROOT.'public/images/hats_big/half-ch.png" alt="montecristi" width="100%" >
+<img class="card-img-top" src="'.WWW_ROOT.'public/images/hats_big/half-ch.png" alt="montecristi" width="75%" >
  
    <div class="card-img-overlay   text-left">
 
@@ -29,7 +29,7 @@ echo '<div class="card">
 </div>
 
 <div class="card">
-<img class="card-img-top" src="'.WWW_ROOT.'public/images/hats_big/half-dos.png" alt="montecristi" width="100%" >
+<img class="card-img-top" src="'.WWW_ROOT.'public/images/hats_big/half-dos.png" alt="montecristi" width="75%" >
  
    <div class="card-img-overlay   text-left">
 

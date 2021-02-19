@@ -57,6 +57,25 @@ class Produits extends Controller {
             }
         }
 
+        public function fichePromotion($id_produit, $id_article){
+            if (!empty($_SESSION['id_user'])){
+            $produit= $this->produitModel->viewProduit($id_produit);
+            $article = $this->produitModel->viewPromotion($id_article);
+            $detail= $this->produitModel->viewDetail($id_produit);
+            $data = [
+                'produit' => $produit,
+                'article' => $article,
+                'detail' =>$detail
+            ];
+    
+            $this->view('produits/fichePromotion', $data);
+            } else {
+                    header('location:' . WWW_ROOT . 'pages/index');
+                }
+            }
+        
+
+
 
 
 

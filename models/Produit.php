@@ -35,4 +35,14 @@ class Produit {
         $detail=$this->db->single();
         return $detail; 
     }
+
+    public function viewPromotion($id_article) {
+        $this->db->query('SELECT id_article, origine_produit, categorie_produit, genre_produit, nom_produit, nom_taille, cm_taille, image_couleur, nom_couleur, image_produit, date_registre, prix_produit, quantite, remise  FROM article JOIN produit ON article.id_produit = produit.id_produit JOIN taille ON article.id_taille = taille.id_taille JOIN couleur ON article.id_couleur = couleur.id_couleur  WHERE id_article = :id_article');
+
+        //Bind 
+        $this->db->bind(':id_article', $id_article);
+        //méthode row comme objet de database
+        $article = $this->db->single();
+        return $article;
+    }
 }

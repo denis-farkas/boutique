@@ -6,7 +6,7 @@ class Page {
     }
 
     public function promotion(){
-        $this->db->query('SELECT id_article, categorie_produit, nom_produit, image_produit, prix_produit, remise FROM produit JOIN article ON produit.id_produit = article.id_produit  WHERE remise != 0 LIMIT 3');
+        $this->db->query('SELECT id_article, article.id_produit, categorie_produit, nom_produit, image_produit, prix_produit, remise FROM produit JOIN article ON produit.id_produit = article.id_produit  WHERE remise != 0 LIMIT 3');
         $promotion=$this->db->resultSet();
         return $promotion;
     }

@@ -4663,6 +4663,7 @@ input[type="button"].btn-block {
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
+  border: 1px solid #f0f0f3 ;
   
 }
 
@@ -5096,7 +5097,7 @@ a.badge-dark:focus, a.badge-dark.focus {
 .jumbotron {
   padding: 2rem 1rem;
   margin-bottom: 2rem;
-  background-color: #f7f7f9;
+  background-color: #f0f0f3;
 }
 
 @media (min-width: 576px) {
@@ -5106,8 +5107,8 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .jumbotron-fluid {
-  padding-right: 0;
-  padding-left: 0;
+  padding: 0.3rem 1.2rem;
+  background-color: #e1e1ebc7;
 }
 
 .alert {

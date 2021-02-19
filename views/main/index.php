@@ -84,7 +84,7 @@
                                 
                                 <?php foreach($data['promotion'] as $promotion){
                                     echo'
-                                <div class="card">
+                                <div class="card text-center">
                                     <img src="'. WWW_ROOT.'public/images/hats_big/'.$promotion->image_produit.'" alt="" width="75%">
 
                                     <div class="card-body">
@@ -92,7 +92,7 @@
                                         <p class="card-text">'.$promotion->nom_produit.'</p>
                                         <h5 class="gold">'.$promotion->prix_produit.' €</h5>
                                         <p class="text-danger">- '.$promotion->remise.' %</p>
-                                        <a href="#" class="btn btn-primary btn-sm m-3">Consulter</a><br>
+                                        <a href="'.WWW_ROOT.'produits/fichePromotion/'.$promotion->id_article.'/'.$promotion->id_produit.'" class="btn btn-primary btn-sm m-3">Consulter</a><br>
                                         <span class="badge badge-pill badge-success">Disponible</span>
                                     </div>
                                 </div>';
