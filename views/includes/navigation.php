@@ -35,7 +35,7 @@
                         echo '<li class="nav-item">';
                         echo '<a href="'.WWW_ROOT.'users/logout" class="nav-link">Déconnexion</a></li>
                         <li class="nav-item mr-5">
-                        <a class="nav-link" href="#">Panier</a>
+                        <a class="nav-link" href="'.WWW_ROOT.'commandes/listeCommandeAttente/'.$_SESSION['id_user'].'">Panier</a>
                         </li>';
                     }elseif(isset($_SESSION['id_user']) && ($_SESSION['is_admin']== 1))
                     {

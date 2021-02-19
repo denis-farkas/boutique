@@ -1,7 +1,5 @@
 <?php
 
-var_dump($data);
-
    require (ROOT.'views/includes/head.php');
 ?>
  <body>
@@ -46,27 +44,38 @@ var_dump($data);
                 </ol>
                 <h1 class="display-5">Panier</h1>
                 
-                <a href=""><h6 class="mb-5">Poursuivre vos achats</h6></a>    
+                <a href="<?= WWW_ROOT ?>pages/index"><h6 class="mb-5">Poursuivre vos achats</h6></a>    
             </div>
 
             <div class="container backy pt-3">
                 <h3>Récapitulatif</h3>
+                <?php 
+                $total=0;
+                $nombre=0;
+                foreach($data['commandes'] as $commandes){
+                   $nombre=$nombre+$commandes->quantite_article;
+                   $total=$total+($commandes->quantite_article*$commandes->prix_produit);}
+
+                   ?>
+
                 <div class="row m-5">
                     <div class="col-md-4 w-100">
-                        <p>Nombre articles</p>
+                        <p>Nombre articles: <?= $nombre ?></p>
                     </div> 
                     <div class="col-md-4 w-100">
-                        <h4>Total</h4>
+                        <h4>Total: <?= $total ?> euros</h4>
                     </div>
                     <div class="col-md-4 w-100">
-                        <button type="button" class="btn btn-primary">Commander</button><br><br>
+                        <a type="button" class="btn btn-primary" href="<?= WWW_ROOT ?>commandes/acheter" >Commander</a><br><br>
                     </div>
                 </div>
             </div>
 
             
                           
-                    <?php foreach($data['commandes'] as $commandes){
+                    <?php 
+                    
+                    foreach($data['commandes'] as $commandes){
                         echo '
                     <div class="container backy">  
                         <div class="row">

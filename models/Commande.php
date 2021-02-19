@@ -50,6 +50,13 @@ class Commande {
         }
     }
 
+    public function listeCommandeAttente($id_user){
+        $this->db->query('SELECT commande.id_commande, date_commande, statut_commande, detail_commande.id_article, detail_commande.id_detail_commande, categorie_produit, nom_produit, image_produit, prix_produit, nom_taille, cm_taille, nom_couleur, image_couleur, quantite_article, remise  FROM commande JOIN detail_commande ON commande.id_commande=detail_commande.id_commande JOIN article ON detail_commande.id_article = article.id_article JOIN produit ON article.id_produit=produit.id_produit JOIN taille ON article.id_taille=taille.id_taille JOIN couleur ON article.id_couleur=couleur.id_couleur  WHERE commande.id_user= :id_user AND statut_commande=0');
+        $this->db->bind(':id_user', $id_user);
+        $commandes = $this->db->resultSet();
+        return $commandes;
+    }
+
     public function listeCommande($id_commande){
         $this->db->query('SELECT detail_commande.id_article, detail_commande.id_detail_commande, categorie_produit, nom_produit, image_produit, prix_produit, nom_taille, cm_taille, nom_couleur, image_couleur, detail_commande.id_commande, quantite_article, date_commande, remise  FROM detail_commande JOIN article ON detail_commande.id_article = article.id_article JOIN produit ON article.id_produit=produit.id_produit JOIN taille ON article.id_taille=taille.id_taille JOIN couleur ON article.id_couleur=couleur.id_couleur JOIN commande ON detail_commande.id_commande=commande.id_commande WHERE detail_commande.id_commande= :id_commande');
         $this->db->bind(':id_commande', $id_commande);

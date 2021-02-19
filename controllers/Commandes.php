@@ -2,6 +2,7 @@
 class Commandes extends Controller {
     public function __construct() {
         $this->commandeModel = $this->model('Commande');
+        $this->userModel = $this->model('User');
     }
 
     public function commande() {
@@ -51,6 +52,21 @@ class Commandes extends Controller {
 
         }
 
+        public function listeCommandeAttente($id_user){
+            if($_SESSION['id_user']==$id_user){
+                $commandes= $this->commandeModel->listeCommandeAttente($id_user);
+                if($commandes){
+                    $data = ['commandes' => $commandes];
+                    $this->view('commandes/listeCommande', $data);
+                }else{
+                die('Erreur système.');
+                }
+                 
+            }else{
+                header('location:'. WWW_ROOT . 'users/connexion');           
+            }
+        }
+
         public function modifierCommande($id_detail_commande){
 
             if (!empty($_SESSION['id_user'] && isset($_POST['modifier']))) {
@@ -94,6 +110,10 @@ class Commandes extends Controller {
             }                  
                          
         }
+
+       
+
+
 
        
 
