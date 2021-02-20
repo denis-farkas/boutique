@@ -39,6 +39,13 @@ class Achat {
         return $adresses;
     }
 
+    public function adresseFacture($id_adresse){
+        $this->db->query('SELECT * FROM adresse WHERE id_adresse= :id_adresse');
+        $this->db->bind(':id_adresse', $id_adresse);
+        $adresse = $this->db->single();
+        return $adresse;
+    }
+
     public function listLivraisons() {
         $this->db->query('SELECT * FROM livraison ');
        
@@ -46,11 +53,25 @@ class Achat {
         return $livraisons;
     }
 
+    public function livraisonFacture($id_livraison){
+        $this->db->query('SELECT * FROM livraison WHERE id_livraison= :id_livraison');
+        $this->db->bind(':id_livraison', $id_livraison);
+        $livraison = $this->db->single();
+        return $livraison;
+    }
+
     public function listPaiements() {
         $this->db->query('SELECT * FROM paiement ');
        
         $paiements = $this->db->resultSet();
         return $paiements;
+    }
+
+    public function paiementFacture($id_paiement){
+        $this->db->query('SELECT * FROM paiement WHERE id_paiement= :id_paiement');
+        $this->db->bind(':id_paiement', $id_paiement);
+        $paiement = $this->db->single();
+        return $paiement;
     }
 
 }

@@ -4,6 +4,7 @@ class Achats extends Controller {
         $this->commandeModel = $this->model('Commande');
         $this->userModel = $this->model('User');
         $this->achatModel = $this->model('Achat');
+        $this->produitModel = $this->model('Produit');
     }
 
     public function adresse(){
@@ -18,8 +19,6 @@ class Achats extends Controller {
                 header('location:' . WWW_ROOT . 'pages/index');
             }
         }
-
-
 
     public function ajoutAdresse(){
 
@@ -105,7 +104,7 @@ class Achats extends Controller {
 
             $_SESSION['id_paiement']=$_POST['id_paiement'];
 
-            header('location: ' . WWW_ROOT . 'pages/result');
+            header('location: ' . WWW_ROOT . 'achats/facture');
 
         }elseif(!empty($_SESSION['id_user'])) {
 
@@ -121,9 +120,26 @@ class Achats extends Controller {
 
     }
 
+    public function facture(){
+        if(!empty($_SESSION['id_user'])) {
+            $user= $this->userModel->view($_SESSION['id_user']);
+            $commandes= $this->commandeModel->listeCommande($_SESSION['id_commande']);
+            $adresse= $this->achatModel->adresseFacture($_SESSION['id_adresse']);
+            $livraison= $this->achatModel->livraisonFacture($_SESSION['id_livraison']);
+            $paiement= $this->achatModel->paiementFacture($_SESSION['id_paiement']);
 
-
-
+            $data = [
+                'user' => $user,
+                'commandes' => $commandes,
+                'adresse' => $adresse,
+                'livraison' => $livraison,
+                'paiement' => $paiement
+            ];
+            $this->view('achats/facture', $data);
+        }else{
+            header('location: ' . WWW_ROOT . 'pages/index');
+        }        
+    }
 
 
     }
