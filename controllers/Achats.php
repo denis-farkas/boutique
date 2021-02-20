@@ -127,13 +127,15 @@ class Achats extends Controller {
             $adresse= $this->achatModel->adresseFacture($_SESSION['id_adresse']);
             $livraison= $this->achatModel->livraisonFacture($_SESSION['id_livraison']);
             $paiement= $this->achatModel->paiementFacture($_SESSION['id_paiement']);
+            $adresseDomicile= $this->achatModel->adresseDomicile($_SESSION['id_user']);
 
             $data = [
                 'user' => $user,
                 'commandes' => $commandes,
                 'adresse' => $adresse,
                 'livraison' => $livraison,
-                'paiement' => $paiement
+                'paiement' => $paiement,
+                'adresseDomicile' => $adresseDomicile
             ];
             $this->view('achats/facture', $data);
         }else{

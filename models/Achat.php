@@ -46,6 +46,13 @@ class Achat {
         return $adresse;
     }
 
+    public function adresseDomicile($id_user){
+        $this->db->query('SELECT * FROM adresse WHERE id_user= :id_user AND domicile=1');
+        $this->db->bind(':id_user', $id_user);
+        $adresseDomicile = $this->db->single();
+        return $adresseDomicile;
+    }
+
     public function listLivraisons() {
         $this->db->query('SELECT * FROM livraison ');
        

@@ -38,12 +38,39 @@ var_dump($data);
             </div>
             <section class="col-sm-12 col-md-9 my-5">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <form action="<?php echo WWW_ROOT;?>achats/livraison" method="post">
-                            <fieldset>
-                            <legend>MOYEN DE LIVRAISON</legend>
+                    <div class="jumbotron">
+                    <h3>Récapitulatif de votre commande</h3>
+                        <div class="row">
+                            <div class="col-md-4">
+                            </div>
 
+                            <div class="col-md-4">
+                            </div>
+
+                            <div class="col-md-4">
+                                <h5>Informations détaillées<br>
+                                 commande N° <?= $_SESSION['id_commande'] ?>Y7BU</h6>
+                                <h6>Date de commande <?= date(d-m-Y) ?></h6>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                            <h5>Informations Client</h5>                                 
+                                <h6>Adresse de facturation </h6>
+                                <p><?= $_SESSION['id_commande'] ?></p>
+                            </div>
+
+                            <div class="col-md-4">
+                            </div>
+
+                            <div class="col-md-4">
+                                <h5>Informations détaillées<br>
+                                 commande N° <?= $_SESSION['id_commande'] ?>Y7BU</h6>
+                                <h6>Date de commande <?= date(d-m-Y) ?></h6>
+                            </div>
+                        </div>
+                           
                             <table class="table table-hover">
                             <thead>
                             <tr class="table-active">
@@ -73,21 +100,14 @@ var_dump($data);
                                     } 
                                     ?>  
                             </tbody>
-                        </table>
+                            </table>                         
+                            
+                        </div>
 
-                          
-                            <input type="hidden" name="id_user" value="<?= $_SESSION['id_user'] ?>" >
-                            <input type="submit" class="btn btn-primary" name="ajoutLivraison" value="Ajouter livraison">
-                            </fieldset>
-                            </form>
-                        </div> 
-                                      
-                        <div class="col-md-6 text-center">
-                            <img class="img-fluid w-75 mt-5" src="<?php echo WWW_ROOT; ?>public/images/tissage2.jpg" alt="tissage">    
-                        </div> 
+                        
                     </div>  
 
-
+                </div>
                
                 </div>
             </section>
