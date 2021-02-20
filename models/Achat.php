@@ -39,4 +39,18 @@ class Achat {
         return $adresses;
     }
 
+    public function listLivraisons() {
+        $this->db->query('SELECT * FROM livraison ');
+       
+        $livraisons = $this->db->resultSet();
+        return $livraisons;
+    }
+
+    public function listPaiements() {
+        $this->db->query('SELECT * FROM paiement ');
+       
+        $paiements = $this->db->resultSet();
+        return $paiements;
+    }
+
 }

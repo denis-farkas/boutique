@@ -9,20 +9,20 @@ class Achats extends Controller {
     public function adresse(){
         if (!empty($_SESSION['id_user'])) {
             $adresses= $this->achatModel->adresse($_SESSION['id_user']);
-           
+
                $data=[
                    'adresses' => $adresses];
 
                    $this->view('achats/ajoutAdresse', $data);
             }else{
-                header('location:' . WWW_ROOT . 'pages/index');  
+                header('location:' . WWW_ROOT . 'pages/index');
             }
         }
 
-     
-     
-    public function ajoutAdresse(){        
-    
+
+
+    public function ajoutAdresse(){
+
         $adresse = [
             'nom_adresse'=> '',
             'prenom_adresse'=> '',
@@ -35,7 +35,7 @@ class Achats extends Controller {
             'id_user'=>'',
             'domicile'=>''
             ];
-    
+
         if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['ajoutAdresse'])){
 
             // Sanitize POST data
@@ -52,71 +52,86 @@ class Achats extends Controller {
                 'pays' =>$_POST['pays'],
                 'id_user'=>$_SESSION['id_user'],
                 'domicile'=>$_POST['domicile']
-                
+
                 ];
 
                 //modifie utilisateur
                 if ($this->achatModel->ajoutAdresse($adresse)) {
                     //Redirect page connexion
-                    header('location: ' . WWW_ROOT . 'achats/livraison');
+                    header('location: ' . WWW_ROOT . 'achats/adresse');
                 } else {
                     die('Erreur système.');
                 }
         }else{$this->view('achats/ajoutAdresse'); }
-            
+
     }
 
     public function choisirAdresse(){
-
+        if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['choisirAdresse'])){
+            $_SESSION['id_adresse']=$_POST['id_adresse'];
+            header('location: ' . WWW_ROOT . 'achats/livraison');
+        }
     }
-    
 
-    public function livraison($data){
-        if (!empty($_SESSION['id_user'])) {
 
-            $data = ['livraison' => ''];
-        
-            if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['ajoutLivraison'])){
-        
-             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-                    
-                   
-            $data = [
-                'livraison'=> $_POST['id_livraison']
-                ];
-                header('location: ' . WWW_ROOT . 'achats/payer/'.$data);    
-        }else{
-            $this->view('achats/ajoutLivraison',$data); }
+    public function livraison(){
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['ajoutLivraison'])){
+
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $_SESSION['id_livraison']=$_POST['id_livraison'];
+
+            header('location: ' . WWW_ROOT . 'achats/payer');
+
+        }elseif(!empty($_SESSION['id_user'])) {
+
+                $livraisons= $this->achatModel->listLivraisons();
+
+                   $data=[
+                       'livraisons' => $livraisons];
+
+                    $this->view('achats/choixLivraison', $data);
         }else{
             header('location: ' . WWW_ROOT . 'pages/index');
-        }  
+        }
     }
 
-    public function payer($data){
-        if (!empty($_SESSION['id_user'])) {
-
-            $data = ['payer' => ''];
-        
-            if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['ajoutPayer'])){
-        
-             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-                    
-                   
-            $data = [
-                'payer'=> $_POST['id_payer']
-                ];
-                header('location: ' . WWW_ROOT . 'pages/result/'.$data);    
-        }else{
-            $this->view('achats/ajoutPayer',$data); }
+    public function choisirLivraison(){
+        if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['choisirLivraison'])){
+            $_SESSION['id_livraison']=$_POST['id_livraison'];
+            header('location: ' . WWW_ROOT . 'achats/payer');
         }else{
             header('location: ' . WWW_ROOT . 'pages/index');
-        }  
+        }
+    }
+
+    public function payer(){
+        if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['ajoutPaiement'])){
+
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $_SESSION['id_paiement']=$_POST['id_paiement'];
+
+            header('location: ' . WWW_ROOT . 'achats/facturer');
+
+        }elseif(!empty($_SESSION['id_user'])) {
+
+                $paiements= $this->achatModel->listPaiement();
+
+                   $data=[
+                       'paiements' => $paiements];
+
+                    $this->view('achats/choixPaiement', $data);
+        }else{
+            header('location: ' . WWW_ROOT . 'pages/index');
+        }
 
     }
 
-                  
-                
-   
-       
+
+
+
+
 
     }

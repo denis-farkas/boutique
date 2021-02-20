@@ -55,14 +55,14 @@
                             </thead>
                             <tbody>
                                 <?php                       
-                                foreach($data['livreur'] as $livreur){
+                                foreach($data['livraisons'] as $livreur){
                                    
-                                        echo '<td><img src="'.WWW_ROOT.'public/images/logo/'.$livreur->logo.'" alt="Logo"></td>';
+                                        echo '<td><img class="img-fluid" src="'.WWW_ROOT.'public/images/livraison/'.$livreur->logo.'" alt="Logo" ></td>';
                                         echo "<td>".$livreur->nom_livreur."</td>";
                                         echo "<td>".$livreur->prix_livreur."</td>";                                     
                                         echo '  <td><div class="form-group">
                                                     <div class="custom-control custom-radio">
-                                                    <input type="radio" id="customRadio'.$livreur->id_livraison.' name="id_livraison" class="custom-control-input" 
+                                                    <input type="radio" id="customRadio'.$livreur->id_livraison.'" name="id_livraison" class="custom-control-input" 
                                                     value="'.$livreur->id_livraison.'">
                                                     <label class="custom-control-label" for="customRadio'.$livreur->id_livraison.'">Choisir</label>
                                                     </div>
@@ -76,7 +76,7 @@
 
                           
                             <input type="hidden" name="id_user" value="<?= $_SESSION['id_user'] ?>" >
-                            <input type="submit" class="btn btn-primary" name="ajoutLivraison" value="Ajouter livraison">
+                            <input type="submit" class="btn btn-primary" name="choisirLivraison" value="Ajouter livraison">
                             </fieldset>
                             </form>
                         </div> 

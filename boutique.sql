@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 16 fév. 2021 à 13:26
+-- Généré le : sam. 20 fév. 2021 à 08:02
 -- Version du serveur :  5.7.31
--- Version de PHP : 7.3.21
+-- Version de PHP : 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,14 +41,15 @@ CREATE TABLE IF NOT EXISTS `adresse` (
   `id_user` int(10) NOT NULL,
   `domicile` tinyint(4) NOT NULL,
   PRIMARY KEY (`id_adresse`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `adresse`
 --
 
 INSERT INTO `adresse` (`id_adresse`, `nom_adresse`, `prenom_adresse`, `num_rue`, `nom_rue`, `batiment`, `code_postal`, `ville`, `pays`, `id_user`, `domicile`) VALUES
-(1, 'tota', 'tota', '5', 'rue albeniz', '', '13009', 'Marseille', 'France', 1, 1);
+(1, 'tota', 'tota', '5', 'rue albeniz', '', '13009', 'Marseille', 'France', 1, 1),
+(2, 'tota', 'fils', '35', 'calle arauz', '', '17154', 'quito', 'equateur', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -66,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `article` (
   `remise` int(10) DEFAULT NULL,
   `quantite` int(10) NOT NULL,
   PRIMARY KEY (`id_article`)
-) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `article`
@@ -97,7 +98,6 @@ INSERT INTO `article` (`id_article`, `id_produit`, `id_taille`, `id_couleur`, `d
 (22, 6, 2, 3, '2021-02-12', NULL, 20),
 (23, 6, 3, 3, '2021-02-12', NULL, 20),
 (24, 6, 4, 3, '2021-02-12', NULL, 20),
-(53, 7, 1, 4, '2021-02-14', NULL, 10),
 (54, 7, 2, 4, '2021-02-14', NULL, 10),
 (55, 7, 1, 7, '2021-02-14', NULL, 10),
 (56, 7, 2, 7, '2021-02-14', NULL, 10),
@@ -114,8 +114,7 @@ INSERT INTO `article` (`id_article`, `id_produit`, `id_taille`, `id_couleur`, `d
 (67, 9, 1, 7, '2021-02-14', NULL, 10),
 (68, 9, 2, 7, '2021-02-14', NULL, 10),
 (69, 9, 1, 8, '2021-02-14', NULL, 10),
-(70, 9, 2, 8, '2021-02-14', NULL, 10),
-(71, 9, 1, 1, '2021-02-14', 0, 5);
+(70, 9, 2, 8, '2021-02-14', NULL, 10);
 
 -- --------------------------------------------------------
 
@@ -128,10 +127,16 @@ CREATE TABLE IF NOT EXISTS `commande` (
   `id_commande` int(11) NOT NULL AUTO_INCREMENT,
   `date_commande` datetime NOT NULL,
   `statut_commande` tinyint(1) NOT NULL,
-  `id_facture` int(11) NOT NULL,
   `id_user` int(10) NOT NULL,
   PRIMARY KEY (`id_commande`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `commande`
+--
+
+INSERT INTO `commande` (`id_commande`, `date_commande`, `statut_commande`, `id_user`) VALUES
+(1, '2021-02-17 00:00:00', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -205,7 +210,14 @@ CREATE TABLE IF NOT EXISTS `detail_commande` (
   `quantite_article` int(11) NOT NULL,
   `id_commande` int(11) NOT NULL,
   PRIMARY KEY (`id_detail_commande`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `detail_commande`
+--
+
+INSERT INTO `detail_commande` (`id_detail_commande`, `id_article`, `quantite_article`, `id_commande`) VALUES
+(2, 9, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -216,6 +228,7 @@ CREATE TABLE IF NOT EXISTS `detail_commande` (
 DROP TABLE IF EXISTS `facture`;
 CREATE TABLE IF NOT EXISTS `facture` (
   `id_facture` int(11) NOT NULL AUTO_INCREMENT,
+  `id_commande` int(10) NOT NULL,
   `nb_total_articles` int(11) NOT NULL,
   `prix_total_articles` float NOT NULL,
   `id_livraison` int(11) NOT NULL,
@@ -237,8 +250,44 @@ CREATE TABLE IF NOT EXISTS `livraison` (
   `id_livraison` int(11) NOT NULL AUTO_INCREMENT,
   `nom_livreur` varchar(250) NOT NULL,
   `prix_livreur` float NOT NULL,
+  `logo` varchar(50) NOT NULL,
   PRIMARY KEY (`id_livraison`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `livraison`
+--
+
+INSERT INTO `livraison` (`id_livraison`, `nom_livreur`, `prix_livreur`, `logo`) VALUES
+(1, 'Colissimo', 15, 'colis.png'),
+(2, 'Chronopost', 25, 'chrono.png'),
+(3, 'DHL International', 35, 'dhl.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `paiement`
+--
+
+DROP TABLE IF EXISTS `paiement`;
+CREATE TABLE IF NOT EXISTS `paiement` (
+  `id_paiement` int(11) NOT NULL AUTO_INCREMENT,
+  `logo` varchar(50) NOT NULL,
+  `nom_paiement` varchar(150) NOT NULL,
+  `mode_paiement` varchar(150) NOT NULL,
+  PRIMARY KEY (`id_paiement`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `paiement`
+--
+
+INSERT INTO `paiement` (`id_paiement`, `logo`, `nom_paiement`, `mode_paiement`) VALUES
+(1, 'paypal.png', 'Paypal', 'A la réception'),
+(2, 'visa.png', 'Visa', 'A l\'expédition, une mensualité.'),
+(3, 'visa.png', 'Visa crédit', 'En 3 mensualités'),
+(4, 'visa.png', 'Visa crédit', 'En 10 mensualités'),
+(5, 'cb.png', 'Carte Bleue', 'A l\'expédition.');
 
 -- --------------------------------------------------------
 

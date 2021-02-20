@@ -37,7 +37,7 @@
             </div>
             <section class="col-sm-12 col-md-9 my-5">
                 <div class="container">
-                <form action="<?php echo WWW_ROOT;?>achats/ajoutAdresse" method="post">
+                <form action="<?php echo WWW_ROOT;?>achats/choisirAdresse" method="post">
                     <legend>ADRESSE DE LIVRAISON</legend>
 
                     <table class="table table-hover">
@@ -54,15 +54,11 @@
                             foreach($data['adresses'] as $adresse){
                                 echo '<tr>';
                                 echo '<td>'.$adresse->nom_adresse.' '.$adresse->prenom_adresse.'</td>';
-                                echo '<td>'.$adresse->num_rue.', '.$adresse->nom_rue.'. '.$adresse->batiment.'</td>';
-                                echo '</tr>';
-                                echo '<tr>';
-                                echo '<td>'.$adresse->code_postal.'</td>';
-                                echo '<td>'.$adresse->ville.', '.$adresse->pays.'</td>';                                     
+                                echo '<td>'.$adresse->num_rue.', '.$adresse->nom_rue.'. '.$adresse->batiment.' '.$adresse->code_postal.' '.$adresse->ville.' - '.$adresse->pays.'</td>';                                                              
                                 echo '  <td><div class="form-group">
                                             <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio'.$adresse->id_adresse.' name="id_livraison" class="custom-control-input" 
-                                            value="'.$adresse->id_adresse.'">
+                                            <input type="radio" id="customRadio'.$adresse->id_adresse.'" name="id_livraison" class="custom-control-input" 
+                                             value="'.$adresse->id_adresse.'">
                                             <label class="custom-control-label" for="customRadio'.$adresse->id_adresse.'">Choisir</label>
                                             </div>
                                         </div></td>';
@@ -74,9 +70,11 @@
                             ?>  
                     </tbody>
                     </table>
+                    <input type="submit" class="btn btn-primary" name="choisirAdresse" value="Choisir adresse">
+                    </form>
 
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-6 mt-5">
                             <form action="<?php echo WWW_ROOT;?>achats/ajoutAdresse" method="post">
                             <fieldset>
                             <legend>Ajouter une adresse</legend>
@@ -131,7 +129,7 @@
                             </form>
                         </div> 
                                     
-                        <div class="col-md-6 text-center">
+                        <div class="col-md-6 text-center mt-5">
                             <img class="img-fluid w-75 mt-5" src="<?php echo WWW_ROOT; ?>public/images/tissage2.jpg" alt="tissage">    
                         </div> 
                     </div>  
