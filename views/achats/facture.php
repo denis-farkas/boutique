@@ -39,7 +39,7 @@ var_dump($data);
             <section class="col-sm-12 col-md-9 my-5">
                 <div class="container">
                     <div class="jumbotron">
-                    <h3>Récapitulatif de votre commande</h3>
+                        <h3>Récapitulatif de votre commande</h3>
                         <div class="row">
                             <div class="col-md-4">
                             </div>
@@ -50,7 +50,7 @@ var_dump($data);
                             <div class="col-md-4">
                                 <h5>Informations détaillées<br>
                                  commande N° <?= $_SESSION['id_commande'] ?>Y7BU</h6>
-                                <h6>Date de commande <?= date(d-m-Y) ?></h6>
+                                <h6>Date de commande <?php echo date('d/m/Y'); ?></h6>
                             </div>
                         </div>
 
@@ -58,58 +58,89 @@ var_dump($data);
                             <div class="col-md-4">
                             <h5>Informations Client</h5>                                 
                                 <h6>Adresse de facturation </h6>
-                                <p><?= $_SESSION['id_commande'] ?></p>
+                                <p><?php echo $data['user']->civilite.' '.$data['user']->nom.' '.$data['user']->prenom ?></p>
+                                <p><?php echo $data['adresseDomicile']->num_rue.' '.$data['adresseDomicile']->nom_rue.' '.$data['adresseDomicile']->batiment ?></p>
+                                <p><?php echo $data['adresseDomicile']->code_postal.' '.$data['adresseDomicile']->ville.' '.$data['adresseDomicile']->pays ?></p>
                             </div>
 
                             <div class="col-md-4">
                             </div>
 
                             <div class="col-md-4">
-                                <h5>Informations détaillées<br>
-                                 commande N° <?= $_SESSION['id_commande'] ?>Y7BU</h6>
-                                <h6>Date de commande <?= date(d-m-Y) ?></h6>
+                            <h6>Adresse de livraison </h6>
+                                <p><?php echo $data['adresse']->nom_adresse.' '.$data['adresse']->prenom_adresse ?></p>
+                                <p><?php echo $data['adresse']->num_rue.' '.$data['adresse']->nom_rue.' '.$data['adresse']->batiment ?></p>
+                                <p><?php echo $data['adresse']->code_postal.' '.$data['adresse']->ville.' '.$data['adresse']->pays ?></p>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <h3>Informations relatives au produit </h3>
                            
-                            <table class="table table-hover">
+                        </div>
+                           
+                        <table class="table table-hover">
                             <thead>
-                            <tr class="table-active">
-                                <th scope="col"> </th>
-                                <th scope="col">Compagnie</th>
-                                <th scope="col">Prix Colis < 2kg</th>
-                                <th scope="col">Choisir</th>
-                                
+                                <tr class="table-active">
+                                    <th scope="col">Produits commandés</th>
+                                    <th scope="col">Taille</th>
+                                    <th scope="col">Quantité</th>
+                                    <th scope="col">Montant en €</th>
+                                    
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php                       
-                                foreach($data['livraisons'] as $livreur){
+                                <?php 
+                                $total=0;                      
+                                foreach($data['commandes'] as $commande){
                                    
-                                        echo '<td><img class="img-fluid" src="'.WWW_ROOT.'public/images/livraison/'.$livreur->logo.'" alt="Logo" ></td>';
-                                        echo "<td>".$livreur->nom_livreur."</td>";
-                                        echo "<td>".$livreur->prix_livreur."</td>";                                     
-                                        echo '  <td><div class="form-group">
-                                                    <div class="custom-control custom-radio">
-                                                    <input type="radio" id="customRadio'.$livreur->id_livraison.'" name="id_livraison" class="custom-control-input" 
-                                                    value="'.$livreur->id_livraison.'">
-                                                    <label class="custom-control-label" for="customRadio'.$livreur->id_livraison.'">Choisir</label>
-                                                    </div>
-                                                </div></td>';
-                                        echo "</tr>";
-                                                                     
+                                    echo '<td>'.$commande->categorie_produit.' '.$commande->nom_produit.'</td>';
+                                    echo "<td>".$commande->nom_taille."</td>";
+                                    echo "<td>".$commande->quantite_article."</td>";
+                                    $remise= $commande->prix_produit -(($commande->prix_produit*$commande->remise)/100);                                 
+                                    echo "<td>".$remise."</td>";  
+                                    echo "</tr>";  
+                                    $total= $total+($commande->quantite_article*$remise);                                                                   
                                     } 
                                     ?>  
                             </tbody>
                             </table>                         
-                            
-                        </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                </div> 
 
-                        
+                                <div class="col-md-6">
+                                    <div class="col-md-6">
+                                        <h5>Total </h5>
+                                    </div> 
+
+                                    <div class="col-md-6">
+                                        <h5><?= $total ?> €</h5>
+                                    </div>  
+                                        
+                                </div>  
+                            </div>    
+                            <div class="row">
+                                <div class="col-md-6">
+                                </div> 
+
+                                <div class="col-md-6">
+                                    <div class="col-md-6">
+                                        <h5>Frais de port</h5>
+                                    </div> 
+
+                                    <div class="col-md-6">
+                                        <h5><?= $data['livraison']->prix_livreur ?> €</h5>
+                                        <h6>Mode de réglement <?= $data['paiement']->nom_paiement ?></h6>
+
+                                    </div>                                          
+                                </div>  
+                            </div>    
+                                                   
                     </div>  
 
-                </div>
+                </div>              
                
-                </div>
             </section>
         </div>
 
