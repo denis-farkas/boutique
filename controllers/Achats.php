@@ -97,7 +97,7 @@ class Achats extends Controller {
         }
     }
 
-    public function choisirLivraison(){
+    public function ajoutLivraison(){
         if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['choisirLivraison'])){
             $_SESSION['id_livraison']=$_POST['id_livraison'];
             header('location: ' . WWW_ROOT . 'achats/payer');
@@ -117,7 +117,7 @@ class Achats extends Controller {
 
         }elseif(!empty($_SESSION['id_user'])) {
 
-                $paiements= $this->achatModel->listPaiement();
+                $paiements= $this->achatModel->listPaiements();
 
                    $data=[
                        'paiements' => $paiements];

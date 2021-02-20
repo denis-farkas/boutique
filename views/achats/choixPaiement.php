@@ -63,7 +63,7 @@
                                         echo '  <td><div class="form-group">
                                                     <div class="custom-control custom-radio">
                                                     <input type="radio" id="customRadio'.$paiement->id_paiement.'" name="id_livraison" class="custom-control-input" 
-                                                    value="'.$livreur->id_livraison.'">
+                                                    value="'.$paiement->id_paiement.'">
                                                     <label class="custom-control-label" for="customRadio'.$paiement->id_paiement.'">Choisir</label>
                                                     </div>
                                                 </div></td>';
