@@ -116,7 +116,7 @@
                                         <h5 class="card-title gold">'.$meilleureVente->categorie_produit.'</h5>
                                         <p class="card-text">'.$meilleureVente->nom_produit.'</p>
                                         <h5 class="gold">'.$meilleureVente->prix_produit.' €</h5>
-                                        <a href="#" class="btn btn-primary btn-sm m-3">Consulter</a><br>
+                                        <a href="'.WWW_ROOT.'produits/ficheArticle/'.$meilleureVente->id_produit.'" class="btn btn-primary btn-sm m-3">Consulter</a><br>
                                         <span class="badge badge-pill badge-success">Disponible</span>
                                     </div>
                                 </div>';

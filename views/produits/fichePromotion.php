@@ -78,9 +78,9 @@
                         <p class="mt-4"><?= $data['detail']->description ?></p>
                         <img class="img-thumbnail ml-5 " src="<?php echo WWW_ROOT.'public/images/palme/'.$data['detail']->img_palme; ?>" alt="">
                         <span class="ml-2">Calibre de palme de: <?= $data['detail']->calibre ?> mm.</span>
-                        <h2 class="gold mt-4 text-center"><?= $data['produit']->prix_produit ?> €</h2>
+                        <h2 class="gold mt-4 text-center"><del><?= $data['produit']->prix_produit ?></del> €</h2>
                         <p class="text-danger mt-4 text-center">Avec une remise de <?= $data['article']->remise ?>%</p>
-                        <h4 class="mt-4 text-center">Soit : <?php echo $data['produit']->prix_produit - (($data['produit']->prix_produit * $data['article']->remise)/100);  ?> €</h4>
+                        <h4 class="mt-4 text-center"> <?php echo $data['produit']->prix_produit - (($data['produit']->prix_produit * $data['article']->remise)/100);  ?> €</h4>
                         <br />
                         <form action="<?php echo WWW_ROOT;?>commandes/commande" method="post">
                             <fieldset>

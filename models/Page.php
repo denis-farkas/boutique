@@ -12,7 +12,7 @@ class Page {
     }
 
     public function meilleureVente(){
-        $this->db->query('SELECT detail_commande.id_article, categorie_produit, nom_produit, image_produit, prix_produit, quantite_article , SUM(quantite_article) AS total FROM produit JOIN article ON produit.id_produit=article.id_produit JOIN detail_commande ON article.id_article = detail_commande.id_article GROUP BY detail_commande.id_article ORDER BY total DESC LIMIT 3');
+        $this->db->query('SELECT detail_commande.id_article, produit.id_produit, categorie_produit, nom_produit, image_produit, prix_produit, quantite_article , SUM(quantite_article) AS total FROM produit JOIN article ON produit.id_produit=article.id_produit JOIN detail_commande ON article.id_article = detail_commande.id_article GROUP BY detail_commande.id_article ORDER BY total DESC LIMIT 3');
         $meilleureVente = $this->db->resultSet();
         return $meilleureVente;
     }
