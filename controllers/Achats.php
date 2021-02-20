@@ -97,14 +97,6 @@ class Achats extends Controller {
         }
     }
 
-    public function ajoutLivraison(){
-        if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['choisirLivraison'])){
-            $_SESSION['id_livraison']=$_POST['id_livraison'];
-            header('location: ' . WWW_ROOT . 'achats/payer');
-        }else{
-            header('location: ' . WWW_ROOT . 'pages/index');
-        }
-    }
 
     public function payer(){
         if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['ajoutPaiement'])){
@@ -113,7 +105,7 @@ class Achats extends Controller {
 
             $_SESSION['id_paiement']=$_POST['id_paiement'];
 
-            header('location: ' . WWW_ROOT . 'achats/facturer');
+            header('location: ' . WWW_ROOT . 'pages/result');
 
         }elseif(!empty($_SESSION['id_user'])) {
 

@@ -57,7 +57,7 @@
                                 echo '<td>'.$adresse->num_rue.', '.$adresse->nom_rue.'. '.$adresse->batiment.' '.$adresse->code_postal.' '.$adresse->ville.' - '.$adresse->pays.'</td>';                                                              
                                 echo '  <td><div class="form-group">
                                             <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio'.$adresse->id_adresse.'" name="id_livraison" class="custom-control-input" 
+                                            <input type="radio" id="customRadio'.$adresse->id_adresse.'" name="id_adresse" class="custom-control-input" 
                                              value="'.$adresse->id_adresse.'">
                                             <label class="custom-control-label" for="customRadio'.$adresse->id_adresse.'">Choisir</label>
                                             </div>

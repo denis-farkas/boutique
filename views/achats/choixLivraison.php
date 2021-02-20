@@ -39,7 +39,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6">
-                            <form action="<?php echo WWW_ROOT;?>achats/ajoutLivraison" method="post">
+                            <form action="<?php echo WWW_ROOT;?>achats/livraison" method="post">
                             <fieldset>
                             <legend>MOYEN DE LIVRAISON</legend>
 
@@ -76,7 +76,7 @@
 
                           
                             <input type="hidden" name="id_user" value="<?= $_SESSION['id_user'] ?>" >
-                            <input type="submit" class="btn btn-primary" name="choisirLivraison" value="Ajouter livraison">
+                            <input type="submit" class="btn btn-primary" name="ajoutLivraison" value="Ajouter livraison">
                             </fieldset>
                             </form>
                         </div> 

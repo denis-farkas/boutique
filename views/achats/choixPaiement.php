@@ -39,7 +39,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6">
-                            <form action="<?php echo WWW_ROOT;?>achats/ajoutPaiement" method="post">
+                            <form action="<?php echo WWW_ROOT;?>achats/payer" method="post">
                             <fieldset>
                             <legend>MOYEN DE LIVRAISON</legend>
 
@@ -62,7 +62,7 @@
                                         echo "<td>".$paiement->mode_paiement."</td>";                                     
                                         echo '  <td><div class="form-group">
                                                     <div class="custom-control custom-radio">
-                                                    <input type="radio" id="customRadio'.$paiement->id_paiement.'" name="id_livraison" class="custom-control-input" 
+                                                    <input type="radio" id="customRadio'.$paiement->id_paiement.'" name="id_paiement" class="custom-control-input" 
                                                     value="'.$paiement->id_paiement.'">
                                                     <label class="custom-control-label" for="customRadio'.$paiement->id_paiement.'">Choisir</label>
                                                     </div>
@@ -76,7 +76,7 @@
 
                           
                             <input type="hidden" name="id_user" value="<?= $_SESSION['id_user'] ?>" >
-                            <input type="submit" class="btn btn-primary" name="choisirPaiement" value="Choisir Paiement">
+                            <input type="submit" class="btn btn-primary" name="ajoutPaiement" value="Choisir Paiement">
                             </fieldset>
                             </form>
                         </div> 
