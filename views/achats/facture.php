@@ -1,5 +1,5 @@
 <?php
-var_dump($data);
+
    require (ROOT.'views/includes/head.php');
 ?>
  <body>
@@ -56,7 +56,7 @@ var_dump($data);
 
                         <div class="row">
                             <div class="col-md-4">
-                            <h5>Informations Client</h5>                                 
+                            <h5 class="mb-3">Informations Client</h5>                                 
                                 <h6>Adresse de facturation </h6>
                                 <p><?php echo $data['user']->civilite.' '.$data['user']->nom.' '.$data['user']->prenom ?></p>
                                 <p><?php echo $data['adresseDomicile']->num_rue.' '.$data['adresseDomicile']->nom_rue.' '.$data['adresseDomicile']->batiment ?></p>
@@ -66,7 +66,7 @@ var_dump($data);
                             <div class="col-md-4">
                             </div>
 
-                            <div class="col-md-4">
+                            <div class="col-md-4"><br><br>
                             <h6>Adresse de livraison </h6>
                                 <p><?php echo $data['adresse']->nom_adresse.' '.$data['adresse']->prenom_adresse ?></p>
                                 <p><?php echo $data['adresse']->num_rue.' '.$data['adresse']->nom_rue.' '.$data['adresse']->batiment ?></p>
@@ -75,7 +75,7 @@ var_dump($data);
                         </div>
 
                         <div class="row">
-                            <h3>Informations relatives au produit </h3>
+                            <h4 class="m-3">Informations relatives au produit </h4>
                            
                         </div>
                            
@@ -85,7 +85,8 @@ var_dump($data);
                                     <th scope="col">Produits commandés</th>
                                     <th scope="col">Taille</th>
                                     <th scope="col">Quantité</th>
-                                    <th scope="col">Montant en €</th>
+                                    <th scope="col">Remise</th>
+                                    <th scope="col">Montant en € TTC</th>
                                     
                                 </tr>
                             </thead>
@@ -97,6 +98,11 @@ var_dump($data);
                                     echo '<td>'.$commande->categorie_produit.' '.$commande->nom_produit.'</td>';
                                     echo "<td>".$commande->nom_taille."</td>";
                                     echo "<td>".$commande->quantite_article."</td>";
+                                    echo "<td>";
+                                    if($commande->remise>0){
+                                        echo $commande->remise." %";
+                                    } 
+                                    echo "</td>";
                                     $remise= $commande->prix_produit -(($commande->prix_produit*$commande->remise)/100);                                 
                                     echo "<td>".$remise."</td>";  
                                     echo "</tr>";  
@@ -110,30 +116,37 @@ var_dump($data);
                                 </div> 
 
                                 <div class="col-md-6">
-                                    <div class="col-md-6">
-                                        <h5>Total </h5>
-                                    </div> 
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h5>Sub-Total </h5>
+                                        </div> 
 
-                                    <div class="col-md-6">
-                                        <h5><?= $total ?> €</h5>
-                                    </div>  
-                                        
+                                        <div class="col-md-6">
+                                            <h5><?= $total ?> €</h5>
+                                        </div>  
+                                    </div>    
                                 </div>  
                             </div>    
                             <div class="row">
                                 <div class="col-md-6">
+                                <a type="button" class="btn btn-warning m-5" href="<?= WWW_ROOT ?>pages/merci" >Payer</a><br><br>
                                 </div> 
 
                                 <div class="col-md-6">
-                                    <div class="col-md-6">
-                                        <h5>Frais de port</h5>
-                                    </div> 
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h5>Frais de port</h5><br><br>
+                                            <h4>TOTAL</h4>
+                                            <h6>Mode de réglement</h6>
+                                        </div> 
 
-                                    <div class="col-md-6">
-                                        <h5><?= $data['livraison']->prix_livreur ?> €</h5>
-                                        <h6>Mode de réglement <?= $data['paiement']->nom_paiement ?></h6>
-
-                                    </div>                                          
+                                        <div class="col-md-6">
+                                            <h5><?= $data['livraison']->prix_livreur ?> €</h5><br><br>
+                                            <h4><?php echo $total + $data['livraison']->prix_livreur; ?> €</h4>
+                                            <h6><?= $data['paiement']->nom_paiement ?></h6>
+                                        </div>
+                                    </div>
+                                    <p><?= $data['paiement']->mode_paiement ?></p>                                          
                                 </div>  
                             </div>    
                                                    
