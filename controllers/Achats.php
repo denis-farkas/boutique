@@ -104,7 +104,7 @@ class Achats extends Controller {
 
             $_SESSION['id_paiement']=$_POST['id_paiement'];
 
-            header('location: ' . WWW_ROOT . 'achats/facture');
+            header('location: ' . WWW_ROOT . 'achats/recapitulatif');
 
         }elseif(!empty($_SESSION['id_user'])) {
 
@@ -120,7 +120,7 @@ class Achats extends Controller {
 
     }
 
-    public function facture(){
+    public function recapitulatif(){
         if(!empty($_SESSION['id_user'])) {
             $user= $this->userModel->view($_SESSION['id_user']);
             $commandes= $this->commandeModel->listeCommande($_SESSION['id_commande']);
@@ -128,6 +128,8 @@ class Achats extends Controller {
             $livraison= $this->achatModel->livraisonFacture($_SESSION['id_livraison']);
             $paiement= $this->achatModel->paiementFacture($_SESSION['id_paiement']);
             $adresseDomicile= $this->achatModel->adresseDomicile($_SESSION['id_user']);
+
+          
 
             $data = [
                 'user' => $user,
@@ -137,7 +139,34 @@ class Achats extends Controller {
                 'paiement' => $paiement,
                 'adresseDomicile' => $adresseDomicile
             ];
-            $this->view('achats/facture', $data);
+
+            
+            $remise=0;
+            $quantite=0;
+            foreach($data['commandes'] as $commande){
+                $remise= $remise + (($commande->prix_produit -(($commande->prix_produit*$commande->remise)/100))*$commande->quantite_article); 
+                $quantite= $quantite + $commande->quantite_article;              
+            }
+
+            $data = [
+                'user' => $user,
+                'commandes' => $commandes,
+                'adresse' => $adresse,
+                'livraison' => $livraison,
+                'paiement' => $paiement,
+                'adresseDomicile' => $adresseDomicile,
+                'remise' => $remise,
+                'quantite' => $quantite
+                
+            ];
+
+            /*$enregistrement= $this->achatModel->enregistrementFacture($data);
+            if($enregistrement){} aller à merci? ou? ne pas oublier statut commande 1*/
+
+
+
+
+            $this->view('achats/recapitulatif', $data);
         }else{
             header('location: ' . WWW_ROOT . 'pages/index');
         }        

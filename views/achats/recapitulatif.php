@@ -101,12 +101,11 @@
                                     echo "<td>";
                                     if($commande->remise>0){
                                         echo $commande->remise." %";
-                                    } 
-                                    echo "</td>";
-                                    $remise= $commande->prix_produit -(($commande->prix_produit*$commande->remise)/100);                                 
+                                    }
+                                    $remise = $commande->prix_produit - (($commande->prix_produit * $commande->remise)/100);
+                                    echo "</td>";            
                                     echo "<td>".$remise."</td>";  
                                     echo "</tr>";  
-                                    $total= $total+($commande->quantite_article*$remise);                                                                   
                                     } 
                                     ?>  
                             </tbody>
@@ -122,7 +121,7 @@
                                         </div> 
 
                                         <div class="col-md-6">
-                                            <h5><?= $total ?> €</h5>
+                                            <h5><?= $data['remise'] ?> €</h5>
                                         </div>  
                                     </div>    
                                 </div>  
@@ -142,7 +141,7 @@
 
                                         <div class="col-md-6">
                                             <h5><?= $data['livraison']->prix_livreur ?> €</h5><br><br>
-                                            <h4><?php echo $total + $data['livraison']->prix_livreur; ?> €</h4>
+                                            <h4><?php echo $data['remise'] + $data['livraison']->prix_livreur; ?> €</h4>
                                             <h6><?= $data['paiement']->nom_paiement ?></h6>
                                         </div>
                                     </div>

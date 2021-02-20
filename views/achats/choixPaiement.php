@@ -41,14 +41,14 @@
                         <div class="col-md-6">
                             <form action="<?php echo WWW_ROOT;?>achats/payer" method="post">
                             <fieldset>
-                            <legend>MOYEN DE LIVRAISON</legend>
+                            <legend>MODALITES DE PAIEMENT</legend>
 
                             <table class="table table-hover">
                             <thead>
                             <tr class="table-active">
                                 <th scope="col"> </th>
                                 <th scope="col">Compagnie</th>
-                                <th scope="col">Prix Colis < 2kg</th>
+                                <th scope="col">modalites</th>
                                 <th scope="col">Choisir</th>
                                 
                                 </tr>
