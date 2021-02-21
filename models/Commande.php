@@ -77,6 +77,16 @@ class Commande {
             return false;
         }         
     }
+
+    public function statutCommande($id_commande){
+        $this->db->query('UPDATE commande SET statut_commande= 1 WHERE id_commande= :id_commande');
+        $this->db->bind(':id_commande', $id_commande);
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     
     public function deleteCommande($id_detail_commande){
     

@@ -37,5 +37,23 @@ class Pages extends Controller {
         $this->view('main/termes', $data);
     }
 
+    public function merci()
+    {
+        $data = [
+            'title' => 'Merci'
+        ];
+
+        $this->view('main/merci', $data);
+    }
+
+    public function panierVide()
+    {
+        $data = [
+            'title' => 'panier vide'
+        ];
+
+        $this->view('main/panierVide', $data);
+    }
+
   
 }

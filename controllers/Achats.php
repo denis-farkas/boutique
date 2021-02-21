@@ -5,6 +5,7 @@ class Achats extends Controller {
         $this->userModel = $this->model('User');
         $this->achatModel = $this->model('Achat');
         $this->produitModel = $this->model('Produit');
+        $this->factureModel = $this->model('Facture');
     }
 
     public function adresse(){
@@ -143,10 +144,14 @@ class Achats extends Controller {
             
             $remise=0;
             $quantite=0;
+            
             foreach($data['commandes'] as $commande){
                 $remise= $remise + (($commande->prix_produit -(($commande->prix_produit*$commande->remise)/100))*$commande->quantite_article); 
-                $quantite= $quantite + $commande->quantite_article;              
+                $quantite= $quantite + $commande->quantite_article;
+                            
             }
+
+            $total= $remise + $data['livraison']->prix_livreur;
 
             $data = [
                 'user' => $user,
@@ -156,15 +161,13 @@ class Achats extends Controller {
                 'paiement' => $paiement,
                 'adresseDomicile' => $adresseDomicile,
                 'remise' => $remise,
-                'quantite' => $quantite
+                'quantite' => $quantite,
+                'total' => $total
                 
             ];
 
-            /*$enregistrement= $this->achatModel->enregistrementFacture($data);
-            if($enregistrement){} aller à merci? ou? ne pas oublier statut commande 1*/
-
-
-
+            $this->factureModel->ajoutFacture($data);
+            $this->commandeModel->statutCommande($_SESSION['id_commande']);
 
             $this->view('achats/recapitulatif', $data);
         }else{

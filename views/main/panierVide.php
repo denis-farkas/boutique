@@ -26,16 +26,17 @@
         </div>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <ul class="navbar-nav ml-5 mx-auto">                        
-                    <li class="nav-item">
-                        <h3><a class="nav-link" href="#">MONTECRISTI</a></h3>
+                <li class="nav-item">
+                        <h3><a class="nav-link" href="<?= WWW_ROOT ?>produits/montecristi">MONTECRISTI</a></h3>
                     </li>
                     <li class="nav-item">
-                        <h3><a class="nav-link" href="#">FEDORA</a></h3>
+                        <h3><a class="nav-link" href="<?= WWW_ROOT ?>produits/fedora">FEDORA</a></h3>
                     </li>
                     <li class="nav-item">
-                        <h3><a class="nav-link" href="#">MODE</a></h3>
+                        <h3><a class="nav-link" href="<?= WWW_ROOT ?>produits/mode">MODE</a></h3>
                     </li>
                     
+                
                 
                 </ul>
             </nav>
@@ -60,26 +61,35 @@
         </div>
         
         
-            <div class="jumbotron">
-                
-                <p>mettre boucle foreach $articles</p>
-                    <h1 class="display-5 mb-5">categorie + nom produit</h1>
+        <div class="row">
+            <div class="col-sm-12 col-md-3 my-5 text-center">
+                <div class="row">
+                    <aside class="col-md-12">
+                        <?php
+                        require (ROOT.'views/includes/aside.php');
+                        ?>  
+                    </aside>             
                     
-                        <div class="row back">
-                            <div class="col-md-6 w-100">
-                                <img class="img-fluid w-100 mt-1" <!-- src="'.WWW_ROOT.'public/images/hats_big/'.$montecristi-image_produit.'" alt="montecristi" -->   
-                            </div>
-                            <div class="col-md-6 mt-3 w-100">
-                                <p class="lead mt-5">Exclusivité Web!</p>
-                                <h4 mt-5>'.$montecristi->origine_produit.' '.$montecristi->nom_produit.'</h4><br>
-                                <span class="badge badge-pill badge-success">Disponible</span>
-                            </div>
-                           
-                        </div>';
-                    }
-                    ?>
                 </div>
-                
+            </div>
+            <section class="col-sm-12 col-md-9 my-5 text-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="jumbotron">
+                                <h1 class="display-5 mb-5">PANIER VIDE</h1>
+                                <img class="img-fluid w-50 m-5" src="<?php echo WWW_ROOT; ?>public/images/panier.png" alt="panier vide">
+                                
+                                <p>Vous n'avez pas encore sélectionner d'articles dans votre panier.</p>
+                                <p>N'oubliez pas de consulter aussi, nos articles en promotion.</p><br>
+                                <h5><a class="nav-link" href="<?= WWW_ROOT ?>pages/index">Bonne visite, sur www.panamaHats.com</a></h5>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <img class="img-fluid w-100 mt-2" src="<?php echo WWW_ROOT; ?>public/images/tissage2.jpg" alt="tissage">
+                        </div>
+                    </div>
+                </div>
             </section>
         </div>
 

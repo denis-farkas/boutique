@@ -60,7 +60,7 @@ class Commandes extends Controller {
                     $data = ['commandes' => $commandes];
                     $this->view('commandes/listeCommande', $data);
                 }else{
-                die('Erreur système.');
+                    header('location:'. WWW_ROOT . 'pages/panierVide');    ;
                 }
                  
             }else{

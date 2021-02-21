@@ -128,7 +128,7 @@
                             </div>    
                             <div class="row">
                                 <div class="col-md-6">
-                                <a type="button" class="btn btn-warning m-5" href="<?= WWW_ROOT ?>pages/merci" >Payer</a><br><br>
+                                <a type="button" class="btn btn-warning m-5" href="<?php echo WWW_ROOT.'pages/merci'; ?>">Payer</a><br><br>
                                 </div> 
 
                                 <div class="col-md-6">
@@ -141,7 +141,7 @@
 
                                         <div class="col-md-6">
                                             <h5><?= $data['livraison']->prix_livreur ?> €</h5><br><br>
-                                            <h4><?php echo $data['remise'] + $data['livraison']->prix_livreur; ?> €</h4>
+                                            <h4><?php echo $data['total'] ; ?> €</h4>
                                             <h6><?= $data['paiement']->nom_paiement ?></h6>
                                         </div>
                                     </div>
