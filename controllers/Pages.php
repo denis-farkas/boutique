@@ -7,13 +7,40 @@ class Pages extends Controller {
     
     public function index()
     {
-        $promotion= $this->pageModel->promotion();
-        $meilleureVente = $this->pageModel->meilleureVente();
+        if (isset($_POST['search'])) {
+            $nom = $_POST['nom'];
+            $search= $this->pageModel->search($nom);
+            $promotion= $this->pageModel->promotion();
+            $meilleureVente = $this->pageModel->meilleureVente();
+
+            $data = [
+                'title' => 'index',
+                'promotion' => $promotion,
+                'meilleureVente' => $meilleureVente,
+                'search' => $search            
+            ];
+    
+            $this->view('main/index', $data);
+
+        }else{
+            $promotion= $this->pageModel->promotion();
+            $meilleureVente = $this->pageModel->meilleureVente();
+            $data = [
+                'title' => 'index',
+                'promotion' => $promotion,
+                'meilleureVente' => $meilleureVente,        
+            ];
+    
+            $this->view('main/index', $data);  
+        }
+
+      
        
         $data = [
             'title' => 'index',
             'promotion' => $promotion,
-            'meilleureVente' => $meilleureVente            
+            'meilleureVente' => $meilleureVente,
+            'search' => $search            
         ];
 
         $this->view('main/index', $data);

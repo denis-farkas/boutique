@@ -74,6 +74,7 @@
             </footer>
         </div>
         <script src="<?php echo WWW_ROOT; ?>public/js/jquery.min.js"></script>
+       
     <script src="<?php echo WWW_ROOT; ?>public/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>

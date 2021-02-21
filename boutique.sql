@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : sam. 20 fév. 2021 à 08:02
+-- Généré le : Dim 21 fév. 2021 à 23:23
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.4.9
 
@@ -82,7 +82,7 @@ INSERT INTO `article` (`id_article`, `id_produit`, `id_taille`, `id_couleur`, `d
 (6, 2, 2, 1, '2021-02-12', NULL, 5),
 (7, 2, 3, 1, '2021-02-12', NULL, 5),
 (8, 2, 4, 1, '2021-02-12', NULL, 5),
-(9, 3, 1, 2, '2021-02-12', NULL, 20),
+(9, 3, 1, 2, '2021-02-12', 25, 20),
 (10, 3, 2, 2, '2021-02-12', NULL, 20),
 (11, 3, 3, 2, '2021-02-12', NULL, 20),
 (12, 3, 4, 2, '2021-02-12', NULL, 20),
@@ -136,7 +136,7 @@ CREATE TABLE IF NOT EXISTS `commande` (
 --
 
 INSERT INTO `commande` (`id_commande`, `date_commande`, `statut_commande`, `id_user`) VALUES
-(1, '2021-02-17 00:00:00', 0, 1);
+(1, '2021-02-17 00:00:00', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -210,14 +210,16 @@ CREATE TABLE IF NOT EXISTS `detail_commande` (
   `quantite_article` int(11) NOT NULL,
   `id_commande` int(11) NOT NULL,
   PRIMARY KEY (`id_detail_commande`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `detail_commande`
 --
 
 INSERT INTO `detail_commande` (`id_detail_commande`, `id_article`, `quantite_article`, `id_commande`) VALUES
-(2, 9, 1, 1);
+(2, 9, 1, 1),
+(3, 18, 1, 1),
+(4, 57, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -237,7 +239,14 @@ CREATE TABLE IF NOT EXISTS `facture` (
   `id_user` int(10) NOT NULL,
   `id_adresse` int(11) NOT NULL,
   PRIMARY KEY (`id_facture`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `facture`
+--
+
+INSERT INTO `facture` (`id_facture`, `id_commande`, `nb_total_articles`, `prix_total_articles`, `id_livraison`, `prix_total`, `date_facture`, `id_user`, `id_adresse`) VALUES
+(1, 1, 3, 164.75, 2, 189.75, '2021-02-21 00:00:00', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -283,11 +292,11 @@ CREATE TABLE IF NOT EXISTS `paiement` (
 --
 
 INSERT INTO `paiement` (`id_paiement`, `logo`, `nom_paiement`, `mode_paiement`) VALUES
-(1, 'paypal.png', 'Paypal', 'A la réception'),
-(2, 'visa.png', 'Visa', 'A l\'expédition, une mensualité.'),
-(3, 'visa.png', 'Visa crédit', 'En 3 mensualités'),
-(4, 'visa.png', 'Visa crédit', 'En 10 mensualités'),
-(5, 'cb.png', 'Carte Bleue', 'A l\'expédition.');
+(1, 'paypal.png', 'Paypal', 'A la reception'),
+(2, 'visa.png', 'Visa', 'A l\'expedition, une mensualite.'),
+(3, 'visa.png', 'Visa credit', 'En 3 mensualites'),
+(4, 'visa.png', 'Visa credit', 'En 10 mensualites'),
+(5, 'cb.png', 'Carte Bleue', 'A l\'expedition.');
 
 -- --------------------------------------------------------
 
@@ -321,6 +330,32 @@ INSERT INTO `produit` (`id_produit`, `origine_produit`, `categorie_produit`, `ge
 (7, 'Cuenca', 'Mode', 'Feminin', 'Buly', 'buly.jpg', 79),
 (8, 'Cuenca', 'Mode', 'Feminin', 'Crochet', 'cf-crochet.jpg', 49),
 (9, 'Cuenca', 'Mode', 'Feminin', 'Dos Calidades', 'cf-deux.jpg', 59);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `recherche`
+--
+
+DROP TABLE IF EXISTS `recherche`;
+CREATE TABLE IF NOT EXISTS `recherche` (
+  `id_recherche` int(11) NOT NULL AUTO_INCREMENT,
+  `mot` varchar(150) NOT NULL,
+  `lien` varchar(250) NOT NULL,
+  PRIMARY KEY (`id_recherche`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `recherche`
+--
+
+INSERT INTO `recherche` (`id_recherche`, `mot`, `lien`) VALUES
+(1, 'montecristi', '\'<a class=\"nav-link\" href=\"\'.WWW_ROOT.\'produits/montecristi\">MONTECRISTI</a>\''),
+(2, 'fedora', '<a class=\"nav-link\" href=\"<?= WWW_ROOT ?>produits/fedora\">FEDORA</a>'),
+(3, 'mode', '<a class=\"nav-link\" href=\"<?= WWW_ROOT ?>produits/mode\">MODE</a>'),
+(4, 'cuenca', '<a class=\"nav-link\" href=\"<?= WWW_ROOT ?>produits/fedora\">FEDORA</a></h3>'),
+(5, 'termes', '<a class=\"nav-link\" href=\"<?= WWW_ROOT ?>pages/termes\">TERMES</a></h3>'),
+(6, 'conditions', '<a class=\"nav-link\" href=\"<?= WWW_ROOT ?>pages/termes\">TERMES</a></h3>');
 
 -- --------------------------------------------------------
 
