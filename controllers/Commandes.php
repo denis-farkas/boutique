@@ -7,7 +7,7 @@ class Commandes extends Controller {
     }
 
     public function commande() {
-        if (!empty($_SESSION['id_user'] && isset($_POST['ajout']))) {
+        if (!empty($_SESSION['id_user'] )) {
 
             $article = [
                 'id_article'=> '',                     
@@ -99,14 +99,19 @@ class Commandes extends Controller {
 
             if (!empty($_SESSION['id_user'])) {
                         
-                        if ($this->commandeModel->deleteCommande($id_detail_commande)) {
-                           
-                            header('location: ' . WWW_ROOT . 'commandes/listeCommande/'.$id_commande);
-                        } else {
+               $delete= $this->commandeModel->deleteCommande($id_detail_commande);
+
+               if(listeCommande($id_commande)){
+                 header('location: ' . WWW_ROOT . 'commandes/listeCommande/'.$id_commande);
+               }else{
+                   $deletepanier= $this->commandeModel->deletePanier($id_commande);
+                   if($deletepanier){
+                     header('location: ' . WWW_ROOT . 'pages/index');  
+                   }else {
                             die('Erreur système.');
                         }
+               }                            
             }else{
-                
                 header('location:' . WWW_ROOT . 'users/connexion');
             }                  
                          

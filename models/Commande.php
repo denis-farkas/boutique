@@ -99,6 +99,19 @@ class Commande {
         }
 
     }
+
+     public function deletePanier($id_commande){
+    
+        $this->db->query('DELETE FROM commande WHERE id_commande = :id_commande');
+        $this->db->bind('id_commande', $id_commande);
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
 }
         
  

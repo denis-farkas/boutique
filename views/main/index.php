@@ -23,20 +23,26 @@
                     </form>
                 </nav>
             </div>
-            <div class="col-md-12">
-            <ul>
-            <?php
-            if(isset($data['search'])){
-                foreach($data['search'] as $search){
-                    echo '<li><a class="nav-link" href="'.WWW_ROOT.$search->lien.'">'.$search->mot.'</a></li>';
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <ul class="navbar-nav ml-5 mx-auto" >
+
+                <?php
+                if(isset($data['search']) && (!empty($data['search']))){
+                    echo '<li class="nav-item mt-2"> Résultat(s) de votre recherche :</li>';
+                    echo '<hr>';
+                    foreach($data['search'] as $search){
+                        echo '<li class="nav-item"><a class="nav-link" href="'.WWW_ROOT.$search->lien.'">'.$search->mot.'</a></li>';
+                    }
+                }elseif(isset($data['search']) && (empty($data['search']))){ 
+                    echo '<h6>Pas de suggestions pour ce mot.</h6>';
                 }
-            }
-            ?>
-            </ul>
-            
-            
-            </div>
-        </div>
+                ?>
+                </ul>
+            </nav>
+                
+                
+               
+          
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <ul class="navbar-nav ml-5 mx-auto">                        
                 <li class="nav-item">

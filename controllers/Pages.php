@@ -8,6 +8,8 @@ class Pages extends Controller {
     public function index()
     {
         if (isset($_POST['search'])) {
+             // Sanitize POST data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $nom = $_POST['nom'];
             $search= $this->pageModel->search($nom);
             $promotion= $this->pageModel->promotion();
