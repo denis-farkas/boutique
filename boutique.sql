@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 22 fév. 2021 à 06:59
+-- Généré le : lun. 22 fév. 2021 à 15:53
 -- Version du serveur :  5.7.31
--- Version de PHP : 7.4.9
+-- Version de PHP : 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -129,14 +129,15 @@ CREATE TABLE IF NOT EXISTS `commande` (
   `statut_commande` tinyint(1) NOT NULL,
   `id_user` int(10) NOT NULL,
   PRIMARY KEY (`id_commande`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `commande`
 --
 
 INSERT INTO `commande` (`id_commande`, `date_commande`, `statut_commande`, `id_user`) VALUES
-(1, '2021-02-17 00:00:00', 1, 1);
+(1, '2021-02-17 00:00:00', 1, 1),
+(3, '2021-02-22 10:19:02', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -210,7 +211,7 @@ CREATE TABLE IF NOT EXISTS `detail_commande` (
   `quantite_article` int(11) NOT NULL,
   `id_commande` int(11) NOT NULL,
   PRIMARY KEY (`id_detail_commande`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `detail_commande`
@@ -219,7 +220,8 @@ CREATE TABLE IF NOT EXISTS `detail_commande` (
 INSERT INTO `detail_commande` (`id_detail_commande`, `id_article`, `quantite_article`, `id_commande`) VALUES
 (2, 9, 1, 1),
 (3, 18, 1, 1),
-(4, 57, 1, 1);
+(4, 57, 1, 1),
+(7, 5, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -239,14 +241,16 @@ CREATE TABLE IF NOT EXISTS `facture` (
   `id_user` int(10) NOT NULL,
   `id_adresse` int(11) NOT NULL,
   PRIMARY KEY (`id_facture`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `facture`
 --
 
 INSERT INTO `facture` (`id_facture`, `id_commande`, `nb_total_articles`, `prix_total_articles`, `id_livraison`, `prix_total`, `date_facture`, `id_user`, `id_adresse`) VALUES
-(1, 1, 3, 164.75, 2, 189.75, '2021-02-21 00:00:00', 1, 1);
+(1, 1, 3, 164.75, 2, 189.75, '2021-02-21 00:00:00', 1, 1),
+(2, 3, 1, 399, 2, 424, '2021-02-22 00:00:00', 1, 1),
+(3, 3, 1, 399, 2, 424, '2021-02-22 00:00:00', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -343,7 +347,7 @@ CREATE TABLE IF NOT EXISTS `recherche` (
   `mot` varchar(150) NOT NULL,
   `lien` varchar(250) NOT NULL,
   PRIMARY KEY (`id_recherche`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `recherche`
@@ -355,7 +359,20 @@ INSERT INTO `recherche` (`id_recherche`, `mot`, `lien`) VALUES
 (3, 'mode', 'produits/mode'),
 (4, 'cuenca', 'produits/fedora'),
 (5, 'termes', 'pages/termes'),
-(6, 'conditions', 'pages/termes');
+(6, 'conditions', 'pages/termes'),
+(7, 'livraison', 'pages/livraison'),
+(8, 'paiement', 'pages/paiement'),
+(9, 'contact', 'pages/contact'),
+(10, 'magasin', 'pages/magasin'),
+(11, 'nous', 'pages/about'),
+(12, 'propos', 'pages/about'),
+(13, 'merci', 'pages/merci'),
+(14, 'index', 'pages/index'),
+(15, 'home', 'pages/index'),
+(16, 'promotion', 'pages/index'),
+(17, 'meilleures ventes', 'pages/index'),
+(18, 'buly', 'produits/mode'),
+(19, 'crochet', 'produit/mode');
 
 -- --------------------------------------------------------
 
