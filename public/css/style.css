@@ -129,4 +129,66 @@ form.form-inline::after {
   clear: both;
   display: table;
 }
+
+@font-face {
+ font-family: 'Audrey Regular';
+ font-style: normal;
+ font-weight: normal;
+ src: local('Audrey Regular'),
+ url('../webfonts/Audrey-Normal.woff') format('woff');
+ }
+
+
+ @font-face {
+   font-family: 'Audrey Italic';
+   font-style: normal;
+   font-weight: normal;
+   src: local('Audrey Italic'),
+   url('../webfonts/Audrey-NormalOblique.woff') format('woff');
+ }
+
+
+ @font-face {
+   font-family: 'Audrey Medium';
+   font-style: normal;
+   font-weight: normal;
+   src: local('Audrey Medium'),
+   url('../webfonts/Audrey-Medium.woff') format('woff');
+ }
+
+
+ @font-face {
+   font-family: 'Audrey Medium Oblique';
+   font-style: normal;
+   font-weight: normal;
+   src: local('Audrey Medium Oblique'),
+   url('../webfonts/Audrey-MediumOblique.woff') format('woff');
+ }
+
+
+ @font-face {
+   font-family: 'Audrey Bold';
+   font-style: normal;
+   font-weight: normal;
+   src: local('Audrey Bold'),
+   url('../webfonts/Audrey-Bold.woff') format('woff');
+ }
+
+
+ @font-face {
+   font-family: 'Audrey Bold Italic';
+   font-style: normal;
+   font-weight: normal;
+   src: local('Audrey Bold Italic'),
+   url('../webfonts/Audrey-BoldOblique.woff') format('woff');
+ }
+
+ h1.audrey {
+   
+   font-family: 'Audrey Regular';
+   font-style: normal;
+   font-weight: normal;
+   
+   color: #ab9159;  
+ }
   
