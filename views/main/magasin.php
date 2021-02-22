@@ -76,7 +76,7 @@
                     <div class="row">
                         <div class="col-md-8">
                             <div class="jumbotron">                               
-                            <h1 class="display-5 mb-5"> Le service de paiement sécurisé</h1>                  
+                            <h1 class="display-5 mb-5">NOTRE BOUTIQUE</h1>                  
 
                                 <h5>Comment fonctionne le service de paiement sécurisé ?</h5><br>
                                     <p>Le service de paiement sécurisé vous permet d'effectuer des transactions simples et sécurisées pour vos achats.</p>
@@ -90,7 +90,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <img class="img-fluid w-100 mt-2" src="<?php echo WWW_ROOT; ?>public/images/fibre-big.jpg" alt="fibre">
+                            <img class="img-fluid w-100 mt-2" src="<?php echo WWW_ROOT; ?>public/images/boutique.jpg" alt="boutique">
                         </div>
                     </div>
                 </div>
