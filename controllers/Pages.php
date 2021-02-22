@@ -84,5 +84,48 @@ class Pages extends Controller {
         $this->view('main/panierVide', $data);
     }
 
-  
+    public function about()
+    {
+        $data = [
+            'title' => 'A propos de nous'
+        ];
+
+        $this->view('main/about', $data);
+    }
+
+    public function magasin()
+    {
+        $data = [
+            'title' => 'Notre magasin'
+        ];
+
+        $this->view('main/magasin', $data);
+    }
+
+    public function contact()
+    {
+        $data = [
+            'title' => 'Contacts'
+        ];
+
+        $this->view('main/contact', $data);
+    }
+
+    public function paiement()
+    {
+        $data = [
+            'title' => 'Paiement sécurisé'
+        ];
+
+        $this->view('main/paiement', $data);
+    }
+
+    public function livraison()
+    {
+        $data = [
+            'title' => 'Livraison'
+        ];
+
+        $this->view('main/livraison', $data);
+    }
 }

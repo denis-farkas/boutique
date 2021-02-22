@@ -237,7 +237,7 @@
             </section>
         </div>
 
-
+        <div class="col-md-12"><a class="float-lg-right m-3" href="#top"><h3>Top</h3></a></div>
         <?php
         require ROOT . '/views/includes/footer.php';
         ?>

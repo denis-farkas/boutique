@@ -5,7 +5,7 @@
 
     <div class="container-fluid">
         
-        <div class="col-md-12">
+        <div id="top" class="col-md-12">
             <?php
             require (ROOT.'views/includes/navigation.php');
             ?>
@@ -121,6 +121,9 @@
                         </div>
                     </div>
 
+                    <?php
+                     require ROOT . '/views/includes/nav_tab.php';
+                    ?>
                     
                     <div class="jumbotron">
                         <h3 class="mb-5">Nos meilleures ventes</h3>
@@ -147,7 +150,7 @@
                 </div>
             </section>
         </div>
-
+        <div class="col-md-12"><a class="float-lg-right m-3" href="#top"><h3>Top</h3></a></div>
 
         <?php
         require ROOT . '/views/includes/footer.php';
