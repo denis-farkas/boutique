@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : Dim 21 fév. 2021 à 23:23
+-- Généré le : lun. 22 fév. 2021 à 06:59
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.4.9
 
@@ -350,12 +350,12 @@ CREATE TABLE IF NOT EXISTS `recherche` (
 --
 
 INSERT INTO `recherche` (`id_recherche`, `mot`, `lien`) VALUES
-(1, 'montecristi', '\'<a class=\"nav-link\" href=\"\'.WWW_ROOT.\'produits/montecristi\">MONTECRISTI</a>\''),
-(2, 'fedora', '<a class=\"nav-link\" href=\"<?= WWW_ROOT ?>produits/fedora\">FEDORA</a>'),
-(3, 'mode', '<a class=\"nav-link\" href=\"<?= WWW_ROOT ?>produits/mode\">MODE</a>'),
-(4, 'cuenca', '<a class=\"nav-link\" href=\"<?= WWW_ROOT ?>produits/fedora\">FEDORA</a></h3>'),
-(5, 'termes', '<a class=\"nav-link\" href=\"<?= WWW_ROOT ?>pages/termes\">TERMES</a></h3>'),
-(6, 'conditions', '<a class=\"nav-link\" href=\"<?= WWW_ROOT ?>pages/termes\">TERMES</a></h3>');
+(1, 'montecristi', 'produits/montecristi'),
+(2, 'fedora', 'produits/fedora'),
+(3, 'mode', 'produits/mode'),
+(4, 'cuenca', 'produits/fedora'),
+(5, 'termes', 'pages/termes'),
+(6, 'conditions', 'pages/termes');
 
 -- --------------------------------------------------------
 

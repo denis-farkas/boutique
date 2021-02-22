@@ -40,7 +40,7 @@ class Pages extends Controller {
             'title' => 'index',
             'promotion' => $promotion,
             'meilleureVente' => $meilleureVente,
-            'search' => $search            
+                     
         ];
 
         $this->view('main/index', $data);

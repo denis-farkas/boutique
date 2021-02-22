@@ -19,7 +19,7 @@
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <form class="form-inline ml-5 my-2 my-lg-0" method="post" action="<?php echo WWW_ROOT; ?>pages/index">
                         <input class="form-control mr-sm-2" type="text" name="nom" placeholder="Rechercher">
-                        <input type="submit" class="btn btn-secondary ml-1S" name="search"><i class="fas fa-search"></i>
+                        <button type="submit" name="search"><i class="fas fa-search fa-sm"></i></button>
                     </form>
                 </nav>
             </div>
@@ -28,7 +28,7 @@
             <?php
             if(isset($data['search'])){
                 foreach($data['search'] as $search){
-                    echo '<li>'.$search->lien.'</li>';
+                    echo '<li><a class="nav-link" href="'.WWW_ROOT.$search->lien.'">'.$search->mot.'</a></li>';
                 }
             }
             ?>

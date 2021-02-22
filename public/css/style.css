@@ -106,4 +106,27 @@ footer{
     margin-top: -3px;
   }
 
+  /* Style the submit button */
+form.form-inline button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #f3b121;
+  color: white;
+  font-size: 17px;
+  border: 1px solid #f3b121;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+form.form-inline button:hover {
+  background: #b9a16d;
+}
+
+/* Clear floats */
+form.form-inline::after {
+  content: "";
+  clear: both;
+  display: table;
+}
   

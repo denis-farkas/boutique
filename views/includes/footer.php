@@ -8,7 +8,7 @@
                             <h4 class="gold">LETTRE D'INFORMATIONS</h4>
                             <form class="form-inline ml-2 my-2 my-lg-0">
                             <input class="form-control mr-sm-2" type="text" placeholder="Saisissez votre e-mail">
-                            <button type="submit" class="btn btn-secondary ml-1S"><i class="fa fa-envelope fa-2x"></i></button>   
+                            <button type="submit" class="btn btn-secondary ml-1S"><i class="fa fa-envelope fa-sm"></i></button>   
                             </form>
                      
                         <ul class="navbar-nav ml-5 ">

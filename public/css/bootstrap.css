@@ -2434,8 +2434,7 @@ textarea.form-control {
 .form-inline {
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-flow: row wrap;
-  flex-flow: row wrap;
+  
   -ms-flex-align: center;
   align-items: center;
 }
@@ -2459,8 +2458,7 @@ textarea.form-control {
     display: flex;
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
-    -ms-flex-flow: row wrap;
-    flex-flow: row wrap;
+    
     -ms-flex-align: center;
     align-items: center;
     margin-bottom: 0;
