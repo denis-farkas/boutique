@@ -2,7 +2,6 @@
 class Commandes extends Controller {
     public function __construct() {
         $this->commandeModel = $this->model('Commande');
-        $this->userModel = $this->model('User');
        
     }
 
