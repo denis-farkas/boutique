@@ -76,17 +76,17 @@
                     <div class="row">
                         <div class="col-md-8">
                             <div class="jumbotron">                               
-                            <h1 class="display-5 mb-5">NOTRE BOUTIQUE</h1>                  
+                            <h1 class="audrey display-5 mb-5">NOTRE BOUTIQUE</h1>                  
 
-                                <h5>Comment fonctionne le service de paiement sécurisé ?</h5><br>
-                                    <p>Le service de paiement sécurisé vous permet d'effectuer des transactions simples et sécurisées pour vos achats.</p>
-                                    <p>En utilisant le service de paiement sécurisé, vous bénéficiez de la protection VerifPay : votre argent est en sécurité jusqu'à la fin de la transaction et une équipe vous est dédiée en cas de problème. 
-                                    </p><br>
-
-                                <h5>Quels sont les moyens de paiement acceptés ?</h5><br>
-                                    <p>Dans le cadre des transactions effectuées via le service de paiement sécurisé, les moyens de paiement acceptés sont:<br>
-
-                                    Les cartes de paiement en cours de validité de type Visa, Carte Bleu et compte Paypal.</p>
+                                <h5>panamahats.com</h5><br>
+                                <p> 42 avenue des Champs Elysées 75000 Paris France</p>
+                                <br />
+                                <h5>APPELEZ-NOUS AU :</h5>
+                                <h1 class="audrey gold">0123-456-789</h1>
+                                <br />
+                               
+                                <h5>Horaires d'ouverture</h5>
+                                    <p>Du mardi au samedi: 10H - 20H</p>
                             </div>
                         </div>
                         <div class="col-md-4">
