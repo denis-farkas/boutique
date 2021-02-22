@@ -97,7 +97,7 @@
                 <div class="container">
                     <div class="jumbotron">
                     
-                        <h3 class="mb-5">Nos promotions</h3>
+                        <h3 class="audrey mb-5">Nos promotions</h3>
                         <div class='row'>
                             <div class="card-deck">
                                 
@@ -126,7 +126,7 @@
                     ?>
                     
                     <div class="jumbotron">
-                        <h3 class="mb-5">Nos meilleures ventes</h3>
+                        <h3 class="audrey mb-5">Nos meilleures ventes</h3>
                         <div class='row'>
                             <div class="card-deck">
                                 <?php foreach($data['meilleureVente'] as $meilleureVente){

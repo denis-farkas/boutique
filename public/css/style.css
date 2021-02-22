@@ -191,4 +191,11 @@ form.form-inline::after {
    
    color: #ab9159;  
  }
+
+ h3.audrey {
+
+   font-family: 'Audrey Medium';
+   font-style: normal;
+   font-weight: normal;
+ }
   
