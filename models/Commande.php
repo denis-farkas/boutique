@@ -5,6 +5,13 @@ class Commande {
         $this->db = new Database;
     }
 
+     public function mesCommandes($id_user){
+        $this->db->query('SELECT commande.id_commande, date_commande, statut_commande, detail_commande.id_article, detail_commande.id_detail_commande, categorie_produit, nom_produit, image_produit, prix_produit, nom_taille, cm_taille, nom_couleur, image_couleur, quantite_article, remise  FROM commande JOIN detail_commande ON commande.id_commande=detail_commande.id_commande JOIN article ON detail_commande.id_article = article.id_article JOIN produit ON article.id_produit=produit.id_produit JOIN taille ON article.id_taille=taille.id_taille JOIN couleur ON article.id_couleur=couleur.id_couleur  WHERE commande.id_user= :id_user AND statut_commande=1');
+        $this->db->bind(':id_user', $id_user);
+        $mescommandes = $this->db->resultSet();
+        return $mescommandes; 
+    }
+    
     public function viewCommande($id_user) {
         $this->db->query('SELECT * FROM commande WHERE id_user= :id_user AND statut_commande = 0');
         $this->db->bind(':id_user', $id_user);

@@ -7,13 +7,13 @@ class Admin {
     }
 
     public function crudUsers(){
-        $this->db->query('SELECT * FROM user ORDER BY nom ASC');
+        $this->db->query('SELECT * FROM user WHERE is_admin = 0 ORDER BY nom ASC');
         $users=$this->db->resultSet();
         return $users;
     }
 
     public function view($id) {
-        $this->db->query('SELECT prenom, nom, civilite, telephone, email, date_registre, num_rue, nom_rue, batiment, code_postal, ville, pays FROM user JOIN adresse ON user.id_user = adresse.id_user WHERE user.id_user = :id_user AND adresse.domicile = 1');
+        $this->db->query('SELECT prenom, nom, civilite, telephone, email, date_registre, num_rue, nom_rue, batiment, code_postal, ville, pays FROM user JOIN adresse ON user.id_user = adresse.id_user WHERE user.id_user = :id_user AND adresse.domicile = 1 AND is_admin= 0');
 
         //Bind 
         $this->db->bind(':id_user', $id);
@@ -113,87 +113,14 @@ class Admin {
         $this->db->bind(':prix_produit', $produit['prix_produit']);      
         $this->db->bind(':id_produit', $produit['id_produit']);            
        
-        //Execute function
-    if ($this->db->execute()) {
-        return true;
-    } else {
-        return false;
-    }         
-}  
-
-
-    public function connexion($login, $password) {
-        $this->db->query('SELECT * FROM utilisateurs WHERE login = :login AND role = :role');
-
-        //Bind 
-        $this->db->bind(':login', $login);
-        $this->db->bind(':role', 'admin');
-        //méthode row comme objet de database
-        $row = $this->db->single();
-        if($row != FALSE){
-            $hashedPassword = $row->password;
-
-            if (password_verify($password, $hashedPassword)) {
-                return $row;
-            } else {
-                return false;
-            }
-        }else{return false;}
-       
-    }
-
-    //méthode finduser par login. login est passée par le Controller.
-    public function findAdminByLogin($login) {
-        $this->db->query('SELECT * FROM utilisateurs WHERE login = :login');
-
-        //Bind 
-        $this->db->bind(':login', $login);
-        //méthode row comme objet de database
-        $row = $this->db->single();
-        return $row;
-    }
-
-    //Find user by email. Email is passed in by the Controller.
-    public function findAdminByEmail($email) {
-        //Prepared statement
-        $this->db->query('SELECT * FROM utilisateurs WHERE email = :email');
-
-        //Email param will be binded with the email variable
-        $this->db->bind(':email', $email);
-
-        //Check if email is already registered
-        if($this->db->rowCount() > 0) {
+            //Execute function
+        if ($this->db->execute()) {
             return true;
         } else {
             return false;
-        }
+        }         
     }
-
-    
-    
-
-    public function updateProfil($user){
-            
-        $this->db->query('UPDATE utilisateurs SET role= :role, blocage= :blocage, periode_blocage= :periode_blocage WHERE id= :id');
-        $this->db->bind(':role', $user['role']);
-        $this->db->bind(':blocage', $user['blocage']);
-        $this->db->bind(':periode_blocage', $user['periode_blocage']);
-        $this->db->bind(':id', $user['id']);
-        
-       
-        //Execute function
-    if ($this->db->execute()) {
-        return true;
-    } else {
-        return false;
-    }         
 }  
 
-    public function blocked(){
-        $this->db->query('SELECT * FROM utilisateurs WHERE blocage=1 ORDER BY login ASC');
-        $blocked=$this->db->resultSet();
-        return $blocked;
-        }
-    }
         
     
