@@ -81,7 +81,7 @@
                   
 
            
-           <form>
+           <form action="<?php echo WWW_ROOT;?>pages/contact" method="post">
   <fieldset>
     <legend>Envoyer un message</legend>
     <div class="row">
@@ -121,7 +121,7 @@
       <textarea class="form-control" id="exampleTextarea" rows="8"></textarea>
     </div>
    
-    <button type="submit" class="btn btn-primary m-5">Envoyer</button>
+    <button type="submit" class="btn btn-primary mt-5">Envoyer</button>
   </fieldset>
 </form>
                 
