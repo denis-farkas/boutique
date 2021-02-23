@@ -105,17 +105,7 @@ class Commandes extends Controller {
                          
         }
 
-        public function mescommandes($id_user){
-         
-            if(!empty($_SESSION['id_user']))
-            {
-            $mescommandes= $this->commandeModel->mesCommandes($id_user);
-             $this->view('users/mesCommandes', $data);
-            }
-             else{
-                header('location:' . WWW_ROOT . 'users/connexion');  
-             }
-        }
+      
 
 }
     

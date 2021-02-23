@@ -49,7 +49,7 @@
                             <div class="col-md-4">
                                 <h5 class="ml-3" >MON COMPTE</h5>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><a class="nav-link" href="">Mes commandes</a></li>
+                                    <li class="list-group-item"><a class="nav-link" href="<?php echo WWW_ROOT.'factures/listFactures/'.$_SESSION['id_user']; ?>">Mes commandes</a></li>
                                     <li class="list-group-item"><a class="nav-link" href="">Mon adresse</a></li>
                                     <li class="list-group-item"><a class="nav-link" href="">Mes informations</a></li>
                                 </ul>

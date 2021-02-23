@@ -15,7 +15,7 @@ class Factures extends Controller {
                 $data=[
                     'facture' => $facture
                 ];
-                $this->view('facture/vueFacture', $data);
+                $this->view('factures/vueFacture', $data);
             }else{
                 die('Erreur système.');   
             } 
@@ -32,7 +32,7 @@ class Factures extends Controller {
                 $data=[
                     'listFactures' => $listFactures
                 ];
-                $this->view('facture/listFactures', $data);
+                $this->view('factures/listFactures', $data);
             }else{
                 die('Erreur système.');   
             } 
