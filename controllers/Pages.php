@@ -36,13 +36,10 @@ class Pages extends Controller {
             $this->view('main/index', $data);  
         }
 
-      
-       
         $data = [
             'title' => 'index',
             'promotion' => $promotion,
-            'meilleureVente' => $meilleureVente,
-                     
+            'meilleureVente' => $meilleureVente,            
         ];
 
         $this->view('main/index', $data);
@@ -59,73 +56,212 @@ class Pages extends Controller {
 
     public function termes()
     {
-        $data = [
-            'title' => 'termes et conditions de vente'
-        ];
+        if (isset($_POST['search'])) {
+             // Sanitize POST data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $nom = $_POST['nom'];
+            $search= $this->pageModel->search($nom);
 
-        $this->view('main/termes', $data);
+            $data = [
+                'title' => 'termes',               
+                'search' => $search            
+            ];
+    
+            $this->view('main/termes', $data);
+
+        }else{
+           
+            $data = [
+                'title' => 'termes'         
+            ];
+    
+            $this->view('main/termes', $data);  
+        }
     }
 
     public function merci()
     {
-        $data = [
-            'title' => 'Merci'
-        ];
+         if (isset($_POST['search'])) {
+             // Sanitize POST data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $nom = $_POST['nom'];
+            $search= $this->pageModel->search($nom);
 
-        $this->view('main/merci', $data);
+            $data = [
+                'title' => 'Merci',               
+                'search' => $search            
+            ];
+    
+            $this->view('main/merci', $data);
+
+        }else{
+           
+            $data = [
+                'title' => 'Merci'         
+            ];
+    
+            $this->view('main/merci', $data);  
+        }
     }
 
     public function panierVide()
-    {
-        $data = [
-            'title' => 'panier vide'
-        ];
+    { if (isset($_POST['search'])) {
+             // Sanitize POST data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $nom = $_POST['nom'];
+            $search= $this->pageModel->search($nom);
 
-        $this->view('main/panierVide', $data);
+            $data = [
+                'title' => 'Panier vide',               
+                'search' => $search            
+            ];
+    
+            $this->view('main/panierVide', $data);
+
+        }else{
+           
+            $data = [
+                'title' => 'Panier vide'         
+            ];
+    
+            $this->view('main/panierVide', $data);  
+        }
     }
 
     public function about()
-    {
+     {
+        if (isset($_POST['search'])) {
+             // Sanitize POST data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $nom = $_POST['nom'];
+            $search= $this->pageModel->search($nom);
+          
+
+            $data = [
+                'title' => 'A propos de nous',
+                'search' => $search            
+            ];
+    
+            $this->view('main/about', $data);
+
+        }else{
+           
+            $data = [
+                'title' => 'A propos de nous',        
+            ];
+    
+            $this->view('main/about', $data);  
+        }
+
+      
+       
         $data = [
-            'title' => 'A propos de nous'
+            'title' => 'index',
+            'promotion' => $promotion,
+            'meilleureVente' => $meilleureVente,
+                     
         ];
 
-        $this->view('main/about', $data);
+        $this->view('main/index', $data);
     }
 
-    public function magasin()
-    {
-        $data = [
-            'title' => 'Notre magasin'
-        ];
+    public function magasin(){
 
-        $this->view('main/magasin', $data);
+        if (isset($_POST['search'])) {
+             // Sanitize POST data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $nom = $_POST['nom'];
+            $search= $this->pageModel->search($nom);
+
+            $data = [
+                'title' => 'Notre  magasin',               
+                'search' => $search            
+            ];
+    
+            $this->view('main/magasin', $data);
+
+        }else{
+           
+            $data = [
+                'title' => 'magasin'         
+            ];
+    
+            $this->view('main/magasin', $data);  
+        }
     }
 
     public function contact()
     {
-        $data = [
-            'title' => 'Contacts'
-        ];
+         if (isset($_POST['search'])) {
+             // Sanitize POST data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $nom = $_POST['nom'];
+            $search= $this->pageModel->search($nom);
 
-        $this->view('main/contact', $data);
+            $data = [
+                'title' => 'Contacts',               
+                'search' => $search            
+            ];
+    
+            $this->view('main/contact', $data);
+
+        }else{
+           
+            $data = [
+                'title' => 'magasin'         
+            ];
+    
+            $this->view('main/contact', $data);  
+        }
     }
 
     public function paiement()
     {
-        $data = [
-            'title' => 'Paiement sécurisé'
-        ];
+         if (isset($_POST['search'])) {
+             // Sanitize POST data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $nom = $_POST['nom'];
+            $search= $this->pageModel->search($nom);
 
-        $this->view('main/paiement', $data);
+            $data = [
+                'title' => 'Paiement',               
+                'search' => $search            
+            ];
+    
+            $this->view('main/paiement', $data);
+
+        }else{
+           
+            $data = [
+                'title' => 'Paiement'         
+            ];
+    
+            $this->view('main/paiement', $data);  
+        }
     }
 
     public function livraison()
     {
-        $data = [
-            'title' => 'Livraison'
-        ];
+        if (isset($_POST['search'])) {
+             // Sanitize POST data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $nom = $_POST['nom'];
+            $search= $this->pageModel->search($nom);
 
-        $this->view('main/livraison', $data);
+            $data = [
+                'title' => 'Livraison',               
+                'search' => $search            
+            ];
+    
+            $this->view('main/livraison', $data);
+
+        }else{
+           
+            $data = [
+                'title' => 'livraison'         
+            ];
+    
+            $this->view('main/livraison', $data);  
+        }
     }
 }
