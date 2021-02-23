@@ -13,16 +13,32 @@
         
         
         <div class="col-md-12 mt-5">
-            <div class="row">                               
+        <div class="row">                               
                 <img class="ml-5 img-fluid" src="<?php echo WWW_ROOT; ?>public/images/logo.png" alt="Logo">                 
                 <h2 class="mt-5">PANAMA HATS<br /><small class="text-muted">Chapeaux de Légende</small></h2>                              
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <form class="form-inline ml-5 my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Rechercher">
-                        <button type="submit" class="btn btn-secondary ml-1S"><i class="fas fa-search"></i></button>
+                    <form class="form-inline ml-5 my-2 my-lg-0" method="post" action="<?php echo WWW_ROOT; ?>pages/termes">
+                        <input class="form-control mr-sm-2" type="text" name="nom" placeholder="Rechercher">
+                        <button type="submit" name="search"><i class="fas fa-search fa-sm"></i></button>
                     </form>
                 </nav>
             </div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <ul class="navbar-nav ml-5 mx-auto" >
+
+                <?php
+                if(isset($data['search']) && (!empty($data['search']))){
+                    echo '<li class="nav-item mt-2"> Résultat(s) de votre recherche :</li>';
+                    echo '<hr>';
+                    foreach($data['search'] as $search){
+                        echo '<li class="nav-item"><a class="nav-link" href="'.WWW_ROOT.$search->lien.'">'.$search->mot.'</a></li>';
+                    }
+                }elseif(isset($data['search']) && (empty($data['search']))){ 
+                    echo '<h6>Pas de suggestions pour ce mot.</h6>';
+                }
+                ?>
+                </ul>
+            </nav>    
         </div>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <ul class="navbar-nav ml-5 mx-auto">                        
