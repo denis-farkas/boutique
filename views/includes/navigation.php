@@ -12,13 +12,13 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Contacts</a>
+                <a class="nav-link" href="<?= WWW_ROOT ?>pages/contact">Contacts</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Plan</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">A notre sujet</a>
+                <a class="nav-link" href="<?= WWW_ROOT ?>pages/about">A notre sujet</a>
             </li>
         
         </ul>
