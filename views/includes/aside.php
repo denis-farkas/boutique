@@ -18,6 +18,7 @@
                     <li class="list-group-item"><a class="nav-link" href="<?php echo WWW_ROOT.'pages/livraison'; ?>">Livraison</a></li>
                     <li class="list-group-item"><a class="nav-link" href="<?php echo WWW_ROOT.'pages/about'; ?>">A notre sujet</a></li>
                     <li class="list-group-item"><a class="nav-link" href="<?php echo WWW_ROOT.'pages/magasin'; ?>">Notre magasin</a></li>
+                    <li class="list-group-item"><a class="nav-link" href="<?php echo WWW_ROOT.'pages/contact'; ?>">Contactez-nous</a></li>
                 </ul>
 
     </div>

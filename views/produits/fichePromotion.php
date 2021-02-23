@@ -16,12 +16,6 @@
             <div class="row">                               
                 <img class="ml-5 img-fluid" src="<?php echo WWW_ROOT; ?>public/images/logo.png" alt="Logo">                 
                 <h2 class="mt-5">PANAMA HATS<br /><small class="text-muted">Chapeaux de Légende</small></h2>                              
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <form class="form-inline ml-5 my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Rechercher">
-                        <button type="submit" class="btn btn-secondary ml-1S"><i class="fas fa-search"></i></button>
-                    </form>
-                </nav>
             </div>
         </div>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">

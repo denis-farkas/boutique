@@ -84,61 +84,52 @@
                 </div>
             </div>
             <section class="col-sm-12 col-md-9 my-5 text-center">
-                <div class="container">
-                
-               
-                <div class="jumbotron">
-                <h5>PanamaHats.com</h5>
-                    <h3 class="audrey">SERVICE CLIENT</h3>
-                    <h1 class="audrey display-5 m-5">CONTACTEZ-NOUS</h1>
-                  
+                <div class="container">            
+                    <div class="jumbotron">
+                    <h5>PanamaHats.com</h5>
+                        <h3 class="audrey">SERVICE CLIENT</h3>
+                        <h1 class="audrey display-5 m-5">CONTACTEZ-NOUS</h1>               
 
            
-           <form action="<?php echo WWW_ROOT;?>pages/contact" method="post">
-  <fieldset>
-    <legend>Envoyer un message</legend>
-    <div class="row">
-        <div class="col-md-4">
+                        <form action="<?php echo WWW_ROOT;?>pages/contact" method="post">
+                                <fieldset>
+                                    <legend>Envoyer un message</legend>
+                                    <div class="row">
+                                        <div class="col-md-4">                        
+                                            <div class="form-group">
+                                                <label for="objet">Objet</label>
+                                                <select class="form-control" id="objet" name="objet">
+                                                    <option>Informations</option>
+                                                    <option>Devis</option>
+                                                    <option>Commande</option>
+                                                    <option>Livraison- Retour</option>
+                                                    <option>Commentaire</option>
+                                                </select>
+                                            </div>
 
-        
-    <div class="form-group">
-      <label for="objet">Objet</label>
-      <select class="form-control" id="objet" name="objet">
-        <option>Informations</option>
-        <option>Devis</option>
-        <option>Commande</option>
-        <option>Livraison- Retour</option>
-        <option>Commentaire</option>
-      </select>
-    </div>
+                                            <div class="form-group">
+                                                <label for="email">Votre email</label>
+                                                <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="email">
+                                            </div>
 
-    <div class="form-group">
-      <label for="email">Votre email</label>
-      <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="email">
-    </div>
+                                            <div class="form-group">
+                                                <label for="ref">Référence de commande</label>
+                                                <input type="text" class="form-control" id="ref" aria-describedby="ref" placeholder="ref">
+                                            </div>                        
+                                        </div>
 
-    <div class="form-group">
-      <label for="ref">Référence de commande</label>
-      <input type="text" class="form-control" id="ref" aria-describedby="ref" placeholder="ref">
-    </div>
-   
-    <div class="form-group">
-      <label for="file">Joindre un fichier</label>
-      <input type="file" class="form-control-file" id="file" aria-describedby="file">
-    </div>
-   
-   </div>
-   <div class="col-md-8">
-    <div class="form-group">
-      <label for="text">Votre message</label>
-      <textarea class="form-control" id="text" rows="8"></textarea>
-    </div>
-   
-    <a type="button" href="<?= WWW_ROOT ?>pages/index" class="btn btn-primary mt-5">Envoyer</a>
-  </fieldset>
-</form>
-                
-            
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                            <label for="text">Votre message</label>
+                                            <textarea class="form-control" id="text" rows="6"></textarea>
+                                        </div>
+                                        
+                                            <a type="button" href="<?= WWW_ROOT ?>pages/index" class="btn btn-primary mt-5">Envoyer</a>
+                                </fieldset>
+                            </form>
+                    </div>                              
+                </div>
+            </section>
         </div>
 
         <div class="col-md-12"><a class="float-lg-right m-3" href="#top"><h3>Top</h3></a></div>
