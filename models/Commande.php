@@ -12,6 +12,13 @@ class Commande {
         return $commande; 
     }
 
+    public function verifyCommande($id_commande){
+        $this->db->query('SELECT * FROM detail_commande WHERE id_commande= :id_commande');
+        $this->db->bind(':id_commande', $id_commande);
+        $verify= $this->db->rowCount();
+        return $verify;
+    }
+
     public function ajoutCommande($id_user) {
         $creation= date("Y-m-d H:i:s");
        
@@ -87,8 +94,10 @@ class Commande {
             return false;
         }
     }
+
     
-    public function deleteCommande($id_detail_commande){
+    
+    public function deleteDetailCommande($id_detail_commande){
     
         $this->db->query('DELETE FROM detail_commande WHERE id_detail_commande = :id_detail_commande');
         $this->db->bind('id_detail_commande', $id_detail_commande);

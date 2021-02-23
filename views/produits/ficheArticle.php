@@ -66,7 +66,7 @@
                     <li class="breadcrumb-item active"><?= $data['produit']->nom_produit ?></li>
                 </ol>
                 <div class="container backy">                           
-                                                 
+
                     <div class="row">
                         <div class="col-md-6 w-100 mt-5">
                         <img class="img-fluid w-75 m-5" src="<?php echo WWW_ROOT.'public/images/hats_big/'.$data['produit']->image_produit; ?>" alt="">   

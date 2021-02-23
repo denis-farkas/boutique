@@ -77,7 +77,7 @@
                     <div class="row">
                         <div class="col-md-8">
                             <div class="jumbotron">
-                                <h1 class="display-5 mb-5">LES LIVRAISONS</h1><br>
+                                <h1 class="audrey display-5 mb-5">LES LIVRAISONS</h1><br>
                                 <hr class="my-4 gold"><br>
                                 <p>Le service de livraison de Colissimo - Laposte.fr avec suivi est destiné aux chapeaux  économiques sur le territoire français.
                                 L'envoi est effectué en 2-3 jours ouvrables pour un prix unique de 15 euros, comprenant les frais annexes et l'assurance.

@@ -104,7 +104,7 @@
                             </div>
                        
                             <div class="col-md-2  w-100">                                
-                            <a href="'.WWW_ROOT.'commandes/deleteCommande/'.$commandes->id_detail_commande.'/'.$commandes->id_commande.'"><span class="close heavy m-3"></span></a>
+                            <a href="'.WWW_ROOT.'commandes/deleteDetailCommande/'.$commandes->id_detail_commande.'/'.$commandes->id_commande.'"><span class="close heavy m-3"></span></a>
                             </div>
                                                     
                         </div>

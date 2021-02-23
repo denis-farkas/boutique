@@ -2,6 +2,7 @@
 class Users extends Controller {
     public function __construct() {
         $this->userModel = $this->model('User');
+        $this->commandeModel = $this->model('Commande');
     }
 
 
@@ -188,7 +189,23 @@ class Users extends Controller {
            $_SESSION['is_admin'] = 1;
            header('location:' . WWW_ROOT . 'pages/index');
        }else{
-           $_SESSION['is_admin'] = 0;
+            $_SESSION['is_admin'] = 0;
+            $commande= $this->commandeModel->viewCommande($user->id_user);
+            if($commande){
+                $verify= $this->commandeModel->verifyCommande($commande->id_commande);
+                if($verify<1){
+                    $this->commandeModel->deletePanier($commande->id_commande);
+                    $this->commandeModel->ajoutCommande($user->id_user);
+                    $commande= $this->commandeModel->viewCommande($user->id_user);
+                    $_SESSION['id_commande']=$commande->id_commande;
+
+                }else{
+                    $_SESSION['id_commande']=$commande->id_commande;   
+                }
+            }else{
+                $commande= $this->commandeModel->viewCommande($user->id_user);
+                $_SESSION['id_commande']=$commande->id_commande; 
+            }
            header('location:' . WWW_ROOT . 'pages/index');
        }        
         
