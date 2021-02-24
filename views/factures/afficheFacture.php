@@ -39,7 +39,7 @@
             <section class="col-sm-12 col-md-9 my-5">
                 <div class="container">
                     <div class="jumbotron">
-                        <h3>Récapitulatif de votre commande</h3>
+                        <h3>FACTURE</h3>
                         <div class="row">
                             <div class="col-md-4">
                             </div>
@@ -49,30 +49,23 @@
 
                             <div class="col-md-4">
                                 <h5>Informations détaillées<br>
-                                 commande N° <?= $_SESSION['id_commande'] ?>Y7BU</h6>
-                                <h6>Date de commande <?php echo date('d/m/Y'); ?></h6>
+                                 Facture N° <?= $data['facture']->id_facture ?>Y7BU</h6>
+                                <h6>Date de facturation <?php $data['facture']->date_facture ?></h6>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-4">
-                            <h5 class="mb-3">Informations Client</h5>                                 
-                                <h6>Adresse de facturation </h6>
-                                <p><?php echo $data['user']->civilite.' '.$data['user']->nom.' '.$data['user']->prenom ?></p>
-                                <p><?php echo $data['adresseDomicile']->num_rue.' '.$data['adresseDomicile']->nom_rue.' '.$data['adresseDomicile']->batiment ?></p>
-                                <p><?php echo $data['adresseDomicile']->code_postal.' '.$data['adresseDomicile']->ville.' '.$data['adresseDomicile']->pays ?></p>
-                            </div>
-
-                            <div class="col-md-4">
-                            </div>
-
-                            <div class="col-md-4"><br><br>
-                            <h6>Adresse de livraison </h6>
-                                <p><?php echo $data['adresse']->nom_adresse.' '.$data['adresse']->prenom_adresse ?></p>
+                            <h5 class="mb-3">Informations Livraison</h5>                                 
+                                <h6>Adresse de Livraison </h6>
+                                <p><?php echo $data['adresse']->prenom_adresse.' '.$data['adresse']->nom_adresse; ?></p>
                                 <p><?php echo $data['adresse']->num_rue.' '.$data['adresse']->nom_rue.' '.$data['adresse']->batiment ?></p>
                                 <p><?php echo $data['adresse']->code_postal.' '.$data['adresse']->ville.' '.$data['adresse']->pays ?></p>
                             </div>
-                        </div>
+
+                            <div class="col-md-4"></div>
+
+                            <div class="col-md-4"></div>
 
                         <div class="row">
                             <h4 class="m-3">Informations relatives au produit </h4>
@@ -121,27 +114,26 @@
                                         </div> 
 
                                         <div class="col-md-6">
-                                            <h5><?= $data['remise'] ?> €</h5>
+                                            <h5><?= $data['facture']->prix_total_articles ?> €</h5>
                                         </div>  
                                     </div>    
                                 </div>  
                             </div>    
                             <div class="row">
                                 <div class="col-md-6">
-                                <a type="button" class="btn btn-warning m-5" href="<?php echo WWW_ROOT.'pages/merci'; ?>">Payer</a><br><br>
+                                
                                 </div> 
 
                                 <div class="col-md-6">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <h5>Frais de port</h5><br><br>
                                             <h4>TOTAL</h4>
                                             <h6>Mode de réglement</h6>
                                         </div> 
 
                                         <div class="col-md-6">
-                                            <h5><?= $data['livraison']->prix_livreur ?> €</h5><br><br>
-                                            <h4><?php echo $data['total'] ; ?> €</h4>
+                                            
+                                            <h4><?php echo $data['facture']->prix_total ; ?> €</h4>
                                             <h6><?= $data['paiement']->nom_paiement ?></h6>
                                         </div>
                                     </div>

@@ -30,19 +30,12 @@ class Pages extends Controller {
             $data = [
                 'title' => 'index',
                 'promotion' => $promotion,
-                'meilleureVente' => $meilleureVente,        
+                'meilleureVente' => $meilleureVente        
             ];
     
             $this->view('main/index', $data);  
         }
 
-        $data = [
-            'title' => 'index',
-            'promotion' => $promotion,
-            'meilleureVente' => $meilleureVente,            
-        ];
-
-        $this->view('main/index', $data);
     }
 
     public function result()
@@ -128,8 +121,7 @@ class Pages extends Controller {
         }
     }
 
-    public function about()
-     {
+    public function about(){
         if (isset($_POST['search'])) {
              // Sanitize POST data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -153,16 +145,6 @@ class Pages extends Controller {
             $this->view('main/about', $data);  
         }
 
-      
-       
-        $data = [
-            'title' => 'index',
-            'promotion' => $promotion,
-            'meilleureVente' => $meilleureVente,
-                     
-        ];
-
-        $this->view('main/index', $data);
     }
 
     public function magasin(){

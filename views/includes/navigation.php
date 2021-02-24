@@ -31,7 +31,7 @@
                         echo '<li class="nav-item dropdown">';
                         echo '<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mon compte</a>';
                         echo '<div class="dropdown-menu">';
-                        echo '<a href="'. WWW_ROOT.'factures/listfactures" class="dropdown-item">Mes commandes</a>';
+                        echo '<a href="'. WWW_ROOT.'factures/listfactures/'.$_SESSION['id_user'].'" class="dropdown-item">Mes commandes</a>';
                         echo '<a href="" class="dropdown-item">Mes adresses</a>';
                         echo '<a href="'. WWW_ROOT.'users/profil" class="dropdown-item">Mes informations</a>';
                         echo '</div>';
