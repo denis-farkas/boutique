@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 22 fév. 2021 à 15:53
+-- Généré le : mer. 24 fév. 2021 à 10:22
 -- Version du serveur :  5.7.31
--- Version de PHP : 7.3.21
+-- Version de PHP : 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -104,7 +104,7 @@ INSERT INTO `article` (`id_article`, `id_produit`, `id_taille`, `id_couleur`, `d
 (57, 7, 1, 8, '2021-02-14', NULL, 10),
 (58, 7, 2, 8, '2021-02-14', NULL, 10),
 (59, 8, 1, 3, '2021-02-14', NULL, 10),
-(60, 8, 2, 3, '2021-02-14', NULL, 10),
+(60, 8, 2, 3, '2021-02-14', 15, 10),
 (61, 9, 1, 4, '2021-02-14', NULL, 10),
 (62, 9, 2, 4, '2021-02-14', NULL, 10),
 (63, 9, 1, 5, '2021-02-14', NULL, 10),
@@ -129,15 +129,14 @@ CREATE TABLE IF NOT EXISTS `commande` (
   `statut_commande` tinyint(1) NOT NULL,
   `id_user` int(10) NOT NULL,
   PRIMARY KEY (`id_commande`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `commande`
 --
 
 INSERT INTO `commande` (`id_commande`, `date_commande`, `statut_commande`, `id_user`) VALUES
-(1, '2021-02-17 00:00:00', 1, 1),
-(3, '2021-02-22 10:19:02', 1, 1);
+(10, '2021-02-24 07:32:41', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -211,17 +210,17 @@ CREATE TABLE IF NOT EXISTS `detail_commande` (
   `quantite_article` int(11) NOT NULL,
   `id_commande` int(11) NOT NULL,
   PRIMARY KEY (`id_detail_commande`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `detail_commande`
 --
 
 INSERT INTO `detail_commande` (`id_detail_commande`, `id_article`, `quantite_article`, `id_commande`) VALUES
-(2, 9, 1, 1),
-(3, 18, 1, 1),
-(4, 57, 1, 1),
-(7, 5, 1, 3);
+(11, 54, 1, 10),
+(12, 17, 1, 10),
+(13, 5, 1, 10),
+(15, 54, 1, 10);
 
 -- --------------------------------------------------------
 
@@ -240,17 +239,19 @@ CREATE TABLE IF NOT EXISTS `facture` (
   `date_facture` datetime NOT NULL,
   `id_user` int(10) NOT NULL,
   `id_adresse` int(11) NOT NULL,
+  `id_paiement` int(11) NOT NULL,
   PRIMARY KEY (`id_facture`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `facture`
 --
 
-INSERT INTO `facture` (`id_facture`, `id_commande`, `nb_total_articles`, `prix_total_articles`, `id_livraison`, `prix_total`, `date_facture`, `id_user`, `id_adresse`) VALUES
-(1, 1, 3, 164.75, 2, 189.75, '2021-02-21 00:00:00', 1, 1),
-(2, 3, 1, 399, 2, 424, '2021-02-22 00:00:00', 1, 1),
-(3, 3, 1, 399, 2, 424, '2021-02-22 00:00:00', 1, 1);
+INSERT INTO `facture` (`id_facture`, `id_commande`, `nb_total_articles`, `prix_total_articles`, `id_livraison`, `prix_total`, `date_facture`, `id_user`, `id_adresse`, `id_paiement`) VALUES
+(4, 10, 1, 79, 3, 114, '2021-02-24 00:00:00', 1, 1, 0),
+(5, 10, 2, 128, 3, 163, '2021-02-24 00:00:00', 1, 1, 0),
+(6, 10, 3, 527, 2, 552, '2021-02-24 00:00:00', 1, 1, 0),
+(7, 10, 4, 606, 3, 641, '2021-02-24 00:00:00', 1, 1, 0);
 
 -- --------------------------------------------------------
 
