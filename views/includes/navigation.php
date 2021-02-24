@@ -14,9 +14,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?= WWW_ROOT ?>pages/contact">Contacts</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Plan</a>
-            </li>
+           
             <li class="nav-item">
                 <a class="nav-link" href="<?= WWW_ROOT ?>pages/about">A notre sujet</a>
             </li>
@@ -29,8 +27,14 @@
                     if(isset($_SESSION['id_user']) && ($_SESSION['is_admin']== 0)) //message de connexion dans la navbar et bouton de déconnexion
                     {
                         echo '<li class="nav-item"><span class="nav-link">'.$_SESSION['prenom'].', vous êtes connecté(e).</span></li>';  
-                        echo '<li class="nav-item">';
-                        echo '<a href="'. WWW_ROOT.'users/profil" class="nav-link">Modifier</a>';
+                        
+                        echo '<li class="nav-item dropdown">';
+                        echo '<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mon compte</a>';
+                        echo '<div class="dropdown-menu">';
+                        echo '<a href="'. WWW_ROOT.'factures/listfactures" class="dropdown-item">Mes commandes</a>';
+                        echo '<a href="" class="dropdown-item">Mes adresses</a>';
+                        echo '<a href="'. WWW_ROOT.'users/profil" class="dropdown-item">Mes informations</a>';
+                        echo '</div>';
                         echo '</li>';
                         echo '<li class="nav-item">';
                         echo '<a href="'.WWW_ROOT.'users/logout" class="nav-link">Déconnexion</a></li>

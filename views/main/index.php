@@ -102,7 +102,7 @@
                                 <?php foreach($data['promotion'] as $promotion){
                                     echo'
                                 <div class="card text-center">
-                                    <img src="'. WWW_ROOT.'public/images/hats_big/'.$promotion->image_produit.'" alt="" width="75%">
+                                    <img class="card-img-top center-block img-responsive d-block mx-auto" src="'. WWW_ROOT.'public/images/hats_big/'.$promotion->image_produit.'" alt="" width="100%">
 
                                     <div class="card-body">
                                         <h5 class="card-title gold">'.$promotion->categorie_produit.'</h5>
@@ -130,7 +130,7 @@
                                 <?php foreach($data['meilleureVente'] as $meilleureVente){
                                 echo'
                                 <div class="card" >
-                                    <img src="'.WWW_ROOT.'public/images/hats_big/'.$meilleureVente->image_produit.'" alt="" width="75%">
+                                    <img class="card-img-top img-responsive center-block d-block mx-auto" src="'.WWW_ROOT.'public/images/hats_big/'.$meilleureVente->image_produit.'" alt="" width="100%">
 
                                     <div class="card-body">
                                         <h5 class="card-title gold">'.$meilleureVente->categorie_produit.'</h5>
