@@ -54,7 +54,7 @@
                 $nombre=0;
                 foreach($data['commandes'] as $commandes){
                    $nombre=$nombre+$commandes->quantite_article;
-                   $total=$total+($commandes->quantite_article*$commandes->prix_produit);
+                   $total=$total+($commandes->quantite_article*($commandes->prix_produit-($commandes->prix_produit*$commandes->remise/100)));
                    $_SESSION['id_commande']=$commandes->id_commande;
                 }
                   
@@ -86,8 +86,13 @@
                             </div>
                             <div class="col-md-4 mt-4 w-100">                                
                                 <h6 class="mt-2">'.$commandes->categorie_produit.' '.$commandes->nom_produit.'</h6>
-                                <h6 class="mt-2">Taille: '.$commandes->nom_taille.',  Couleur: '.$commandes->nom_couleur.'</h6>
-                                <h6 class="gold">Prix: '.$commandes->prix_produit.' €</h6>  
+                                <h6 class="mt-2">Taille: '.$commandes->nom_taille.',  Couleur: '.$commandes->nom_couleur.'</h6>';
+
+                                $prix=$commandes->prix_produit;
+                                $remise=$commandes->remise;
+                                $prixrem= $prix-($prix*$remise/100);
+
+                                echo '<h6 class="gold">Prix: '.$prixrem.' €</h6>  
                             </div>
 
                             <div class="col-md-3 mt-3 w-75">
