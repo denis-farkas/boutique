@@ -54,16 +54,16 @@
 
                             <div class="form-group">
                                 <label for="nom">Nom</label>
-                                <input type="text" class="form-control" id="nom" name="nom" value="<?php echo $data['user']->nom; ?>">
+                                <input type="text" class="form-control" id="nom" name="nom" value="<?php echo $data['user']->nom; ?>" required>
                             </div>
                             <div class="form-group">
                                 <label for="prenom">Prénom</label>
-                                <input type="text" class="form-control" id="prenom" name="prenom" value="<?php echo $data['user']->prenom; ?>" >
+                                <input type="text" class="form-control" id="prenom" name="prenom" value="<?php echo $data['user']->prenom; ?>" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="telephone">Téléphone</label>
-                                <input type="tel" class="form-control" id="telephone" name="telephone" value="<?php echo $data['user']->telephone; ?>" >
+                                <input type="tel" class="form-control" id="telephone" name="telephone" value="<?php echo $data['user']->telephone; ?>" required>
                             </div>
                             
                             <div class="form-group">
@@ -75,11 +75,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control" id="password" name="password">
+                                <input type="password" class="form-control" id="password" name="password" required >
                             </div>
                             <div class="form-group">
                                 <label for="confirmPassword">Confirmer Password</label>
-                                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword">
+                                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
                                 <span class="invalidFeedback">
                                 <?php echo $data['confirmPasswordError']; ?>
                                 </span>

@@ -52,29 +52,29 @@
 
                             <div class="form-group">
                                 <label for="nom">Nom</label>
-                                <input type="text" class="form-control" id="nom" name="nom" >
+                                <input type="text" class="form-control" id="nom" name="nom" required>
                             </div>
                             <div class="form-group">
                                 <label for="prenom">Prénom</label>
-                                <input type="text" class="form-control" id="prenom" name="prenom" >
+                                <input type="text" class="form-control" id="prenom" name="prenom" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="telephone">Téléphone</label>
-                                <input type="tel" class="form-control" id="telephone" name="telephone" >
+                                <input type="tel" class="form-control" id="telephone" name="telephone" required>
                             </div>
                             
                             <div class="form-group">
                                 <label for="email">Adresse email </label>
-                                <input type="email" class="form-control" id="email" name="email">
+                                <input type="email" class="form-control" id="email" name="email" required>
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control" id="password" name="password">
+                                <input type="password" class="form-control" id="password" name="password" required>
                             </div>
                             <div class="form-group">
                                 <label for="confirmPassword">Confirmer Password</label>
-                                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword">
+                                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
                             </div>
                             
                             <input type="submit" class="btn btn-primary" name="inscrire" value="S'inscrire">
