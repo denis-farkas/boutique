@@ -24,8 +24,8 @@ class Facture {
 
         $creation= date("Y-m-d");
         
-        $this->db->query('INSERT INTO facture (id_commande, nb_total_articles, prix_total_articles, id_livraison, prix_total, date_facture, id_user, id_adresse) 
-        VALUES( :id_commande, :nb_total_articles, :prix_total_articles, :id_livraison, :prix_total, :date_facture, :id_user, :id_adresse)');
+        $this->db->query('INSERT INTO facture (id_commande, nb_total_articles, prix_total_articles, id_livraison, prix_total, date_facture, id_user, id_adresse, id_paiement) 
+        VALUES( :id_commande, :nb_total_articles, :prix_total_articles, :id_livraison, :prix_total, :date_facture, :id_user, :id_adresse, :id_paiement)');
 
 
         //Bind values
@@ -38,6 +38,7 @@ class Facture {
             $this->db->bind(':date_facture', $creation);
             $this->db->bind(':id_user', $_SESSION['id_user']);     
             $this->db->bind(':id_adresse', $data['adresseDomicile']->id_adresse);
+            $this->db->bind('id_paiement', $data['paiement']->id_paiement);
             
 
         //Execute function
