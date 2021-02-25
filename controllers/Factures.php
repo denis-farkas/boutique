@@ -4,6 +4,7 @@ class Factures extends Controller {
         $this->factureModel = $this->model('Facture');
         $this->achatModel = $this->model('Achat');
         $this->commandeModel = $this->model('Commande');
+        $this->adresseModel = $this->model('Adresse');
     }
 
    
@@ -15,7 +16,7 @@ class Factures extends Controller {
             $facture = $this->factureModel->afficheFacture($id_facture);
 
             if($facture){
-                $adresse= $this->achatModel->adresseFacture($facture->id_adresse);
+                $adresse= $this->adresseModel->adresseFacture($facture->id_adresse);
 
                 $livraison= $this->achatModel->livraisonFacture($facture->id_livraison);
     
