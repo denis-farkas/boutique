@@ -75,7 +75,7 @@
 
                     <div class="row">
                         <div class="col-md-6 mt-5">
-                            <form action="<?php echo WWW_ROOT;?>adresses/ajoutAdresse" method="post">
+                            <form action="<?php echo WWW_ROOT;?>adresses/adresse" method="post">
                             <fieldset>
                             <legend>Ajouter une adresse</legend>
 
