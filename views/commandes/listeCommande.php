@@ -68,7 +68,7 @@
                         <h4>Total: <?= $total ?> €</h4>
                     </div>
                     <div class="col-md-4 w-100">
-                        <a type="button" class="btn btn-primary" href="<?= WWW_ROOT ?>achats/adresse" >Commander</a><br><br>
+                        <a type="button" class="btn btn-primary" href="<?= WWW_ROOT ?>adresses/adresse" >Commander</a><br><br>
                     </div>
                 </div>
             </div>

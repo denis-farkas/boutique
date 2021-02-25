@@ -32,7 +32,7 @@
                         echo '<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mon compte</a>';
                         echo '<div class="dropdown-menu">';
                         echo '<a href="'. WWW_ROOT.'factures/listfactures/'.$_SESSION['id_user'].'" class="dropdown-item">Mes commandes</a>';
-                        echo '<a href="'. WWW_ROOT.'achats/listAdresses/'.$S_SESSION['id_user'].'" class="dropdown-item">Mes adresses</a>';
+                        echo '<a href="'. WWW_ROOT.'adresses/listAdresses/'.$_SESSION['id_user'].'" class="dropdown-item">Mes adresses</a>';
                         echo '<a href="'. WWW_ROOT.'users/profil" class="dropdown-item">Mes informations</a>';
                         echo '</div>';
                         echo '</li>';

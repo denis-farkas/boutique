@@ -71,7 +71,7 @@
                     //modifie utilisateur
                     if ($this->adresseModel->ajoutAdresse($adresse)) {
                         //Redirect page connexion
-                        header('location: ' . WWW_ROOT . 'achats/ajoutAdresse');
+                        header('location: ' . WWW_ROOT . 'adresses/ajoutAdresse');
                     } else {
                         die('Erreur système.');
                     }
