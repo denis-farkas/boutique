@@ -97,7 +97,7 @@ class Commandes extends Controller {
                 if($verify>0){
                  header('location: ' . WWW_ROOT . 'commandes/listeCommande/'.$id_commande);
                }else{
-                     header('location: ' . WWW_ROOT . 'pages/index');  
+                     header('location: ' . WWW_ROOT . 'pages/panierVide');  
                    }
                }else{
                 header('location:' . WWW_ROOT . 'users/connexion');
