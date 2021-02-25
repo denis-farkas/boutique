@@ -75,7 +75,7 @@
 
                     <div class="row">
                         <div class="col-md-6 mt-5">
-                            <form action="<?php echo WWW_ROOT;?>adresses/adresse" method="post">
+                            <form action="<?php echo WWW_ROOT;?>adresses/ajoutAdresse" method="post">
                             <fieldset>
                             <legend>Ajouter une adresse</legend>
 
@@ -85,14 +85,14 @@
                                <div class="row">
                                    <div class="form-check ml-5" id="lab">
                                        <label class="form-check-label">
-                                       <input type="radio" class="form-check-input" name="domicile" id="optionsRadios1" value="0" checked="">
+                                       <input type="radio" class="form-check-input" name="domicile" id="optionsRadios1" value="0" >
                                        Non
                                        </label>
                                    </div>
                                    <div class="form-check ml-5">
                                        <label class="form-check-label">
-                                       <input type="radio" class="form-check-input" name="domicile" id="optionsRadios2" value="1">
-                                   Oui
+                                       <input type="radio" class="form-check-input" name="domicile" id="optionsRadios2" value="1" checked="">
+                                        Oui
                                        </label>
                                    </div>
                                </div>  
