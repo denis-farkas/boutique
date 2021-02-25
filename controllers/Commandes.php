@@ -16,7 +16,16 @@ class Commandes extends Controller {
 
         if(isset($_SESSION['id_user']) && isset($_POST['ajout'])){
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-    
+            
+            $commande= $this->commandeModel->viewCommande($_SESSION['id_user']);
+            if($commande){
+                    $_SESSION['id_commande']=$commande->id_commande;
+                }else{
+                $this->commandeModel->ajoutCommande($_SESSION['id_user']);
+                $commande= $this->commandeModel->viewCommande($_SESSION['id_user']);
+                $_SESSION['id_commande']=$commande->id_commande; 
+            }
+
             $article = [
                 'id_article'=> $_POST['id_article'],
                 'quantite_article'=> $_POST['quantite'],
