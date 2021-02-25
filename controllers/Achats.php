@@ -104,6 +104,7 @@ class Achats extends Controller {
                 'adresseDomicile' => $adresseDomicile,
                 'remise' => $remise,
                 'quantite' => $quantite,
+                'paiement' => $paiement,
                 'total' => $total
                 
             ];
