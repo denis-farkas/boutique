@@ -106,23 +106,25 @@
                             </table>                         
                             <div class="row">
                                 <div class="col-md-4 w-100">
-                                    <h5>Sub-Total </h5>
+                                    <div class="row">
+                                    <h5 class="ml-5">Sub-Total : </h5>
                                     <h5><?= $data['facture']->prix_total_articles ?> €</h5>
+                                    </div>
                                 </div>  
                                    
                                 <div class="col-md-8 w-100">
                                     <div class="row">
-                                        <div class="col-md-6 text-center">
-                                            <h4>TOTAL</h4>
-                                            <h6>Mode de réglement</h6>
+                                        <div class="col-md-6 text-right">
+                                            <h4>TOTAL :</h4>
+                                            <h6>Mode de réglement :</h6>
                                         </div> 
 
-                                        <div class="col-md-6 text-center">  
+                                        <div class="col-md-6 text-left">  
                                             <h4><?php echo $data['facture']->prix_total ; ?> €</h4>
                                             <h6><?= $data['paiement']->nom_paiement ?></h6>
                                         </div>
                                     </div>
-                                    <p><?= $data['paiement']->mode_paiement ?></p>                                          
+                                    <p class="text-center"><?= $data['paiement']->mode_paiement ?></p>                                          
                                 </div>  
                             </div>    
                                                    
