@@ -55,7 +55,7 @@
                 foreach($data['commandes'] as $commandes){
                    $nombre=$nombre+$commandes->quantite_article;
                    $total=$total+($commandes->quantite_article*($commandes->prix_produit-($commandes->prix_produit*$commandes->remise/100)));
-                   $_SESSION['id_commande']=$commandes->id_commande;
+                  
                 }
                   
                    ?>
