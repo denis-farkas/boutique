@@ -49,9 +49,9 @@
                             <div class="col-md-4">
                                 <h5 class="ml-3" >MON COMPTE</h5>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><a class="nav-link" href="<?php echo WWW_ROOT.'factures/listFactures/'.$_SESSION['id_user']; ?>">Mes commandes</a></li>
-                                    <li class="list-group-item"><a class="nav-link" href="">Mon adresse</a></li>
-                                    <li class="list-group-item"><a class="nav-link" href="">Mes informations</a></li>
+                                    <li class="list-group-item"><a class="nav-link" href="<?php if(isset($_session['id_user'])){echo WWW_ROOT.'factures/listFactures/'.$_SESSION['id_user'];} ?>">Mes commandes</a></li>
+                                    <li class="list-group-item"><a class="nav-link" href="<?php if(isset($_session['id_user'])){echo WWW_ROOT.'achats/listAdresses/'.$_SESSION['id_user'];} ?>">Mes adresses</a></li>
+                                    <li class="list-group-item"><a class="nav-link" href="<?php if(isset($_session['id_user'])){echo WWW_ROOT.'users/profil';} ?>">Mes informations</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -74,7 +74,7 @@
             </footer>
         </div>
         <script src="<?php echo WWW_ROOT; ?>public/js/jquery.min.js"></script>
-       
-    <script src="<?php echo WWW_ROOT; ?>public/js/bootstrap.bundle.min.js"></script>
+        
+        <script src="<?php echo WWW_ROOT; ?>public/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>

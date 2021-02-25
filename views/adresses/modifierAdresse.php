@@ -37,47 +37,12 @@
             </div>
             <section class="col-sm-12 col-md-9 my-5">
                 <div class="container">
-                <form action="<?php echo WWW_ROOT;?>achats/choisirAdresse" method="post">
-                    <legend>ADRESSE DE LIVRAISON</legend>
-
-                    <table class="table table-hover">
-                    <thead>
-                        <tr class="table-active">
-                            <th scope="col">Identité </th>
-                            <th scope="col">Adresse</th>
-                            <th scope="col">Choisir</th>                               
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php   
-                        if(!empty($data['adresses'])){
-                            foreach($data['adresses'] as $adresse){
-                                echo '<tr>';
-                                echo '<td>'.$adresse->nom_adresse.' '.$adresse->prenom_adresse.'</td>';
-                                echo '<td>'.$adresse->num_rue.', '.$adresse->nom_rue.'. '.$adresse->batiment.' '.$adresse->code_postal.' '.$adresse->ville.' - '.$adresse->pays.'</td>';                                                              
-                                echo '  <td><div class="form-group">
-                                            <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio'.$adresse->id_adresse.'" name="id_adresse" class="custom-control-input" 
-                                             value="'.$adresse->id_adresse.'">
-                                            <label class="custom-control-label" for="customRadio'.$adresse->id_adresse.'">Choisir</label>
-                                            </div>
-                                        </div></td>';
-                                echo "</tr>";
-                                                            
-                            }
-                        }                    
-                        
-                            ?>  
-                    </tbody>
-                    </table>
-                    <input type="submit" class="btn btn-primary" name="choisirAdresse" value="Choisir adresse">
-                    </form>
 
                     <div class="row">
                         <div class="col-md-6 mt-5">
-                            <form action="<?php echo WWW_ROOT;?>achats/ajoutAdresse" method="post">
+                            <form action="<?php echo WWW_ROOT;?>adresses/modifierAdresse" method="post">
                             <fieldset>
-                            <legend>Ajouter une adresse</legend>
+                            <legend>Modifier une adresse</legend>
 
                             <div class="form-group">
                                 <label for="domicile">Votre domicile?</label>
@@ -89,42 +54,42 @@
 
                             <div class="form-group">
                                 <label for="nom">Nom</label>
-                                <input type="text" class="form-control" id="nom" name="nom_adresse" >
+                                <input type="text" class="form-control" id="nom" name="nom_adresse" value="<?php echo $data['adresse']->nom_adresse; ?>" >
                             </div>
                             <div class="form-group">
                                 <label for="prenom">Prénom</label>
-                                <input type="text" class="form-control" id="prenom" name="prenom_adresse" >
+                                <input type="text" class="form-control" id="prenom" name="prenom_adresse" value="<?php echo $data['adresse']->prenom_adresse; ?>">
                             </div>
 
                             <div class="form-group">
                                 <label for="num_rue">Numéro de Rue</label>
-                                <input type="text" class="form-control" id="num_rue" name="num_rue" >
+                                <input type="text" class="form-control" id="num_rue" name="num_rue" value="<?php echo $data['adresse']->num_rue; ?>">
                             </div>
                             
                             <div class="form-group">
                                 <label for="nom_rue">Nom de la Rue </label>
-                                <input type="text" class="form-control" id="nom_rue" name="nom_rue">
+                                <input type="text" class="form-control" id="nom_rue" name="nom_rue" value="<?php echo $data['adresse']->nom_rue; ?>">
                             </div>
                             <div class="form-group">
                                 <label for="batiment">Batiment, Etage</label>
-                                <input type="text" class="form-control" id="batiment" name="batiment">
+                                <input type="text" class="form-control" id="batiment" name="batiment" value="<?php echo $data['adresse']->batiment; ?>">
                             </div>
                             <div class="form-group">
                                 <label for="code_postal">Code Postal</label>
-                                <input type="text" class="form-control" id="code_postal" name="code_postal">
+                                <input type="text" class="form-control" id="code_postal" name="code_postal" value="<?php echo $data['adresse']->code_postal; ?>">
                             </div>
 
                             <div class="form-group">
                                 <label for="ville">Ville</label>
-                                <input type="text" class="form-control" id="ville" name="ville">
+                                <input type="text" class="form-control" id="ville" name="ville" value="<?php echo $data['adresse']->ville; ?>">
                             </div>
 
                             <div class="form-group">
                                 <label for="pays">Pays</label>
-                                <input type="text" class="form-control" id="pays" name="pays">
+                                <input type="text" class="form-control" id="pays" name="pays" value="<?php echo $data['adresse']->pays; ?>">
                             </div>
                             <input type="hidden" name="id_user" value="<?= $_SESSION['id_user'] ?>" >
-                            <input type="submit" class="btn btn-primary" name="ajoutAdresse" value="Ajouter adresse">
+                            <input type="submit" class="btn btn-primary" name="addAdresse" value="Modifier adresse">
                             </fieldset>
                             </form>
                         </div> 
