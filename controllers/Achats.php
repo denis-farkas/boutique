@@ -68,7 +68,8 @@ class Achats extends Controller {
     }
 
     public function recapitulatif(){
-        if(!empty($_SESSION['id_user'])) {
+        $statut= $this->commandeModel->verifierStatutCommande($_SESSION['id_commande']);
+        if(!empty($_SESSION['id_user']) && $statut->statut_commande==0) {
             $user= $this->userModel->view($_SESSION['id_user']);
             $commandes= $this->commandeModel->listeCommande($_SESSION['id_commande']);
             $adresse= $this->adresseModel->adresseFacture($_SESSION['id_adresse']);

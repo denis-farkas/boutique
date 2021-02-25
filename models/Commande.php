@@ -95,6 +95,15 @@ class Commande {
         }
     }
 
+    public function verifierStatutCommande($id_commande){
+        $this->db->query('SELECT statut_commande FROM commande WHERE id_commande= :id_commande');
+        $this->db->bind(':id_commande', $id_commande);
+        $statut = $this->db->single();
+        return $statut;
+    }
+
+
+
     
     
     public function deleteDetailCommande($id_detail_commande){
