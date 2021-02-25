@@ -42,15 +42,24 @@
                             <form action="<?php echo WWW_ROOT;?>users/inscription" method="post">
                             <fieldset>
                             <legend>INSCRIPTION</legend>
-                            <div class="form-group">
-                                <label for="genre">Civilité</label>
-                                <select class="form-control" id="genre" name="civilite">
-                                    <option value="Monsieur">Monsieur</option>
-                                    <option value="Madame">Madame</option>
-                                </select>
-                            </div>
+                            
+                            <label for="genre">Civilité</label>
+                               <div class="row">
+                                   <div class="form-check ml-5" id="genre">
+                                       <label class="form-check-label">
+                                       <input type="radio" class="form-check-input" name="genre" id="optionsRadios1" value="homme" checked="">
+                                       Homme
+                                       </label>
+                                   </div>
+                                   <div class="form-check ml-5">
+                                       <label class="form-check-label">
+                                       <input type="radio" class="form-check-input" name="genre" id="optionsRadios2" value="femme" >
+                                       Femme
+                                       </label>
+                                   </div>
+                               </div>  
 
-                            <div class="form-group">
+                            <div class="form-group mt-3">
                                 <label for="nom">Nom</label>
                                 <input type="text" class="form-control" id="nom" name="nom" required>
                             </div>

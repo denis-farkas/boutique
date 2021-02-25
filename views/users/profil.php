@@ -46,10 +46,20 @@
                             <legend>MODIFIER VOTRE PROFIL</legend>
                             <div class="form-group">
                                 <label for="genre">Civilité</label>
-                                <select class="form-control" id="genre" name="civilite" ?>">
-                                    <option value="Monsieur">Monsieur</option>
-                                    <option value="Madame">Madame</option>
-                                </select>
+                               <div class="row">
+                                   <div class="form-check ml-5" id="genre">
+                                       <label class="form-check-label">
+                                       <input type="radio" class="form-check-input" name="genre" id="optionsRadios1" value="homme" checked="">
+                                       Homme
+                                       </label>
+                                   </div>
+                                   <div class="form-check ml-5">
+                                       <label class="form-check-label">
+                                       <input type="radio" class="form-check-input" name="genre" id="optionsRadios2" value="femme" >
+                                       Femme
+                                       </label>
+                                   </div>
+                               </div>  
                             </div>
 
                             <div class="form-group">
