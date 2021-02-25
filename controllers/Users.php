@@ -203,6 +203,7 @@ class Users extends Controller {
                     $_SESSION['id_commande']=$commande->id_commande;   
                 }
             }else{
+                $commande= $this->commandeModel->ajoutCommande($user->id_user);
                 $commande= $this->commandeModel->viewCommande($user->id_user);
                 $_SESSION['id_commande']=$commande->id_commande; 
             }

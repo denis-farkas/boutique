@@ -32,24 +32,24 @@ class Adresse {
         }
     }
 
-    public function modifierAdresse($id_adresse) {
+    public function modifierAdresse($adresse) {
        
         $this->db->query('UPDATE adresse SET nom_adresse= :nom_adresse, prenom_adresse= :prenom_adresse, num_rue= :num_rue, nom_rue= :nom_rue, batiment= :batiment, 
         code_postal= :code_postal, ville= :ville, pays= :pays, id_user= :id_user, domicile= :domicile WHERE id_adresse= :id_adresse');
 
 
         //Bind values
-            $this->db->bind(':nom_adresse', $_POST['nom_adresse']);
-            $this->db->bind(':prenom_adresse', $_POST['prenom_adresse']);
-            $this->db->bind(':num_rue', $_POST['num_rue']);
-            $this->db->bind(':nom_rue', $_POST['nom_rue']);
-            $this->db->bind(':batiment', $_POST['batiment']);
-            $this->db->bind(':code_postal', $_POST['code_postal']);
-            $this->db->bind(':ville', $_POST['ville']);
-            $this->db->bind(':pays', $_POST['pays']);
-            $this->db->bind(':id_user', $_POST['id_user']);
-            $this->db->bind(':domicile', $_POST['domicile']);
-            $this->db->bind(':id_adresse', $id_adresse);     
+            $this->db->bind(':nom_adresse', $adresse['nom_adresse']);
+            $this->db->bind(':prenom_adresse', $adresse['prenom_adresse']);
+            $this->db->bind(':num_rue', $adresse['num_rue']);
+            $this->db->bind(':nom_rue', $adresse['nom_rue']);
+            $this->db->bind(':batiment', $adresse['batiment']);
+            $this->db->bind(':code_postal', $adresse['code_postal']);
+            $this->db->bind(':ville', $adresse['ville']);
+            $this->db->bind(':pays', $adresse['pays']);
+            $this->db->bind(':id_user', $adresse['id_user']);
+            $this->db->bind(':domicile', $adresse['domicile']);
+            $this->db->bind(':id_adresse', $adresse['id_adresse']);     
                
         //Execute function
         if ($this->db->execute()) {

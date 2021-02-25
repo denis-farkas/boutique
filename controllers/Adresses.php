@@ -113,9 +113,9 @@
 
                     ];
 
-                    //modifie utilisateur
+                   
                     if ($this->adresseModel->ajoutAdresse($adresse)) {
-                        //Redirect page connexion
+                  
                         header('location: ' . WWW_ROOT . 'adresses/listAdresses');
                     } else {
                         die('Erreur système.');
@@ -140,20 +140,21 @@
                     'ville'=> $_POST['ville'],
                     'pays' =>$_POST['pays'],
                     'id_user'=>$_SESSION['id_user'],
-                    'domicile'=>$_POST['domicile']
+                    'domicile'=>$_POST['domicile'],
+                    'id_adresse' =>$id_adresse
 
                     ];
 
                     if ($this->adresseModel->modifierAdresse($adresse)) {
                         //Redirect page connexion
-                        header('location: ' . WWW_ROOT . 'adresse/listAdresses');
+                        header('location: ' . WWW_ROOT . 'adresses/listAdresses');
                     } else {
                         die('Erreur système.');
                     }
             }else{
                 $adresse= $this->adresseModel->adresseFacture($id_adresse);
                 $data = [
-                    'adresse'=> $adresse,
+                    'adresse'=> $adresse
                     ];
 
                 $this->view('adresses/modifierAdresse', $data); }

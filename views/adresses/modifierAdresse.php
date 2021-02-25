@@ -40,16 +40,26 @@
 
                     <div class="row">
                         <div class="col-md-6 mt-5">
-                            <form action="<?php echo WWW_ROOT;?>adresses/modifierAdresse" method="post">
+                            <form action="<?php echo WWW_ROOT;?>adresses/modifierAdresse/<?= $data['adresse']->id_adresse ?>" method="post">
                             <fieldset>
                             <legend>Modifier une adresse</legend>
 
                             <div class="form-group">
-                                <label for="domicile">Votre domicile?</label>
-                                <select class="form-control" id="domicile" name="domicile">
-                                    <option value="1">Oui</option>
-                                    <option value="0">Non, autre adresse de livraison</option>
-                                </select>
+                            <label for="lab">Votre domicile</label>
+                            <div class="row">
+                                <div class="form-check ml-5" id="lab">
+                                    <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="domicile" id="optionsRadios1" value="0" checked="">
+                                    Non
+                                    </label>
+                                </div>
+                                <div class="form-check ml-5">
+                                    <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="domicile" id="optionsRadios2" value="1">
+                                   Oui
+                                    </label>
+                                </div>
+                            </div>  
                             </div>
 
                             <div class="form-group">
@@ -89,7 +99,7 @@
                                 <input type="text" class="form-control" id="pays" name="pays" value="<?php echo $data['adresse']->pays; ?>">
                             </div>
                             <input type="hidden" name="id_user" value="<?= $_SESSION['id_user'] ?>" >
-                            <input type="submit" class="btn btn-primary" name="addAdresse" value="Modifier adresse">
+                            <input type="submit" class="btn btn-primary" name="modifierAdresse" value="Modifier adresse">
                             </fieldset>
                             </form>
                         </div> 

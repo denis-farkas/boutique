@@ -63,7 +63,7 @@
                                 echo '<td><a  href="'.WWW_ROOT .'adresses/modifierAdresse/'.$adresse->id_adresse.'">
                                 Modifier</a></td>';
                                 echo '<td><a  href="'.WWW_ROOT .'adresses/effacerAdresse/'.$adresse->id_adresse.'">
-                                Modifier</a></td>';
+                                Effacer</a></td>';
                                 echo "</tr>";
                                                             
                             }
@@ -82,12 +82,24 @@
                             <legend>Ajouter une adresse</legend>
 
                             <div class="form-group">
-                                <label for="domicile">Votre domicile?</label>
-                                <select class="form-control" id="domicile" name="domicile">
-                                    <option value="1">Oui</option>
-                                    <option value="0">Non, autre adresse de livraison</option>
-                                </select>
+                               
+                                <label for="lab">Votre domicile</label>
+                                <div class="row">
+                                    <div class="form-check ml-5" id="lab">
+                                        <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="domicile" id="optionsRadios1" value="0" checked="">
+                                        Non
+                                        </label>
+                                    </div>
+                                    <div class="form-check ml-5">
+                                        <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="domicile" id="optionsRadios2" value="1">
+                                    Oui
+                                        </label>
+                                    </div>
+                                </div>  
                             </div>
+
 
                             <div class="form-group">
                                 <label for="nom">Nom</label>
