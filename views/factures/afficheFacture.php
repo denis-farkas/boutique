@@ -50,7 +50,7 @@
                             <div class="col-md-4">
                                 <h5>Informations détaillées<br>
                                  Facture N° <?= $data['facture']->id_facture ?>Y7BU</h6>
-                                <h6>Date de facturation <?php $data['facture']->date_facture ?></h6>
+                                <h6>Date de facturation <?php echo $data['facture']->date_facture; ?></h6>
                             </div>
                         </div>
 
@@ -66,11 +66,12 @@
                             <div class="col-md-4"></div>
 
                             <div class="col-md-4"></div>
-
-                        <div class="row">
-                            <h4 class="m-3">Informations relatives au produit </h4>
-                           
                         </div>
+
+                        
+                        <h4 class="m-3">Informations relatives au produit </h4>
+                           
+                     
                            
                         <table class="table table-hover">
                             <thead>
@@ -104,35 +105,19 @@
                             </tbody>
                             </table>                         
                             <div class="row">
-                                <div class="col-md-6">
-                                </div> 
-
-                                <div class="col-md-6">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <h5>Sub-Total </h5>
-                                        </div> 
-
-                                        <div class="col-md-6">
-                                            <h5><?= $data['facture']->prix_total_articles ?> €</h5>
-                                        </div>  
-                                    </div>    
+                                <div class="col-md-4 w-100">
+                                    <h5>Sub-Total </h5>
+                                    <h5><?= $data['facture']->prix_total_articles ?> €</h5>
                                 </div>  
-                            </div>    
-                            <div class="row">
-                                <div class="col-md-6">
-                                
-                                </div> 
-
-                                <div class="col-md-6">
+                                   
+                                <div class="col-md-8 w-100">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-6 text-center">
                                             <h4>TOTAL</h4>
                                             <h6>Mode de réglement</h6>
                                         </div> 
 
-                                        <div class="col-md-6">
-                                            
+                                        <div class="col-md-6 text-center">  
                                             <h4><?php echo $data['facture']->prix_total ; ?> €</h4>
                                             <h6><?= $data['paiement']->nom_paiement ?></h6>
                                         </div>
