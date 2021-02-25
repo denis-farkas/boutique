@@ -46,9 +46,9 @@
                             <legend>MODIFIER VOTRE PROFIL</legend>
                             <div class="form-group">
                                 <label for="genre">Civilité</label>
-                                <select class="form-control" id="genre" name="civilite" value="<?php echo $data['user']->civilite; ?>">
-                                    <option>Monsieur</option>
-                                    <option>Madame</option>
+                                <select class="form-control" id="genre" name="civilite" ?>">
+                                    <option value="Monsieur">Monsieur</option>
+                                    <option value="Madame">Madame</option>
                                 </select>
                             </div>
 

@@ -45,8 +45,8 @@
                             <div class="form-group">
                                 <label for="genre">Civilité</label>
                                 <select class="form-control" id="genre" name="civilite">
-                                    <option>Monsieur</option>
-                                    <option>Madame</option>
+                                    <option value="Monsieur">Monsieur</option>
+                                    <option value="Madame">Madame</option>
                                 </select>
                             </div>
 
