@@ -20,6 +20,12 @@ class Facture {
         return $factures;
     }
 
+    public function adminListFactures(){
+        $this->db->query('SELECT id_facture, nb_total_articles, prix_total_articles, prix_total, date_facture, nom_adresse, prenom_adresse FROM facture  JOIN adresse ON facture.id_adresse=adresse.id_adresse');
+        $factures=$this->db->resultSet();
+        return $factures;
+    }
+
     public function ajoutFacture($data){
 
         $creation= date("Y-m-d");
