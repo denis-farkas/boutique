@@ -6,40 +6,7 @@ class Admins extends Controller {
   
 
     public function uploadImage(){
-       
-        // Check if the form was submitted
-        if($_SERVER["REQUEST_METHOD"] == "POST"){
-            // Check if file was uploaded without errors
-            if(isset($_FILES["photo"]) && $_FILES["photo"]["error"] == 0){
-                $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
-                $filename = $_FILES["photo"]["name"];
-                $filetype = $_FILES["photo"]["type"];
-                $filesize = $_FILES["photo"]["size"];
-            
-                // Verify file extension
-                $ext = pathinfo($filename, PATHINFO_EXTENSION);
-                if(!array_key_exists($ext, $allowed)) die("Erreur: Choisissez un format valide.");
-            
-                // Verify file size - 5MB maximum
-                $maxsize = 5 * 1024 * 1024;
-                if($filesize > $maxsize) die("Erreur: La taille de l'image est supérieur à la limite de 5MB.");
-            
-                // Verify MYME type of the file
-                if(in_array($filetype, $allowed)){
-                    // Check whether file exists before uploading it
-                    if(file_exists(WWW_ROOT."public/images/upload" . $filename)){
-                        echo $filename . " existe déja.";
-                    } else{
-                        move_uploaded_file($_FILES["photo"]["tmp_name"], WWW_ROOT.'public/images/upload/' . $filename);
-                        echo "Votre image  a été transférée avec succés .";
-                    } 
-                } else{
-                    echo "Erreur, essayez de nouveau."; 
-                }
-            } else{
-                echo "Erreur: " . $_FILES["photo"]["error"];
-            }
-        }
+        $this->view('admins/uploadImage');  
     }
 
     public function crudUsers(){
