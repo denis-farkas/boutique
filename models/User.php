@@ -1,10 +1,12 @@
 <?php
+
 class User {
     private $db;
     public function __construct() {
         $this->db = new Database;
     }
 
+     //Fonction qui permet à l’usager de modifier ses informations.
     public function profil($data){
             
             $this->db->query('UPDATE user SET prenom= :prenom, nom= :nom, civilite= :civilite, telephone= :telephone, email= :email, password= :password, is_admin= :is_admin, date_registre= :date_registre WHERE id_user= :id_user');

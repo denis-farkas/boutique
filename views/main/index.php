@@ -1,4 +1,5 @@
 <?php
+
    require (ROOT.'views/includes/head.php');
 ?>
  <body>
@@ -6,7 +7,7 @@
     <div class="container-fluid">
         
         <div id="top" class="col-md-12">
-            <?php
+            <?php 
             require (ROOT.'views/includes/navigation.php');
             ?>
         </div>
@@ -27,6 +28,7 @@
                 <ul class="navbar-nav ml-5 mx-auto" >
 
                 <?php
+                // module search requete sur table recherche
                 if(isset($data['search']) && (!empty($data['search']))){
                     echo '<li class="nav-item mt-2"> Résultat(s) de votre recherche :</li>';
                     echo '<hr>';
@@ -40,7 +42,7 @@
                 </ul>
             </nav>                              
                
-          
+          <!-- trois catégories de produits (montecristi, fedora, mode) accessibles sans connexion. -->
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <ul class="navbar-nav ml-5 mx-auto">                        
                 <li class="nav-item">
@@ -55,10 +57,8 @@
                     
                 
                 </ul>
-            </nav>
-                                     
-          
-                
+            </nav>                                  
+                         
                 <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -99,7 +99,8 @@
                         <div class='row'>
                             <div class="card-deck">
                                 
-                                <?php foreach($data['promotion'] as $promotion){
+                                <?php //module promotion affiche  3 articles avec remise
+                                foreach($data['promotion'] as $promotion){
                                     echo'
                                 <div class="card text-center">
                                     <img class="card-img-top center-block img-responsive d-block mx-auto" src="'. WWW_ROOT.'public/images/hats_big/'.$promotion->image_produit.'" alt="" width="100%">
@@ -127,7 +128,8 @@
                         <h3 class="audrey mb-5">Nos meilleures ventes</h3>
                         <div class='row'>
                             <div class="card-deck">
-                                <?php foreach($data['meilleureVente'] as $meilleureVente){
+                                <?php //module meilleurevente affiche les 3 articles les plus vendus
+                                foreach($data['meilleureVente'] as $meilleureVente){
                                 echo'
                                 <div class="card" >
                                     <img class="card-img-top img-responsive center-block d-block mx-auto" src="'.WWW_ROOT.'public/images/hats_big/'.$meilleureVente->image_produit.'" alt="" width="100%">

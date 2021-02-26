@@ -1,5 +1,4 @@
 <?php
-
     class Adresses extends Controller {
     
         public function __construct() {

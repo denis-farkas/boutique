@@ -1,9 +1,11 @@
 <?php
+
 class Produits extends Controller {
     public function __construct() {
         $this->produitModel = $this->model('Produit');
     }
 
+    //fonction qui crée une vue catégorie produit Montécristi
     public function montecristi()
     {
         $categorie='Montecristi';
@@ -16,6 +18,7 @@ class Produits extends Controller {
         $this->view('produits/montecristi', $data);
     }
 
+    //fonction qui crée une vue catégorie produit Fedora
     public function fedora()
     {
         $categorie='Fedora';
@@ -28,6 +31,7 @@ class Produits extends Controller {
         $this->view('produits/fedora', $data);
     }
    
+    //fonction qui crée une vue catégorie produit Mode
     public function mode()
     {
         $categorie='Mode';
@@ -40,6 +44,7 @@ class Produits extends Controller {
         $this->view('produits/mode', $data);
     }
 
+    //Fonction qui crée la vue d'un article
       public function ficheArticle($id_produit){
 
             if(isset($_SESSION['id_user'])){

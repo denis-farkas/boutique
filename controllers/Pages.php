@@ -1,4 +1,5 @@
 <?php
+
 class Pages extends Controller {
     public function __construct() {
         $this->pageModel = $this->model('Page');
@@ -11,9 +12,9 @@ class Pages extends Controller {
              // Sanitize POST data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $nom = $_POST['nom'];
-            $search= $this->pageModel->search($nom);
-            $promotion= $this->pageModel->promotion();
-            $meilleureVente = $this->pageModel->meilleureVente();
+            $search= $this->pageModel->search($nom);//module search recherche mots clé
+            $promotion= $this->pageModel->promotion();//module promotion affiche 3 articles avec remise
+            $meilleureVente = $this->pageModel->meilleureVente();// module meilleurevente affiche 3 articles les plus vendus
 
             $data = [
                 'title' => 'index',
@@ -47,8 +48,10 @@ class Pages extends Controller {
         $this->view('main/result', $data);
     }
 
+    
     public function termes()
     {
+        //page passive pour générer vue condition de ventes
         if (isset($_POST['search'])) {
              // Sanitize POST data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -74,6 +77,7 @@ class Pages extends Controller {
 
     public function merci()
     {
+         //page passive pour générer vue remerciement après achat
          if (isset($_POST['search'])) {
              // Sanitize POST data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -98,7 +102,9 @@ class Pages extends Controller {
     }
 
     public function panierVide()
-    { if (isset($_POST['search'])) {
+    { 
+         //page passive pour générer vue panier vide
+        if (isset($_POST['search'])) {
              // Sanitize POST data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $nom = $_POST['nom'];
@@ -122,6 +128,7 @@ class Pages extends Controller {
     }
 
     public function about(){
+         //page passive pour générer vue informations de l'entreprise
         if (isset($_POST['search'])) {
              // Sanitize POST data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -148,7 +155,7 @@ class Pages extends Controller {
     }
 
     public function magasin(){
-
+ //page passive pour générer vue présentation du magasin
         if (isset($_POST['search'])) {
              // Sanitize POST data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -174,6 +181,7 @@ class Pages extends Controller {
 
     public function contact()
     {
+         //page passive pour générer vue contact pour envoyer un message
          if (isset($_POST['search'])) {
              // Sanitize POST data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -198,7 +206,7 @@ class Pages extends Controller {
     }
 
     public function paiement()
-    {
+    { //page passive pour générer vue moyens de paiement
          if (isset($_POST['search'])) {
              // Sanitize POST data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -223,7 +231,7 @@ class Pages extends Controller {
     }
 
     public function livraison()
-    {
+    { //page passive pour générer vue condition de livraison
         if (isset($_POST['search'])) {
              // Sanitize POST data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);

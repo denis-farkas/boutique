@@ -1,13 +1,13 @@
 <?php
+
 class Commandes extends Controller {
     public function __construct() {
         $this->commandeModel = $this->model('Commande');
        
     }
-
+// Fonction qui ajoute au panier une ligne detail_commande
     public function commande() {
       
-
         $article = [
             'id_article'=> '',                     
             'quantite_article'=> '',
@@ -54,7 +54,7 @@ class Commandes extends Controller {
             }          
 
         }
-
+// Fonction qui génère la vue panier
         public function listeCommandeAttente($id_user){
             if($_SESSION['id_user']==$id_user){
                 $commandes= $this->commandeModel->listeCommandeAttente($id_user);

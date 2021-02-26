@@ -39,11 +39,11 @@
                             <div class="col-md-4">
                                 <h5 class="ml-3" >INFORMATIONS</h5>
                                 <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"><a class="nav-link" href="<?php echo WWW_ROOT.'pages/about'; ?>">A notre sujet</a></li>
                                     <li class="list-group-item"><a class="nav-link" href="<?php echo WWW_ROOT.'pages/index'; ?>">Meilleures Ventes</a></li>
                                     <li class="list-group-item"><a class="nav-link" href="<?php echo WWW_ROOT.'pages/magasin'; ?>">Notre magasin</a></li>
                                     <li class="list-group-item"><a class="nav-link" href="<?php echo WWW_ROOT.'pages/contact'; ?>">Contactez-nous</a></li>
-                                    <li class="list-group-item"><a class="nav-link" href="<?php echo WWW_ROOT.'pages/termes'; ?>">Conditions de vente</a></li>
-                                    <li class="list-group-item"><a class="nav-link" href="<?php echo WWW_ROOT.'pages/about'; ?>">A notre sujet</a></li>
+                                    <li class="list-group-item"><a class="nav-link" href="<?php echo WWW_ROOT.'pages/termes'; ?>">Conditions de vente</a></li>                                   
                                 </ul>
                             </div>
                             <div class="col-md-4">

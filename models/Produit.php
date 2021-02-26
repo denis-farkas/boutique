@@ -1,10 +1,12 @@
 <?php
+
 class Produit {
     private $db;
     public function __construct() {
         $this->db = new Database;
     }
 
+    //requête pour créer la vue des produits par catégorie
     public function listProduit($categorie){
         $this->db->query('SELECT * FROM produit WHERE categorie_produit= :categorie');
         $this->db->bind(':categorie', $categorie);
@@ -17,7 +19,7 @@ class Produit {
 
         //Bind 
         $this->db->bind(':id_produit', $id_produit);
-        //méthode row comme objet de database
+       
         $articles = $this->db->resultSet();
         return $articles;
     }
@@ -41,7 +43,7 @@ class Produit {
 
         //Bind 
         $this->db->bind(':id_article', $id_article);
-        //méthode row comme objet de database
+      
         $article = $this->db->single();
         return $article;
     }

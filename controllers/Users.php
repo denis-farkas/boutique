@@ -1,11 +1,12 @@
 <?php
+
 class Users extends Controller {
     public function __construct() {
         $this->userModel = $this->model('User');
         $this->commandeModel = $this->model('Commande');
     }
 
-
+//Fonction qui permet à l’usager de se connecter
     public function connexion() {
         $data = [
             'title' => 'page de connexion',
@@ -26,13 +27,14 @@ class Users extends Controller {
                  les filtres de la fonction valid_data*/
                 $email = valid_data($_POST["email"]);
                 $password = $_POST["password"];
-
+ 
                 $loggedInUser = $this->userModel->connexion($email, $password);
                
                 if ($loggedInUser == false ) {
-                    $data['emailError'] = 'Le mot de passe ou l\'email sont incorrects.';
+                    $data['emailError'] = 'Le mot de passe ou l\'email sont incorrects ou vous n\'êtes pas encore inscrit.';
                     $this->view('users/connexion', $data);              
                 }else{
+                    //ouvre une session si le user est bien dans la table user (email, pass)
                     $this->createUserSession($loggedInUser);
                 } 
 
@@ -42,7 +44,7 @@ class Users extends Controller {
         }
     }
 
-
+//Fonction qui enregistre un nouvel utilisateur
     public function inscription() {
         $data = [
             'prenom' => '',
@@ -108,6 +110,8 @@ class Users extends Controller {
         $this->view('users/inscription', $data);
     }
 
+
+    //Fonction qui permet à l’usager de modifier ses informations.
     public function profil() {
     
 
@@ -178,7 +182,7 @@ class Users extends Controller {
         }
     }
 
-
+//Fonction qui crée une session 
     public function createUserSession($user) {
       
         $_SESSION['id_user'] = $user->id_user;
@@ -190,9 +194,12 @@ class Users extends Controller {
            header('location:' . WWW_ROOT . 'pages/index');
        }else{
             $_SESSION['is_admin'] = 0;
+           //vérifie s’il n’existe pas déjà une commande avec statut en attente dans la table commande
             $commande= $this->commandeModel->viewCommande($user->id_user);
             if($commande){
                 $verify= $this->commandeModel->verifyCommande($commande->id_commande);
+
+                //Si la commande est vide, elle est effacée et on en crée une nouvelle
                 if($verify<1){
                     $this->commandeModel->deletePanier($commande->id_commande);
                     $this->commandeModel->ajoutCommande($user->id_user);
