@@ -15,7 +15,7 @@
         <div class="col-md-12 mt-5">
             <div class="row banner banner_image3 pt-3">                               
                 <img class="ml-5 img-fluid mt-5" src="<?php echo WWW_ROOT; ?>public/images/logo.png" alt="Logo">                 
-                <h2 class="mt-5 pt-5 champain">PANAMA HATS<br /><small>Chapeaux de Légende</small></h2>                              
+                <h2 id="cache" class="mt-5 pt-5 champain">PANAMA HATS<br /><small>Chapeaux de Légende</small></h2>                              
             </div>
         </div>                                    
         

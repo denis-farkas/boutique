@@ -198,4 +198,10 @@ form.form-inline::after {
    font-style: normal;
    font-weight: normal;
  }
+
+ @media only screen and (max-width: 768px){
+  #cache{
+    display:none;
+  }
+}
   
