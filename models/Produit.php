@@ -1,5 +1,5 @@
 <?php
-echo'ok';
+
 class Produit {
     private $db;
     public function __construct() {

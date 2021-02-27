@@ -77,6 +77,8 @@
                                 <label for="email">Adresse email </label>
                                 <input type="email" class="form-control" id="email" name="email" required>
                             </div>
+                            <?php echo '<p class="invalidFeedback">'.$data['emailError'].'</p>'; ?>
+                            
                             <div class="form-group">
                                 <label for="password">Password</label>
                                 <input type="password" class="form-control" id="password" name="password" required>
@@ -85,6 +87,8 @@
                                 <label for="confirmPassword">Confirmer Password</label>
                                 <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
                             </div>
+                            <?php echo '<p class="invalidFeedback">'.$data['confirmPasswordError'].'</p>'; ?>
+                            
                             
                             <input type="submit" class="btn btn-primary" name="inscrire" value="S'inscrire">
                             </fieldset>

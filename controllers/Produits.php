@@ -1,5 +1,5 @@
 <?php
-echo'ok';
+
 class Produits extends Controller {
     public function __construct() {
         $this->produitModel = $this->model('Produit');

@@ -1,5 +1,5 @@
 <?php
-echo'ok';
+
 class User {
     private $db;
     public function __construct() {

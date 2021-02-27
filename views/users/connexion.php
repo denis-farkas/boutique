@@ -42,14 +42,15 @@
                             <form action="<?php echo WWW_ROOT;?>users/connexion" method="post">
                             <fieldset>
                             <legend>CONNEXION</legend>
+                            <?php echo '<p class="invalidFeedback">'.$data['emailError'].'</p>'; ?>
                             
                             <div class="form-group">
                                 <label for="email">Adresse email </label>
-                                <input type="email" class="form-control" id="email" name="email">
+                                <input type="email" class="form-control" id="email" name="email" required>
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control" id="password" name="password">
+                                <input type="password" class="form-control" id="password" name="password" required>
                             </div>
                             
                             

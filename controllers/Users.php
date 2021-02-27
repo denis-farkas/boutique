@@ -1,5 +1,5 @@
 <?php
-echo 'ok';
+
 class Users extends Controller {
     public function __construct() {
         $this->userModel = $this->model('User');
@@ -31,7 +31,7 @@ class Users extends Controller {
                 $loggedInUser = $this->userModel->connexion($email, $password);
                
                 if ($loggedInUser == false ) {
-                    $data['emailError'] = 'Le mot de passe ou l\'email sont incorrects ou vous n\'êtes pas encore inscrit.';
+                    $data['emailError']= 'Le mot de passe ou l\'email sont incorrects ou vous n\'êtes pas encore inscrit.' ;
                     $this->view('users/connexion', $data);              
                 }else{
                     //ouvre une session si le user est bien dans la table user (email, pass)
@@ -82,11 +82,11 @@ class Users extends Controller {
                
             ];
 
+            $email=$_POST['email'];
 
-                if ($data['password'] != $data['confirmPassword']) {
-                    $data['confirmPasswordError'] = 'Les passwords ne correspondent pas.';
-                }elseif
-                    ($this->userModel->findUserByEmail($data['email'])) {
+            if ($data['password'] != $data['confirmPassword']) {
+                $data['confirmPasswordError'] = 'Les passwords ne correspondent pas.';
+            }elseif($this->userModel->findUserByEmail($email)) {
                         $data['emailError'] = 'Cet email est déja utilisé.';
                 }
 
