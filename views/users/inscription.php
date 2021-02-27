@@ -47,14 +47,14 @@
                                <div class="row">
                                    <div class="form-check ml-5" id="genre">
                                        <label class="form-check-label">
-                                       <input type="radio" class="form-check-input" name="genre" id="optionsRadios1" value="homme" checked="">
-                                       Homme
+                                       <input type="radio" class="form-check-input" name="civilite" id="optionsRadios1" value="Monsieur" checked="">
+                                       Monsieur
                                        </label>
                                    </div>
                                    <div class="form-check ml-5">
                                        <label class="form-check-label">
-                                       <input type="radio" class="form-check-input" name="genre" id="optionsRadios2" value="femme" >
-                                       Femme
+                                       <input type="radio" class="form-check-input" name="civilite" id="optionsRadios2" value="Madame" >
+                                       Madame
                                        </label>
                                    </div>
                                </div>  

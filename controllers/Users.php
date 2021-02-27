@@ -72,7 +72,7 @@ class Users extends Controller {
                 'nom' => trim($_POST['nom']),
                 'civilite' => trim($_POST['civilite']),
                 'telephone' => trim($_POST['telephone']),
-                'email'=> trim($_POST["email"]),
+                'email'=> trim($_POST['email']),
                 'emailError'=>'',
                 'password' => trim($_POST['password']),
                 'confirmPassword' => trim($_POST['confirmPassword']),
