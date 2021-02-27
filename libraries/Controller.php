@@ -1,4 +1,5 @@
 <?php
+echo'ok';
     //Permet de charger les models et views
     class Controller {
         public function model($model) {

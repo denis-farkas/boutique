@@ -1,4 +1,5 @@
 <?php
+echo'ok';
 class Page {
     private $db;
     public function __construct() {

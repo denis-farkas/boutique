@@ -45,7 +45,7 @@
           <!-- trois catégories de produits (montecristi, fedora, mode) accessibles sans connexion. -->
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <ul class="navbar-nav ml-5 mx-auto">                        
-                <li class="nav-item">
+                    <li class="nav-item">
                         <h3><a class="nav-link" href="<?= WWW_ROOT ?>produits/montecristi">MONTECRISTI</a></h3>
                     </li>
                     <li class="nav-item">
@@ -53,9 +53,7 @@
                     </li>
                     <li class="nav-item">
                         <h3><a class="nav-link" href="<?= WWW_ROOT ?>produits/mode">MODE</a></h3>
-                    </li>
-                    
-                
+                    </li>                  
                 </ul>
             </nav>                                  
                          

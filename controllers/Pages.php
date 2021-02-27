@@ -1,5 +1,5 @@
 <?php
-
+echo'ok';
 class Pages extends Controller {
     public function __construct() {
         $this->pageModel = $this->model('Page');
