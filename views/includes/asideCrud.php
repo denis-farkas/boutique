@@ -14,6 +14,7 @@
                 <ul class="list-group list-group-flush text-left">
                     <li class="list-group-item"><a class="nav-link" href="<?php echo WWW_ROOT.'admins/crudProduits';?>">Liste produits</a></li>
                     <li class="list-group-item"><a class="nav-link" href="<?php echo WWW_ROOT.'admins/ajoutProduit';?>">Ajout produit</a></li>
+                    <li class="list-group-item"><a class="nav-link" href="<?php echo WWW_ROOT.'admins/uploadImage';?>">Ajout image produit</a></li>
                 </ul>
         <hr class="my-4">
                 <h6>Articles</h6>

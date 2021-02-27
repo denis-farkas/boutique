@@ -7,7 +7,57 @@ class Admins extends Controller {
   
 
     public function uploadImage(){
-        $this->view('admins/uploadImage');  
+
+        $data = [
+            'error' =>'',
+            'filename' =>''
+        ];
+
+        // Check if the form was submitted
+        if($_SERVER["REQUEST_METHOD"] == "POST"){
+        // Check if file was uploaded without errors
+            if(isset($_FILES["photo"])){
+                $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
+                $filename = $_FILES["photo"]["name"];
+                $filetype = $_FILES["photo"]["type"];
+                $filesize = $_FILES["photo"]["size"];
+            
+                // Verify file extension
+                $ext = pathinfo($filename, PATHINFO_EXTENSION);
+                if(!array_key_exists($ext, $allowed)){ 
+                    $data['error'] = 'Cette  extension d\'image n\'est pas autorisée.';
+                    $this->view('admins/uploadImage', $data);
+                } 
+            
+                // Verify file size - 5MB maximum
+                $maxsize = 5 * 1024 * 1024;
+                if($filesize > $maxsize){
+                    $data['error'] = 'L\'image dépasse la taille limite de 5MB.';
+                    $this->view('admins/uploadImage', $data);
+                }
+            
+                // Verify MYME type of the file
+                if(in_array($filetype, $allowed)){
+                    // Check whether file exists before uploading it
+                    if(file_exists("public/images/hats_big/".$filename)){
+                        $data['error'] = 'Cette  image existe déja.';
+                        $this->view('admins/uploadImage', $data);
+                    } else{
+                        move_uploaded_file($_FILES["photo"]["tmp_name"],"public/images/hats_big/" . $filename);
+                        $data['error'] = 'l\'image a bien été enregistrée .';
+                        $data['filename'] = $filename;
+                        $this->view('admins/uploadImage', $data);
+                    } 
+                } else{
+                    $data['error']= 'Il y a un probléme avec l\'enregistrement. Essayez encore.';
+                        $this->view('admins/uploadImage', $data);
+                }
+            } else{
+                $data['error']=$_FILES["photo"]["error"];
+                $this->view('admins/uploadImage', $data);
+            }
+        }
+        $this->view('admins/uploadImage', $data);  
     }
 
     public function crudUsers(){
