@@ -34,27 +34,29 @@ require (ROOT.'views/includes/head.php');
                     </aside>         
                 
             </section>
-            <section class="col-sm-12 col-md-9 my-5">
+            <section class="col-sm-12 col-md-9 my-5 text-center">
                 <div class="container">
-                    <div class="row">
-                    <div class="col-lg-2"></div>
-                    <div class="col-md-6">
-                        <h5>Upload Image</h5><br>
-                        <form action="" method="post" enctype="multipart/form-data">
-                        <fieldset>
-                            
-                            <p class="invalidFeedback"><?= $data['error'] ?></p>
-                           <?php if(!empty($data['filename'])){echo '<img class="ml-5 img-fluid mt-5" src="'.WWW_ROOT.'public/images/hats_big/'.$data['filename'].'" alt="upload"> ';} ?>    
-                            <div class="form-group">
-                                <label for="fileSelect">Image:</label>
-                                <input type="file" name="photo" id="fileSelect">
-                                <input type="submit" class="btn btn-primary" name="submit" value="Upload">
-                                <p><strong>Note:</strong> Seulement .jpg, .jpeg, .gif, .png formats sont permis avec une taille max  de 5 MB.</p>
-                            </div>
-                        </fieldset>
-                        </form>        
-                    </div> 
-                    <div class="col-lg-4"></div>
+                    
+                    <div class="col-md-12">
+                        <div class="jumbotron">
+                            <h1 class="display-5 mb-5">Upload Image</h1>
+                            <img class="d-block mx-auto mt-5" src="<?= WWW_ROOT ?>public/images/add.png" alt="upload">
+                            <br>
+                            <form action="" method="post" enctype="multipart/form-data">
+                            <fieldset>
+                                
+                                <p class="invalidFeedback"><?= $data['error'] ?></p>
+                            <?php if(!empty($data['filename'])){echo '<img class="d-block mx-auto mt-5" src="'.WWW_ROOT.'public/images/hats_big/'.$data['filename'].'" alt="upload"> ';} ?>    
+                                <br>
+                                <div class="form-group">
+                                    <label for="fileSelect">Image:</label>
+                                    <input type="file" name="photo" id="fileSelect">
+                                    <input type="submit" class="btn btn-primary" name="submit" value="Upload">
+                                    <p><strong>Note:</strong> Seulement .jpg, .jpeg, .gif, .png formats sont permis avec une taille max  de 5 MB.</p>
+                                </div>
+                            </fieldset>
+                            </form>        
+                        </div>                   
                     </div>
                 </div>  
               
