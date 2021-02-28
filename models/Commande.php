@@ -39,6 +39,16 @@ class Commande {
         }
     }
 
+    public function verifierQuantDispo($id_article){
+            
+        $this->db->query('SELECT * FROM article WHERE id_article= :id_article');
+        $this->db->bind(':id_article', $id_article);
+                
+            //Execute function
+            $stock = $this->db->single();
+            return $stock;
+    }
+
     public function detailCommande($article){
         $this->db->query('INSERT INTO detail_commande (id_article, quantite_article, id_commande)
         VALUES(:id_article, :quantite_article, :id_commande)');
@@ -83,6 +93,19 @@ class Commande {
         } else {
             return false;
         }         
+    }
+
+    public function changerStock($id_article, $stock){
+
+        $this->db->query('UPDATE article SET quantite= :quantite WHERE id_article= :id_article');
+        $this->db->bind(':quantite', $stock);
+        $this->db->bind(':id_article', $id_article);
+             //Execute function
+             if ($this->db->execute()) {
+                return true;
+            } else {
+                return false;
+            }          
     }
 
     public function statutCommande($id_commande){

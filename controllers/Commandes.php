@@ -26,6 +26,13 @@ class Commandes extends Controller {
                 $_SESSION['id_commande']=$commande->id_commande; 
             }
 
+           
+
+            //contrôle quantité demandée en stock
+            $stock = $this->commandeModel->verifierQuantDispo($_POST['id_article']);
+
+            if($stock->quantite < $_POST['quantite']){ $_POST['quantite'] = $stock->quantite ;}
+
             $article = [
                 'id_article'=> $_POST['id_article'],
                 'quantite_article'=> $_POST['quantite'],
@@ -75,6 +82,13 @@ class Commandes extends Controller {
             if (!empty($_SESSION['id_user'] && isset($_POST['modifier']))) {
 
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+                 //contrôle quantité demandée en stock
+                $stock = $this->commandeModel->verifierQuantDispo($_POST['id_article']);
+
+                if($stock->quantite < $_POST['quantite']){ 
+                    $_POST['quantite'] = $stock->quantite ;
+                }elseif($_POST['quantite']==0){$_POST['quantite']=1;}
 
                 $article = [
                     'id_article'=> $_POST['id_article'],

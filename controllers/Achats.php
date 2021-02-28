@@ -91,7 +91,10 @@ class Achats extends Controller {
             
             foreach($data['commandes'] as $commande){
                 $remise= $remise + (($commande->prix_produit -(($commande->prix_produit*$commande->remise)/100))*$commande->quantite_article); 
-                $quantite= $quantite + $commande->quantite_article;                
+                $quantite= $quantite + $commande->quantite_article;
+                $stock = $this->commandeModel->verifierQuantDispo($commande->id_article);
+                $stockrestant = $stock->quantite - $commande->quantite_article;
+                $this->commandeModel->changerStock($commande->id_article, $stockrestant);                
             }
 
             $total= $remise + $data['livraison']->prix_livreur;
