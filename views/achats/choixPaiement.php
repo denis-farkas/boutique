@@ -76,7 +76,7 @@
 
                           
                             <input type="hidden" name="id_user" value="<?= $_SESSION['id_user'] ?>" >
-                            <input type="submit" class="btn btn-primary" name="ajoutPaiement" value="Choisir Paiement">
+                            <input type="submit" class="btn btn-warning m-5" name="ajoutPaiement" value="Payer">
                             </fieldset>
                             </form>
                         </div> 

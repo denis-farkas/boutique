@@ -49,14 +49,14 @@
                             <div class="row">
                                 <div class="form-check ml-5" id="lab">
                                     <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="domicile" id="optionsRadios1" value="0" checked="">
-                                    Non
+                                    <input type="radio" class="form-check-input" name="domicile" id="optionsRadios1" value="1" checked="">
+                                    Oui
                                     </label>
                                 </div>
                                 <div class="form-check ml-5">
                                     <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="domicile" id="optionsRadios2" value="1">
-                                   Oui
+                                    <input type="radio" class="form-check-input" name="domicile" id="optionsRadios2" value="0" <?php if($data['adresse']->domicile==1){echo "disabled";} ?>>
+                                   Non
                                     </label>
                                 </div>
                             </div>  

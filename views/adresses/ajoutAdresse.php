@@ -78,6 +78,8 @@
                             <form action="<?php echo WWW_ROOT;?>adresses/ajoutAdresse" method="post">
                             <fieldset>
                             <legend>Ajouter une adresse</legend>
+                            <?php if(empty($data['adresses'])){echo "<p>Si vous n'avez pas encore enregistré d'adresse, ce 1er ajout concerne automatiquement votre adresse de domicile.</p>
+                            <p>Vous pouvez ensuite ajouter une  adresse de livraison différente, si nécessaire.</p>";} ?>
 
                             <div class="form-group">
                                
@@ -85,14 +87,14 @@
                                <div class="row">
                                    <div class="form-check ml-5" id="lab">
                                        <label class="form-check-label">
-                                       <input type="radio" class="form-check-input" name="domicile" id="optionsRadios1" value="0" >
-                                       Non
+                                       <input type="radio" class="form-check-input" name="domicile" id="optionsRadios1" value="1" checked="">
+                                       Oui
                                        </label>
                                    </div>
                                    <div class="form-check ml-5">
                                        <label class="form-check-label">
-                                       <input type="radio" class="form-check-input" name="domicile" id="optionsRadios2" value="1" checked="">
-                                        Oui
+                                       <input type="radio" class="form-check-input" name="domicile" id="optionsRadios2" value="0" <?php if(empty($data['adresses'])){echo "disabled";} ?>>
+                                        Non
                                        </label>
                                    </div>
                                </div>  
@@ -100,21 +102,21 @@
 
                             <div class="form-group">
                                 <label for="nom">Nom</label>
-                                <input type="text" class="form-control" id="nom" name="nom_adresse" >
+                                <input type="text" class="form-control" id="nom" name="nom_adresse" required >
                             </div>
                             <div class="form-group">
                                 <label for="prenom">Prénom</label>
-                                <input type="text" class="form-control" id="prenom" name="prenom_adresse" >
+                                <input type="text" class="form-control" id="prenom" name="prenom_adresse" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="num_rue">Numéro de Rue</label>
-                                <input type="text" class="form-control" id="num_rue" name="num_rue" >
+                                <input type="text" class="form-control" id="num_rue" name="num_rue" required>
                             </div>
                             
                             <div class="form-group">
                                 <label for="nom_rue">Nom de la Rue </label>
-                                <input type="text" class="form-control" id="nom_rue" name="nom_rue">
+                                <input type="text" class="form-control" id="nom_rue" name="nom_rue" required>
                             </div>
                             <div class="form-group">
                                 <label for="batiment">Batiment, Etage</label>
@@ -122,17 +124,17 @@
                             </div>
                             <div class="form-group">
                                 <label for="code_postal">Code Postal</label>
-                                <input type="text" class="form-control" id="code_postal" name="code_postal">
+                                <input type="text" class="form-control" id="code_postal" name="code_postal" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="ville">Ville</label>
-                                <input type="text" class="form-control" id="ville" name="ville">
+                                <input type="text" class="form-control" id="ville" name="ville"required >
                             </div>
 
                             <div class="form-group">
                                 <label for="pays">Pays</label>
-                                <input type="text" class="form-control" id="pays" name="pays">
+                                <input type="text" class="form-control" id="pays" name="pays"required >
                             </div>
                             <input type="hidden" name="id_user" value="<?= $_SESSION['id_user'] ?>" >
                             <input type="submit" class="btn btn-primary" name="ajoutAdresse" value="Ajouter adresse">

@@ -39,6 +39,11 @@
             <section class="col-sm-12 col-md-9 my-5">
                 <div class="container">
                     <div class="jumbotron">
+                        <h1 class="audrey display-5">MERCI POUR VOTRE ACHAT</h1><br>
+                        <hr class="my-2 gold"><br>
+                        <p>Vous recevrez dans les prochaines minutes, une facture correspondant à votre achat, par courrier électronique.</p>
+                        <p>Puis, une fois transmis le colis au livreur de votre choix, nous vous indiquerons le numero d'expédition ainsi que l'adresse internet pou effectuer le suivi de celui-ci.</p><br>
+                    
                         <h3>Récapitulatif de votre commande</h3>
                         <div class="row">
                             <div class="col-md-4">
@@ -128,7 +133,7 @@
                             </div>    
                             <div class="row">
                                 <div class="col-md-6">
-                                <a type="button" class="btn btn-warning m-5" href="<?php echo WWW_ROOT.'pages/merci'; ?>">Payer</a><br><br>
+                                <a type="button" class="btn btn-warning m-5" href="<?php echo WWW_ROOT.'pages/index'; ?>">Retour à Boutique</a><br><br>
                                 </div> 
 
                                 <div class="col-md-6">
