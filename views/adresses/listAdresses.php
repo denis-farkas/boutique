@@ -58,12 +58,12 @@
                                 echo '<td>'.$adresse->nom_adresse.' '.$adresse->prenom_adresse.'</td>';
                                 echo '<td>'.$adresse->num_rue.', '.$adresse->nom_rue.'. '.$adresse->batiment.' '.$adresse->code_postal.' '.$adresse->ville.' - '.$adresse->pays.'</td>';
                                 echo '<td>';
-                                if($adresse->domicile=1){echo "Oui";}else{echo "Non";}
+                                if($adresse->domicile==1){echo "Oui";}else{echo "Non";}
                                 echo'</td>';                                                              
                                 echo '<td><a  href="'.WWW_ROOT .'adresses/modifierAdresse/'.$adresse->id_adresse.'">
                                 Modifier</a></td>';
-                                echo '<td><a  href="'.WWW_ROOT .'adresses/effacerAdresse/'.$adresse->id_adresse.'">
-                                Effacer</a></td>';
+                                if($adresse->domicile != 1){echo '<td><a  href="'.WWW_ROOT .'adresses/effacerAdresse/'.$adresse->id_adresse.'">
+                                Effacer</a></td>';}else{echo '<td><i class="fa fa-ban" aria-hidden="true"></i></td>';}
                                 echo "</tr>";
                                                             
                             }
@@ -89,13 +89,13 @@
                                <div class="row">
                                    <div class="form-check ml-5" id="lab">
                                        <label class="form-check-label">
-                                       <input type="radio" class="form-check-input" name="domicile" id="optionsRadios1" value="1" checked="">
+                                       <input type="radio" class="form-check-input" name="domicile" id="optionsRadios1" value="1" <?php if(!empty($data['adresses'])){echo "disabled";}else{echo ' checked="" ';} ?> >
                                        Oui
                                        </label>
                                    </div>
                                    <div class="form-check ml-5">
                                        <label class="form-check-label">
-                                       <input type="radio" class="form-check-input" name="domicile" id="optionsRadios2" value="0" <?php if(empty($data['adresses'])){echo "disabled";} ?>>
+                                       <input type="radio" class="form-check-input" name="domicile" id="optionsRadios2" value="0" <?php if(empty($data['adresses'])){echo "disabled";}else{echo ' checked="" ';}?> >
                                         Non
                                        </label>
                                    </div>

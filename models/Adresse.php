@@ -82,7 +82,7 @@ class Adresse {
 
     public function effacerAdresse($id_adresse){
     
-        $this->db->query('DELETE FROM adresse WHERE id_adresse = :id_adresse');
+        $this->db->query('DELETE FROM adresse WHERE id_adresse = :id_adresse AND domicile=0');
         $this->db->bind('id_adresse', $id_adresse);
         if ($this->db->execute()) {
             return true;

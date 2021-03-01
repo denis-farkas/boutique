@@ -163,8 +163,13 @@
 
         public function effacerAdresse($id_adresse){
             if (!empty($_SESSION['id_user'])) {
-                $this->adresseModel->effacerAdresse($id_adresse);
+                $adresse=$this->adresseModel->adresseDomicile($_SESSION['id_user']);
+                if($id_adresse==$adresse->id_adresse){
+                  header('location: ' . WWW_ROOT . 'adresses/listAdresses');    
+                }else{
+                     $this->adresseModel->effacerAdresse($id_adresse);
                 header('location: ' . WWW_ROOT . 'adresses/listAdresses'); 
+                }               
             }
         }
 }
