@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 24 fév. 2021 à 10:22
+-- Généré le : lun. 01 mars 2021 à 10:30
 -- Version du serveur :  5.7.31
--- Version de PHP : 7.4.9
+-- Version de PHP : 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `boutique`
 --
+CREATE DATABASE IF NOT EXISTS `boutique` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `boutique`;
 
 -- --------------------------------------------------------
 
@@ -41,15 +43,14 @@ CREATE TABLE IF NOT EXISTS `adresse` (
   `id_user` int(10) NOT NULL,
   `domicile` tinyint(4) NOT NULL,
   PRIMARY KEY (`id_adresse`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `adresse`
 --
 
 INSERT INTO `adresse` (`id_adresse`, `nom_adresse`, `prenom_adresse`, `num_rue`, `nom_rue`, `batiment`, `code_postal`, `ville`, `pays`, `id_user`, `domicile`) VALUES
-(1, 'tota', 'tota', '5', 'rue albeniz', '', '13009', 'Marseille', 'France', 1, 1),
-(2, 'tota', 'fils', '35', 'calle arauz', '', '17154', 'quito', 'equateur', 1, 1);
+(7, 'test', 'test', 'test', 'test', 'test', '13008', 'marseille', 'france', 6, 1);
 
 -- --------------------------------------------------------
 
@@ -74,47 +75,47 @@ CREATE TABLE IF NOT EXISTS `article` (
 --
 
 INSERT INTO `article` (`id_article`, `id_produit`, `id_taille`, `id_couleur`, `date_registre`, `remise`, `quantite`) VALUES
-(1, 1, 1, 1, '2021-02-12', 10, 5),
-(2, 1, 2, 1, '2021-02-12', NULL, 5),
-(3, 1, 3, 1, '2021-02-12', NULL, 5),
-(4, 1, 4, 1, '2021-02-12', NULL, 5),
-(5, 2, 1, 1, '2021-02-12', NULL, 5),
-(6, 2, 2, 1, '2021-02-12', NULL, 5),
-(7, 2, 3, 1, '2021-02-12', NULL, 5),
-(8, 2, 4, 1, '2021-02-12', NULL, 5),
-(9, 3, 1, 2, '2021-02-12', 25, 20),
-(10, 3, 2, 2, '2021-02-12', NULL, 20),
-(11, 3, 3, 2, '2021-02-12', NULL, 20),
-(12, 3, 4, 2, '2021-02-12', NULL, 20),
-(13, 4, 1, 2, '2021-02-12', NULL, 20),
-(14, 4, 2, 2, '2021-02-12', NULL, 20),
-(15, 4, 3, 2, '2021-02-12', NULL, 20),
-(16, 4, 4, 2, '2021-02-12', NULL, 20),
-(17, 5, 1, 3, '2021-02-12', NULL, 20),
-(18, 5, 2, 3, '2021-02-12', NULL, 20),
-(19, 5, 3, 3, '2021-02-12', NULL, 20),
-(20, 5, 4, 3, '2021-02-12', NULL, 20),
-(21, 6, 1, 3, '2021-02-12', NULL, 20),
-(22, 6, 2, 3, '2021-02-12', NULL, 20),
-(23, 6, 3, 3, '2021-02-12', NULL, 20),
-(24, 6, 4, 3, '2021-02-12', NULL, 20),
-(54, 7, 2, 4, '2021-02-14', NULL, 10),
-(55, 7, 1, 7, '2021-02-14', NULL, 10),
-(56, 7, 2, 7, '2021-02-14', NULL, 10),
-(57, 7, 1, 8, '2021-02-14', NULL, 10),
-(58, 7, 2, 8, '2021-02-14', NULL, 10),
-(59, 8, 1, 3, '2021-02-14', NULL, 10),
-(60, 8, 2, 3, '2021-02-14', 15, 10),
-(61, 9, 1, 4, '2021-02-14', NULL, 10),
-(62, 9, 2, 4, '2021-02-14', NULL, 10),
-(63, 9, 1, 5, '2021-02-14', NULL, 10),
-(64, 9, 2, 5, '2021-02-14', NULL, 10),
-(65, 9, 1, 6, '2021-02-14', NULL, 10),
-(66, 9, 2, 6, '2021-02-14', NULL, 10),
-(67, 9, 1, 7, '2021-02-14', NULL, 10),
-(68, 9, 2, 7, '2021-02-14', NULL, 10),
-(69, 9, 1, 8, '2021-02-14', NULL, 10),
-(70, 9, 2, 8, '2021-02-14', NULL, 10);
+(1, 1, 1, 1, '2021-02-12', 10, 19),
+(2, 1, 2, 1, '2021-02-12', NULL, 20),
+(3, 1, 3, 1, '2021-02-12', NULL, 20),
+(4, 1, 4, 1, '2021-02-12', NULL, 20),
+(5, 2, 1, 1, '2021-02-12', NULL, 20),
+(6, 2, 2, 1, '2021-02-12', NULL, 20),
+(7, 2, 3, 1, '2021-02-12', NULL, 20),
+(8, 2, 4, 1, '2021-02-12', NULL, 20),
+(9, 3, 1, 2, '2021-02-12', 25, 50),
+(10, 3, 2, 2, '2021-02-12', NULL, 50),
+(11, 3, 3, 2, '2021-02-12', NULL, 50),
+(12, 3, 4, 2, '2021-02-12', NULL, 50),
+(13, 4, 1, 2, '2021-02-12', NULL, 50),
+(14, 4, 2, 2, '2021-02-12', NULL, 50),
+(15, 4, 3, 2, '2021-02-12', NULL, 50),
+(16, 4, 4, 2, '2021-02-12', NULL, 50),
+(17, 5, 1, 3, '2021-02-12', NULL, 50),
+(18, 5, 2, 3, '2021-02-12', NULL, 50),
+(19, 5, 3, 3, '2021-02-12', NULL, 49),
+(20, 5, 4, 3, '2021-02-12', NULL, 50),
+(21, 6, 1, 3, '2021-02-12', NULL, 50),
+(22, 6, 2, 3, '2021-02-12', 10, 50),
+(23, 6, 3, 3, '2021-02-12', NULL, 50),
+(24, 6, 4, 3, '2021-02-12', NULL, 50),
+(54, 7, 2, 4, '2021-02-14', NULL, 50),
+(55, 7, 1, 7, '2021-02-14', NULL, 50),
+(56, 7, 2, 7, '2021-02-14', NULL, 50),
+(57, 7, 1, 8, '2021-02-14', NULL, 50),
+(58, 7, 2, 8, '2021-02-14', NULL, 50),
+(59, 8, 1, 3, '2021-02-14', NULL, 50),
+(60, 8, 2, 3, '2021-02-14', NULL, 48),
+(61, 9, 1, 4, '2021-02-14', NULL, 50),
+(62, 9, 2, 4, '2021-02-14', NULL, 50),
+(63, 9, 1, 5, '2021-02-14', NULL, 50),
+(64, 9, 2, 5, '2021-02-14', NULL, 50),
+(65, 9, 1, 6, '2021-02-14', NULL, 50),
+(66, 9, 2, 6, '2021-02-14', NULL, 50),
+(67, 9, 1, 7, '2021-02-14', NULL, 50),
+(68, 9, 2, 7, '2021-02-14', NULL, 50),
+(69, 9, 1, 8, '2021-02-14', NULL, 50),
+(70, 9, 2, 8, '2021-02-14', NULL, 50);
 
 -- --------------------------------------------------------
 
@@ -129,14 +130,14 @@ CREATE TABLE IF NOT EXISTS `commande` (
   `statut_commande` tinyint(1) NOT NULL,
   `id_user` int(10) NOT NULL,
   PRIMARY KEY (`id_commande`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `commande`
 --
 
 INSERT INTO `commande` (`id_commande`, `date_commande`, `statut_commande`, `id_user`) VALUES
-(10, '2021-02-24 07:32:41', 1, 1);
+(29, '2021-03-01 10:10:11', 1, 6);
 
 -- --------------------------------------------------------
 
@@ -210,17 +211,16 @@ CREATE TABLE IF NOT EXISTS `detail_commande` (
   `quantite_article` int(11) NOT NULL,
   `id_commande` int(11) NOT NULL,
   PRIMARY KEY (`id_detail_commande`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `detail_commande`
 --
 
 INSERT INTO `detail_commande` (`id_detail_commande`, `id_article`, `quantite_article`, `id_commande`) VALUES
-(11, 54, 1, 10),
-(12, 17, 1, 10),
-(13, 5, 1, 10),
-(15, 54, 1, 10);
+(23, 1, 1, 29),
+(24, 19, 1, 29),
+(25, 60, 2, 29);
 
 -- --------------------------------------------------------
 
@@ -236,22 +236,19 @@ CREATE TABLE IF NOT EXISTS `facture` (
   `prix_total_articles` float NOT NULL,
   `id_livraison` int(11) NOT NULL,
   `prix_total` float NOT NULL,
-  `date_facture` datetime NOT NULL,
+  `date_facture` date NOT NULL,
   `id_user` int(10) NOT NULL,
   `id_adresse` int(11) NOT NULL,
-  `id_paiement` int(11) NOT NULL,
+  `id_paiement` int(10) NOT NULL,
   PRIMARY KEY (`id_facture`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `facture`
 --
 
 INSERT INTO `facture` (`id_facture`, `id_commande`, `nb_total_articles`, `prix_total_articles`, `id_livraison`, `prix_total`, `date_facture`, `id_user`, `id_adresse`, `id_paiement`) VALUES
-(4, 10, 1, 79, 3, 114, '2021-02-24 00:00:00', 1, 1, 0),
-(5, 10, 2, 128, 3, 163, '2021-02-24 00:00:00', 1, 1, 0),
-(6, 10, 3, 527, 2, 552, '2021-02-24 00:00:00', 1, 1, 0),
-(7, 10, 4, 606, 3, 641, '2021-02-24 00:00:00', 1, 1, 0);
+(12, 29, 4, 326.1, 1, 341.1, '2021-03-01', 6, 7, 3);
 
 -- --------------------------------------------------------
 
@@ -348,7 +345,7 @@ CREATE TABLE IF NOT EXISTS `recherche` (
   `mot` varchar(150) NOT NULL,
   `lien` varchar(250) NOT NULL,
   PRIMARY KEY (`id_recherche`)
-) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `recherche`
@@ -360,20 +357,7 @@ INSERT INTO `recherche` (`id_recherche`, `mot`, `lien`) VALUES
 (3, 'mode', 'produits/mode'),
 (4, 'cuenca', 'produits/fedora'),
 (5, 'termes', 'pages/termes'),
-(6, 'conditions', 'pages/termes'),
-(7, 'livraison', 'pages/livraison'),
-(8, 'paiement', 'pages/paiement'),
-(9, 'contact', 'pages/contact'),
-(10, 'magasin', 'pages/magasin'),
-(11, 'nous', 'pages/about'),
-(12, 'propos', 'pages/about'),
-(13, 'merci', 'pages/merci'),
-(14, 'index', 'pages/index'),
-(15, 'home', 'pages/index'),
-(16, 'promotion', 'pages/index'),
-(17, 'meilleures ventes', 'pages/index'),
-(18, 'buly', 'produits/mode'),
-(19, 'crochet', 'produit/mode');
+(6, 'conditions', 'pages/termes');
 
 -- --------------------------------------------------------
 
@@ -415,17 +399,17 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email` varchar(150) NOT NULL,
   `password` varchar(250) NOT NULL,
   `is_admin` tinyint(1) NOT NULL,
-  `date_registre` datetime NOT NULL,
+  `date_registre` date NOT NULL,
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `user`
 --
 
 INSERT INTO `user` (`id_user`, `prenom`, `nom`, `civilite`, `telephone`, `email`, `password`, `is_admin`, `date_registre`) VALUES
-(1, 'tota', 'tota', 'Monsieur', '0602020202', 'toto@gmail.com', '$2y$10$FkeZTklFHUBDhcRDGXEfOu0VvuncJEmyb6qw1Q617QRLmBqthLZui', 0, '2021-02-09 00:00:00'),
-(2, 'admin', 'admin', 'Monsieur', '0505050505', 'admin@gmail.com', '$2y$10$lgB6KBXrpFhURnyqVec3qemvZF9u.xIp9bXlNSvwbjE1WK1BZO1o2', 1, '2021-02-11 00:00:00');
+(2, 'admin', 'admin', 'Monsieur', '0505050505', 'admin@gmail.com', '$2y$10$lgB6KBXrpFhURnyqVec3qemvZF9u.xIp9bXlNSvwbjE1WK1BZO1o2', 1, '2021-02-11'),
+(6, 'test', 'test', 'Monsieur', '0606060606', 'test@gmail.com', '$2y$10$9W3ZPzGJTL7ww7MjdmDu/OyoBRuJe7zVfsQPTmSJHKf5qFcMgdoGe', 0, '2021-03-01');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
