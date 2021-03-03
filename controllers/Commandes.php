@@ -117,10 +117,10 @@ class Commandes extends Controller {
                         
                 $this->commandeModel->deleteDetailCommande($id_detail_commande);
                 $verify= $this->commandeModel->verifyCommande($id_commande);
-                if($verify>0){
+                if(!empty($verify)){
                  header('location: ' . WWW_ROOT . 'commandes/listeCommande/'.$id_commande);
-               }else{
-                     header('location: ' . WWW_ROOT . 'pages/panierVide');  
+                }else{
+                    header('location:' . WWW_ROOT . 'pages/panierVide');
                    }
                }else{
                 header('location:' . WWW_ROOT . 'users/connexion');

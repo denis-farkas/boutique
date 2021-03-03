@@ -15,7 +15,7 @@ class Commande {
     public function verifyCommande($id_commande){
         $this->db->query('SELECT * FROM detail_commande WHERE id_commande= :id_commande');
         $this->db->bind(':id_commande', $id_commande);
-        $verify= $this->db->rowCount();
+        $verify= $this->db->resultSet();
         return $verify;
     }
 
