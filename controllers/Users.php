@@ -224,27 +224,11 @@ class Users extends Controller {
         unset($_SESSION['id_user']);
         unset($_SESSION['prenom']);
         unset($_SESSION['email']);
-       if ($_SESSION['is_admin'] == 1){
         unset($_SESSION['is_admin']);
-       }
+       
         header('location:' . WWW_ROOT . 'users/connexion');
     }
 
-     public function vueProfil($id){
-        if (!isset($_SESSION['is_admin']) || empty($_SERVER['HTTP_REFERER']) ){
-            header('location:' . WWW_ROOT . 'pages/index');}
-        else{
-            $user = $this->userModel->view($id);
- 
-            $data = [
-                'user' => $user
-            ];
-    
-            $this->view('admin/vueProfil', $data);  
-        }
-           
-           
-     }
          
 
 }
