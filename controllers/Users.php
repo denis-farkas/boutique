@@ -1,6 +1,10 @@
 <?php
 
 class Users extends Controller {
+
+private $userModel;
+private $commandeModel;
+
     public function __construct() {
         $this->userModel = $this->model('User');
         $this->commandeModel = $this->model('Commande');

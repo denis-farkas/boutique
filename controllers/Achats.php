@@ -1,6 +1,6 @@
 <?php
 class Achats extends Controller {
-   
+
     public function __construct() {
         $this->commandeModel = $this->model('Commande');
         $this->userModel = $this->model('User');
@@ -10,7 +10,7 @@ class Achats extends Controller {
         $this->adresseModel = $this->model('Adresse');
     }
 
-   
+
 
     public function choisirAdresse(){
         if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['choisirAdresse'])){
@@ -85,16 +85,16 @@ class Achats extends Controller {
                 'paiement' => $paiement,
                 'adresseDomicile' => $adresseDomicile
             ];
-          
+
             $remise=0;
             $quantite=0;
-            
+
             foreach($data['commandes'] as $commande){
-                $remise= $remise + (($commande->prix_produit -(($commande->prix_produit*$commande->remise)/100))*$commande->quantite_article); 
+                $remise= $remise + (($commande->prix_produit -(($commande->prix_produit*$commande->remise)/100))*$commande->quantite_article);
                 $quantite= $quantite + $commande->quantite_article;
                 $stock = $this->commandeModel->verifierQuantDispo($commande->id_article);
                 $stockrestant = $stock->quantite - $commande->quantite_article;
-                $this->commandeModel->changerStock($commande->id_article, $stockrestant);                
+                $this->commandeModel->changerStock($commande->id_article, $stockrestant);
             }
 
             $total= $remise + $data['livraison']->prix_livreur;
@@ -110,7 +110,7 @@ class Achats extends Controller {
                 'quantite' => $quantite,
                 'paiement' => $paiement,
                 'total' => $total
-                
+
             ];
 
             $this->factureModel->ajoutFacture($data);
@@ -119,7 +119,7 @@ class Achats extends Controller {
             $this->view('achats/recapitulatif', $data);
         }else{
             header('location: ' . WWW_ROOT . 'pages/index');
-        }        
+        }
     }
 
 
